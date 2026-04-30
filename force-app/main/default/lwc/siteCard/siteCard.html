@@ -1,0 +1,121 @@
+<template>
+    <lightning-card title={site.siteName} icon-name="standard:location">
+        <div slot="actions">
+            <lightning-button
+                label="View Site"
+                variant="brand"
+                onclick={handleViewRecord}>
+            </lightning-button>
+        </div>
+        <div class="slds-p-around_medium">
+
+            <!-- Status + Location badges -->
+            <div class="slds-m-bottom_medium">
+                <template if:true={site.status}>
+                    <lightning-badge label={site.status} variant={statusVariant}></lightning-badge>
+                </template>
+                <template if:true={locationBadge}>
+                    <lightning-badge label={locationBadge} class="slds-m-left_x-small"></lightning-badge>
+                </template>
+            </div>
+
+            <!-- Retail Store -->
+            <template if:true={site.retailStoreId}>
+                <div class="section-box slds-m-bottom_medium">
+                    <div class="section-title">Retail Store</div>
+                    <div class="slds-grid slds-wrap slds-gutters_small">
+                        <div class="slds-col slds-size_1-of-1 slds-m-bottom_small">
+                            <div class="metric-label">Store Name</div>
+                            <div class="metric-value">
+                                <a class="store-link" onclick={handleViewStore}>{site.retailStoreName}</a>
+                            </div>
+                        </div>
+                        <div class="slds-col slds-size_1-of-2">
+                            <div class="metric-label">City</div>
+                            <div class="metric-value">{site.retailStoreCity}</div>
+                        </div>
+                        <div class="slds-col slds-size_1-of-2">
+                            <div class="metric-label">Sub Area</div>
+                            <div class="metric-value">{site.retailStoreSubArea}</div>
+                        </div>
+                    </div>
+                </div>
+            </template>
+
+            <!-- Competition Metrics -->
+            <div class="section-box slds-m-bottom_medium">
+                <div class="section-title">Competition Metrics</div>
+                <div class="slds-grid slds-wrap slds-gutters_small">
+                    <div class="slds-col slds-size_1-of-2 slds-m-bottom_small">
+                        <div class="metric-label">Competition Level</div>
+                        <div class="metric-value">{competitionLevelFormatted}</div>
+                    </div>
+                    <div class="slds-col slds-size_1-of-2 slds-m-bottom_small">
+                        <div class="metric-label">Activity</div>
+                        <div class="metric-value">{competitionActivityFormatted}</div>
+                    </div>
+                    <div class="slds-col slds-size_1-of-2 slds-m-bottom_small">
+                        <div class="metric-label">Confidence</div>
+                        <div class="metric-value">{competitionConfidenceFormatted}</div>
+                    </div>
+                    <div class="slds-col slds-size_1-of-2 slds-m-bottom_small">
+                        <div class="metric-label">Impact</div>
+                        <div class="metric-value">{competitionImpactFormatted}</div>
+                    </div>
+                    <div class="slds-col slds-size_1-of-1">
+                        <div class="metric-label">Avg Distance from Competitor</div>
+                        <div class="metric-value">
+                            {distanceKmFormatted}
+                            <span class="metric-unit"> km</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Visits -->
+            <template if:true={hasVisits}>
+                <div class="section-box slds-m-bottom_medium">
+                    <div class="section-title">Visits ({visitCount})</div>
+                    <div class="table-wrapper">
+                        <table class="slds-table slds-table_cell-buffer slds-table_bordered slds-table_col-bordered slds-table_striped visit-table">
+                            <thead>
+                                <tr class="slds-line-height_reset thead-row">
+                                    <th scope="col" class="col-left thead-cell"><div class="slds-truncate">Visit Name</div></th>
+                                    <th scope="col" class="col-center thead-cell"><div class="slds-truncate">Status</div></th>
+                                    <th scope="col" class="col-center thead-cell"><div class="slds-truncate">Start</div></th>
+                                    <th scope="col" class="col-center thead-cell"><div class="slds-truncate">End</div></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <template for:each={site.visits} for:item="v">
+                                    <tr key={v.visitId}>
+                                        <td class="col-left">
+                                            <a class="site-link" data-visitid={v.visitId} onclick={handleViewVisit}>{v.visitName}</a>
+                                        </td>
+                                        <td class="col-center">{v.status}</td>
+                                        <td class="col-center">{v.startTime}</td>
+                                        <td class="col-center">{v.endTime}</td>
+                                    </tr>
+                                </template>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </template>
+
+            <!-- Map -->
+            <template if:true={hasLocation}>
+                <div class="slds-m-top_medium">
+                    <div class="section-title slds-m-bottom_small">Site Location</div>
+                    <lightning-map
+                        map-markers={mapMarkers}
+                        markers-title="Site Location"
+                        zoom-level="14"
+                        show-footer>
+                    </lightning-map>
+                </div>
+            </template>
+
+        </div>
+    </lightning-card>
+</template>

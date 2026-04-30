@@ -1,0 +1,76 @@
+<template>
+    <div class="vdc-shell">
+
+        <!-- Location tile -->
+        <div class="vdc-section">
+            <div class="location-grid">
+                <div class="location-col">
+                    <div class="cell-label">Retail Store Group</div>
+                    <div class="cell-value">{visit.groupName}</div>
+                </div>
+                <div class="location-col">
+                    <div class="cell-label">Retail Store</div>
+                    <div class="cell-value">{visit.retailStore}</div>
+                </div>
+                <div class="location-col">
+                    <div class="cell-label">Site</div>
+                    <div class="cell-value">{visit.siteName}</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Status row -->
+        <div class="vdc-section vdc-status-row">
+            <div class="status-cell">
+                <div class="cell-label">Status</div>
+                <span class={statusClass}>{statusLabel}</span>
+            </div>
+            <div class="status-cell">
+                <div class="cell-label">Priority</div>
+                <div class="cell-value">{priorityDisplay}</div>
+            </div>
+            <div class="status-cell">
+                <div class="cell-label">Assigned Surveyor</div>
+                <div class="cell-value">{visit.visitorName}</div>
+            </div>
+        </div>
+
+        <!-- Schedule tile -->
+        <div class="vdc-section">
+            <div class="schedule-grid">
+                <div class="schedule-col">
+                    <div class="schedule-title">Planned</div>
+                    <div class="cell-label">Start</div>
+                    <div class="cell-value">{visit.plannedStart}</div>
+                    <div class="cell-label slds-m-top_x-small">End</div>
+                    <div class="cell-value">{visit.plannedEnd}</div>
+                </div>
+                <template if:true={hasActualTimes}>
+                    <div class="schedule-divider"></div>
+                    <div class="schedule-col">
+                        <div class="schedule-title">Actual</div>
+                        <div class="cell-label">Started</div>
+                        <div class="cell-value">{visit.actualStart}</div>
+                        <div class="cell-label slds-m-top_x-small">Completed</div>
+                        <div class="cell-value">{visit.actualEnd}</div>
+                    </div>
+                </template>
+            </div>
+        </div>
+
+        <!-- Footer: View Visit + Get Directions -->
+        <div class="vdc-footer">
+            <button class="view-btn" onclick={handleViewRecord}>
+                <lightning-icon icon-name="utility:preview" size="x-small" class="slds-m-right_x-small"></lightning-icon>
+                View Visit Record
+            </button>
+            <template if:true={mapsUrl}>
+                <a class="dir-btn" href={mapsUrl} target="_blank" rel="noopener noreferrer">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="dir-icon"><path fill="#fff" d="M21.71 11.29l-9-9a1 1 0 0 0-1.42 0l-9 9a1 1 0 0 0 0 1.42l9 9a1 1 0 0 0 1.42 0l9-9a1 1 0 0 0 0-1.42zM13 16.17V13H9v-2h4V7.83l4.17 4.17z"/></svg>
+                    Directions
+                </a>
+            </template>
+        </div>
+
+    </div>
+</template>

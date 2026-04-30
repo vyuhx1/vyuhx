@@ -1,0 +1,24 @@
+{
+  "unevaluatedProperties" : false,
+  "properties" : {
+    "storeSummary" : {
+      "title" : "storeSummary",
+      "description" : "StoreSummaryDTO consumed by the storeSummaryCard Lightning Type LWC.",
+      "lightning:type" : "c__Store_Summary_Response",
+      "lightning:isPII" : false,
+      "copilotAction:isDisplayable" : true,
+      "copilotAction:isUsedByPlanner" : true,
+      "copilotAction:useHydratedPrompt" : false
+    },
+    "summaryText" : {
+      "title" : "summaryText",
+      "description" : "Plain-text acknowledgement for the agent chat response.",
+      "lightning:type" : "lightning__textType",
+      "lightning:isPII" : false,
+      "copilotAction:isDisplayable" : false,
+      "copilotAction:isUsedByPlanner" : true,
+      "copilotAction:useHydratedPrompt" : false
+    }
+  },
+  "lightning:type" : "lightning__objectType"
+}

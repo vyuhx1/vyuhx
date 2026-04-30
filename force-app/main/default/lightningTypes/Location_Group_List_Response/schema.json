@@ -1,0 +1,5 @@
+{
+  "description" : "",
+  "lightning:type" : "@apexClassType/c__RetailLocationGroupDTO",
+  "title" : "Location Group List Response"
+}

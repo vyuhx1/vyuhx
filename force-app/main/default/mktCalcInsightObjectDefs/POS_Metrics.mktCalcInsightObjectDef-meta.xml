@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<MktCalcInsightObjectDef xmlns="http://soap.sforce.com/2006/04/metadata">
+    <creationType>Custom</creationType>
+    <expression>SELECT
+    POS_Sales_Metric__dlm.UniqueId__c AS UniqueId__c,
+    POS_Sales_Metric__dlm.SubArea__c AS SubArea__c,
+    POS_Sales_Metric__dlm.Area__c AS Area__c,
+    POS_Sales_Metric__dlm.Pincode__c AS Pincode__c,
+
+    SUM(
+        CASE
+            WHEN POS_Sales_Metric__dlm.Time_Period__c = &apos;Monthly&apos;    THEN POS_Sales_Metric__dlm.Net_Sales_Amount__c * 12
+            WHEN POS_Sales_Metric__dlm.Time_Period__c = &apos;Quarterly&apos;  THEN POS_Sales_Metric__dlm.Net_Sales_Amount__c * 4
+            WHEN POS_Sales_Metric__dlm.Time_Period__c = &apos;HalfYearly&apos; THEN POS_Sales_Metric__dlm.Net_Sales_Amount__c * 2
+            WHEN POS_Sales_Metric__dlm.Time_Period__c = &apos;Annual&apos;     THEN POS_Sales_Metric__dlm.Net_Sales_Amount__c * 1
+            ELSE 0
+        END
+    ) AS Expected_Annual_Revenue__c,
+
+    SUM(
+        CASE
+            WHEN POS_Sales_Metric__dlm.Time_Period__c = &apos;Monthly&apos;
+                THEN (POS_Sales_Metric__dlm.Net_Sales_Amount__c * 12
+                        - POS_Sales_Metric__dlm.COGS_Amount__c
+                        - POS_Sales_Metric__dlm.Operating_Expense_Amount__c
+                        - POS_Sales_Metric__dlm.Rent_Amount__c)
+                    / NULLIF(POS_Sales_Metric__dlm.Net_Sales_Amount__c * 12, 0) * 100
+            WHEN POS_Sales_Metric__dlm.Time_Period__c = &apos;Quarterly&apos;
+                THEN (POS_Sales_Metric__dlm.Net_Sales_Amount__c * 4
+                        - POS_Sales_Metric__dlm.COGS_Amount__c
+                        - POS_Sales_Metric__dlm.Operating_Expense_Amount__c
+                        - POS_Sales_Metric__dlm.Rent_Amount__c)
+                    / NULLIF(POS_Sales_Metric__dlm.Net_Sales_Amount__c * 4, 0) * 100
+            WHEN POS_Sales_Metric__dlm.Time_Period__c = &apos;HalfYearly&apos;
+                THEN (POS_Sales_Metric__dlm.Net_Sales_Amount__c * 2
+                        - POS_Sales_Metric__dlm.COGS_Amount__c
+                        - POS_Sales_Metric__dlm.Operating_Expense_Amount__c
+                        - POS_Sales_Metric__dlm.Rent_Amount__c)
+                    / NULLIF(POS_Sales_Metric__dlm.Net_Sales_Amount__c * 2, 0) * 100
+            WHEN POS_Sales_Metric__dlm.Time_Period__c = &apos;Annual&apos;
+                THEN (POS_Sales_Metric__dlm.Net_Sales_Amount__c
+                        - POS_Sales_Metric__dlm.COGS_Amount__c
+                        - POS_Sales_Metric__dlm.Operating_Expense_Amount__c
+                        - POS_Sales_Metric__dlm.Rent_Amount__c)
+                    / NULLIF(POS_Sales_Metric__dlm.Net_Sales_Amount__c, 0) * 100
+            ELSE 0
+        END
+    ) AS EBITDA_Margin__c,
+
+    SUM(
+        CASE
+            WHEN POS_Sales_Metric__dlm.Time_Period__c = &apos;Monthly&apos;
+                THEN CASE
+                    WHEN (POS_Sales_Metric__dlm.Net_Sales_Amount__c * 12 - POS_Sales_Metric__dlm.COGS_Amount__c - POS_Sales_Metric__dlm.Operating_Expense_Amount__c - POS_Sales_Metric__dlm.Rent_Amount__c) &lt;= 0 THEN 20
+                    WHEN 5000000.0 / (POS_Sales_Metric__dlm.Net_Sales_Amount__c * 12 - POS_Sales_Metric__dlm.COGS_Amount__c - POS_Sales_Metric__dlm.Operating_Expense_Amount__c - POS_Sales_Metric__dlm.Rent_Amount__c) &gt; 20 THEN 20
+                    WHEN 5000000.0 / (POS_Sales_Metric__dlm.Net_Sales_Amount__c * 12 - POS_Sales_Metric__dlm.COGS_Amount__c - POS_Sales_Metric__dlm.Operating_Expense_Amount__c - POS_Sales_Metric__dlm.Rent_Amount__c) &lt; 1 THEN 1
+                    ELSE 5000000.0 / (POS_Sales_Metric__dlm.Net_Sales_Amount__c * 12 - POS_Sales_Metric__dlm.COGS_Amount__c - POS_Sales_Metric__dlm.Operating_Expense_Amount__c - POS_Sales_Metric__dlm.Rent_Amount__c)
+                END
+            WHEN POS_Sales_Metric__dlm.Time_Period__c = &apos;Quarterly&apos;
+                THEN CASE
+                    WHEN (POS_Sales_Metric__dlm.Net_Sales_Amount__c * 4 - POS_Sales_Metric__dlm.COGS_Amount__c - POS_Sales_Metric__dlm.Operating_Expense_Amount__c - POS_Sales_Metric__dlm.Rent_Amount__c) &lt;= 0 THEN 20
+                    WHEN 5000000.0 / (POS_Sales_Metric__dlm.Net_Sales_Amount__c * 4 - POS_Sales_Metric__dlm.COGS_Amount__c - POS_Sales_Metric__dlm.Operating_Expense_Amount__c - POS_Sales_Metric__dlm.Rent_Amount__c) &gt; 20 THEN 20
+                    WHEN 5000000.0 / (POS_Sales_Metric__dlm.Net_Sales_Amount__c * 4 - POS_Sales_Metric__dlm.COGS_Amount__c - POS_Sales_Metric__dlm.Operating_Expense_Amount__c - POS_Sales_Metric__dlm.Rent_Amount__c) &lt; 1 THEN 1
+                    ELSE 5000000.0 / (POS_Sales_Metric__dlm.Net_Sales_Amount__c * 4 - POS_Sales_Metric__dlm.COGS_Amount__c - POS_Sales_Metric__dlm.Operating_Expense_Amount__c - POS_Sales_Metric__dlm.Rent_Amount__c)
+                END
+            WHEN POS_Sales_Metric__dlm.Time_Period__c = &apos;HalfYearly&apos;
+                THEN CASE
+                    WHEN (POS_Sales_Metric__dlm.Net_Sales_Amount__c * 2 - POS_Sales_Metric__dlm.COGS_Amount__c - POS_Sales_Metric__dlm.Operating_Expense_Amount__c - POS_Sales_Metric__dlm.Rent_Amount__c) &lt;= 0 THEN 20
+                    WHEN 5000000.0 / (POS_Sales_Metric__dlm.Net_Sales_Amount__c * 2 - POS_Sales_Metric__dlm.COGS_Amount__c - POS_Sales_Metric__dlm.Operating_Expense_Amount__c - POS_Sales_Metric__dlm.Rent_Amount__c) &gt; 20 THEN 20
+                    WHEN 5000000.0 / (POS_Sales_Metric__dlm.Net_Sales_Amount__c * 2 - POS_Sales_Metric__dlm.COGS_Amount__c - POS_Sales_Metric__dlm.Operating_Expense_Amount__c - POS_Sales_Metric__dlm.Rent_Amount__c) &lt; 1 THEN 1
+                    ELSE 5000000.0 / (POS_Sales_Metric__dlm.Net_Sales_Amount__c * 2 - POS_Sales_Metric__dlm.COGS_Amount__c - POS_Sales_Metric__dlm.Operating_Expense_Amount__c - POS_Sales_Metric__dlm.Rent_Amount__c)
+                END
+            WHEN POS_Sales_Metric__dlm.Time_Period__c = &apos;Annual&apos;
+                THEN CASE
+                    WHEN (POS_Sales_Metric__dlm.Net_Sales_Amount__c - POS_Sales_Metric__dlm.COGS_Amount__c - POS_Sales_Metric__dlm.Operating_Expense_Amount__c - POS_Sales_Metric__dlm.Rent_Amount__c) &lt;= 0 THEN 20
+                    WHEN 5000000.0 / (POS_Sales_Metric__dlm.Net_Sales_Amount__c - POS_Sales_Metric__dlm.COGS_Amount__c - POS_Sales_Metric__dlm.Operating_Expense_Amount__c - POS_Sales_Metric__dlm.Rent_Amount__c) &gt; 20 THEN 20
+                    WHEN 5000000.0 / (POS_Sales_Metric__dlm.Net_Sales_Amount__c - POS_Sales_Metric__dlm.COGS_Amount__c - POS_Sales_Metric__dlm.Operating_Expense_Amount__c - POS_Sales_Metric__dlm.Rent_Amount__c) &lt; 1 THEN 1
+                    ELSE 5000000.0 / (POS_Sales_Metric__dlm.Net_Sales_Amount__c - POS_Sales_Metric__dlm.COGS_Amount__c - POS_Sales_Metric__dlm.Operating_Expense_Amount__c - POS_Sales_Metric__dlm.Rent_Amount__c)
+                END
+            ELSE 20
+        END
+    ) AS Payback_Period_Years__c
+
+FROM POS_Sales_Metric__dlm
+
+GROUP BY
+    POS_Sales_Metric__dlm.UniqueId__c,
+    POS_Sales_Metric__dlm.SubArea__c,
+    POS_Sales_Metric__dlm.Area__c,
+    POS_Sales_Metric__dlm.Pincode__c</expression>
+    <masterLabel>POS Metrics</masterLabel>
+</MktCalcInsightObjectDef>

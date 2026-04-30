@@ -1,0 +1,29 @@
+{
+  "required" : [ "action", "visitId" ],
+  "unevaluatedProperties" : false,
+  "properties" : {
+    "action" : {
+      "title" : "Action",
+      "description" : "What to do: start (marks InProgress, captures now as start time), end (marks Completed, captures now as end time), update notes (attaches a note only)",
+      "lightning:type" : "lightning__textType",
+      "lightning:isPII" : false,
+      "copilotAction:isUserInput" : false
+    },
+    "visitId" : {
+      "title" : "Visit Id",
+      "description" : "Id of the Visit record to log activity against",
+      "lightning:type" : "lightning__textType",
+      "lightning:isPII" : false,
+      "copilotAction:isUserInput" : false
+    },
+    "visitNotes" : {
+      "title" : "Visit Notes",
+      "description" : "Optional note body to attach to the visit",
+      "lightning:type" : "lightning__textType",
+      "lightning:isPII" : false,
+      "copilotAction:isUserInput" : false
+    }
+  },
+  "lightning:type" : "lightning__objectType",
+  "lightning:textIndexed" : true
+}

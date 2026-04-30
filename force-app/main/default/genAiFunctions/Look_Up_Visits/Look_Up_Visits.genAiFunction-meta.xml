@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GenAiFunction xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Retrieves field visits by site name, retail store, or store group — with optional status and date filters. Also returns attached ContentNotes.</description>
+    <developerName>Look_Up_Visits</developerName>
+    <invocationTarget>AgentVisitLookupAction</invocationTarget>
+    <invocationTargetType>apex</invocationTargetType>
+    <isConfirmationRequired>false</isConfirmationRequired>
+    <isIncludeInProgressIndicator>true</isIncludeInProgressIndicator>
+    <localDeveloperName>Look_Up_Visits</localDeveloperName>
+    <masterLabel>Look Up Visits</masterLabel>
+    <progressIndicatorMessage>Default</progressIndicatorMessage>
+</GenAiFunction>

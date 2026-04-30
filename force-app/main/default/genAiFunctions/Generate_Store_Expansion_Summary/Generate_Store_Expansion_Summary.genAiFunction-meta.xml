@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GenAiFunction xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Calls the Store_Agent_Summary prompt template for a RetailStore and returns a StoreSummaryDTO for rendering in the storeSummaryCard LWC.</description>
+    <developerName>Generate_Store_Expansion_Summary</developerName>
+    <invocationTarget>AgentStoreSummaryAction</invocationTarget>
+    <invocationTargetType>apex</invocationTargetType>
+    <isConfirmationRequired>false</isConfirmationRequired>
+    <isIncludeInProgressIndicator>false</isIncludeInProgressIndicator>
+    <localDeveloperName>Generate_Store_Expansion_Summary</localDeveloperName>
+    <masterLabel>Generate Store Expansion Summary</masterLabel>
+</GenAiFunction>

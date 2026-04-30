@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GenAiFunction xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Use retail store Name if available or run other suitable action to get retail store name and generate summary</description>
+    <developerName>Store_Expansion_Summary</developerName>
+    <invocationTarget>Store_Expansion_Summary</invocationTarget>
+    <invocationTargetType>generatePromptResponse</invocationTargetType>
+    <isConfirmationRequired>false</isConfirmationRequired>
+    <isIncludeInProgressIndicator>false</isIncludeInProgressIndicator>
+    <localDeveloperName>Store_Expansion_Summary</localDeveloperName>
+    <masterLabel>Store Expansion Summary</masterLabel>
+</GenAiFunction>

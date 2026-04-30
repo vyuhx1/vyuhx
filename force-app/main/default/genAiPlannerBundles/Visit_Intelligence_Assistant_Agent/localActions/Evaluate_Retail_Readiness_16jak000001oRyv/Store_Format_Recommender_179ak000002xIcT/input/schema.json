@@ -1,0 +1,18 @@
+{
+  "required" : [ "Input:RetailStore" ],
+  "unevaluatedProperties" : false,
+  "properties" : {
+    "Input:RetailStore" : {
+      "title" : "RetailStore",
+      "description" : "retail store",
+      "lightning:type" : "lightning__recordInfoType",
+      "lightning:sObjectInfo" : {
+        "apiName" : "RetailStore"
+      },
+      "lightning:isPII" : false,
+      "copilotAction:isUserInput" : false
+    }
+  },
+  "lightning:type" : "lightning__objectType",
+  "lightning:textIndexed" : true
+}

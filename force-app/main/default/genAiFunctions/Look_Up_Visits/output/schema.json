@@ -1,0 +1,24 @@
+{
+  "unevaluatedProperties" : false,
+  "properties" : {
+    "summaryText" : {
+      "title" : "summaryText",
+      "description" : "Plain-text summary for the agent chat response including counts.",
+      "lightning:type" : "lightning__textType",
+      "lightning:isPII" : false,
+      "copilotAction:isDisplayable" : false,
+      "copilotAction:isUsedByPlanner" : true,
+      "copilotAction:useHydratedPrompt" : false
+    },
+    "visitResponse" : {
+      "title" : "visitResponse",
+      "description" : "Visit response containing the visits list and status counts, consumed by the visitList Lightning Type LWC.",
+      "lightning:type" : "c__Visit_Response",
+      "lightning:isPII" : false,
+      "copilotAction:isDisplayable" : true,
+      "copilotAction:isUsedByPlanner" : true,
+      "copilotAction:useHydratedPrompt" : false
+    }
+  },
+  "lightning:type" : "lightning__objectType"
+}

@@ -1,0 +1,14 @@
+{
+  "required" : [ "storeId" ],
+  "unevaluatedProperties" : false,
+  "properties" : {
+    "storeId" : {
+      "title" : "storeId",
+      "description" : "Id of the RetailStore record to summarise.",
+      "lightning:type" : "lightning__textType",
+      "lightning:isPII" : false,
+      "copilotAction:isUserInput" : false
+    }
+  },
+  "lightning:type" : "lightning__objectType"
+}

@@ -1,0 +1,14 @@
+{
+  "required" : [ "storeName" ],
+  "unevaluatedProperties" : false,
+  "properties" : {
+    "storeName" : {
+      "title" : "storeName",
+      "description" : "Name of the proposed site (e.g., Kothaguda)",
+      "lightning:type" : "lightning__textType",
+      "lightning:isPII" : false,
+      "copilotAction:isUserInput" : false
+    }
+  },
+  "lightning:type" : "lightning__objectType"
+}

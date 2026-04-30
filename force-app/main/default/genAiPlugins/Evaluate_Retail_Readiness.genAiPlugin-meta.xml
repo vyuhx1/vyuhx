@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GenAiPlugin xmlns="http://soap.sforce.com/2006/04/metadata">
+    <canEscalate>false</canEscalate>
+    <description>Evaluate Retail Readiness determines whether a candidate retail location is prepared for expansion by holistically assessing market demand, competitive pressure, financial viability, and on‑ground validation.
+The sub‑agent synthesizes insights from Salesforce Data Cloud (demographics, footfall, POS performance, competition intelligence) and Consumer Goods Cloud Visit Execution (site visits, field observations, execution risks) to classify locations as Ready, Needs Review, or Not Ready.
+It provides an explainable recommendation with confidence level and key drivers, ensuring expansion decisions are data‑driven, financially sound, and validated by real‑world execution signals before capital commitment.</description>
+    <developerName>Evaluate_Retail_Readiness</developerName>
+    <genAiFunctions>
+        <functionName>Create_Visit_from_Site</functionName>
+    </genAiFunctions>
+    <genAiFunctions>
+        <functionName>Evaluate_Proposed_Site</functionName>
+    </genAiFunctions>
+    <genAiFunctions>
+        <functionName>Generate_Store_Expansion_Summary</functionName>
+    </genAiFunctions>
+    <genAiFunctions>
+        <functionName>Get_Location_Group_List</functionName>
+    </genAiFunctions>
+    <genAiFunctions>
+        <functionName>Get_Retail_Store_Details</functionName>
+    </genAiFunctions>
+    <genAiFunctions>
+        <functionName>Get_Retail_Store_List</functionName>
+    </genAiFunctions>
+    <genAiFunctions>
+        <functionName>Get_Site_List</functionName>
+    </genAiFunctions>
+    <genAiFunctions>
+        <functionName>On_Site_Scorecard</functionName>
+    </genAiFunctions>
+    <genAiFunctions>
+        <functionName>Risk_Assessor</functionName>
+    </genAiFunctions>
+    <genAiFunctions>
+        <functionName>Site_Comparator</functionName>
+    </genAiFunctions>
+    <genAiFunctions>
+        <functionName>Store_Format_Recommender</functionName>
+    </genAiFunctions>
+    <genAiFunctions>
+        <functionName>Update_Site_Status</functionName>
+    </genAiFunctions>
+    <language>en_US</language>
+    <localDeveloperName>Evaluate_Retail_Readiness</localDeveloperName>
+    <masterLabel>Evaluate Retail Readiness</masterLabel>
+    <pluginType>Topic</pluginType>
+    <scope>Evaluate Retail Readiness assesses whether a candidate retail location is ready to proceed to expansion or store opening, by synthesizing demand potential, competitive pressure, financial viability, and on‑ground validation.
+It provides a go / caution / hold readiness recommendation backed by explainable signals from Salesforce Data Cloud and Consumer Goods Cloud.
+✅ Market Readiness
+Is demand strong enough and stable across time?
+Does footfall confirm demographic assumptions?
+Are growth signals sustained or seasonal?
+✅ Competitive Readiness
+Is competition density manageable for the category?
+Are there recent or temporary competitors not yet reflected in data?
+Is the competitive activity intensity rising?
+✅ Financial Readiness
+Does projected revenue exceed internal thresholds?
+Is EBITDA margin healthy for the store format?
+Is the payback period within acceptable investment norms?
+✅ Execution Readiness
+Do visit observations validate AI‑generated insights?
+Are there operational or infrastructure risks identified on site?
+Is data confidence high enough to proceed?
+📤 Outputs (What It Produces)
+Retail Readiness Status (Ready / Needs Review / Not Ready)
+Primary Drivers (top 3 reasons)
+Key Risks or Gaps
+Confidence Level (High / Medium / Low)
+Recommended Next Action
+Proceed with expansion
+Conduct additional site validation
+Re‑evaluate location or timing
+These outputs are written back to Salesforce for:
+Executive dashboards
+Agentforce follow‑ups
+Visit planning or escalation</scope>
+</GenAiPlugin>

@@ -1,0 +1,37 @@
+<template>
+    <lightning-card title="Field Visit Results" icon-name="standard:timesheet">
+        <div class="slds-p-around_medium">
+
+            <!-- Status Count Summary Bar -->
+            <div class="stats-bar slds-m-bottom_medium">
+                <div class="stat-tile stat-planned">
+                    <div class="stat-value">{plannedCount}</div>
+                    <div class="stat-label">Planned</div>
+                </div>
+                <div class="stat-tile stat-inprogress">
+                    <div class="stat-value">{inProgressCount}</div>
+                    <div class="stat-label">In Progress</div>
+                </div>
+                <div class="stat-tile stat-completed">
+                    <div class="stat-value">{completedCount}</div>
+                    <div class="stat-label">Completed</div>
+                </div>
+            </div>
+
+            <!-- Paginator Nav + Single Card -->
+            <template if:true={hasVisits}>
+                <div class="nav-bar slds-m-bottom_small">
+                    <button class="nav-btn" onclick={handlePrev} disabled={isFirst}>&#8249;</button>
+                    <span class="nav-label">Visit {currentIndex} of {totalVisits}</span>
+                    <button class="nav-btn" onclick={handleNext} disabled={isLast}>&#8250;</button>
+                </div>
+                <c-visit-card visit={currentVisit}></c-visit-card>
+            </template>
+            <template if:false={hasVisits}>
+                <div class="slds-text-body_regular slds-text-color_weak slds-p-vertical_small">
+                    No visits found for the selected filters.
+                </div>
+            </template>
+        </div>
+    </lightning-card>
+</template>

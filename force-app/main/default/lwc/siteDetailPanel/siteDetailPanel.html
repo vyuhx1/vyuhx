@@ -1,0 +1,109 @@
+<template>
+    <div class="site-detail-panel">
+
+        <!-- Header: site name + zone -->
+        <div class="panel-header slds-m-bottom_small">
+            <span class="panel-title">{site.siteName}</span>
+            <template if:true={site.zone}>
+                <lightning-badge label={site.zone} class="slds-m-left_x-small"></lightning-badge>
+            </template>
+        </div>
+
+        <!-- Row 1: Strategic + Financial side by side -->
+        <div class="slds-grid slds-gutters slds-wrap slds-m-bottom_small">
+
+            <!-- Strategic Factors -->
+            <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2">
+                <div class="factor-box">
+                    <div class="factor-title">Strategic Factors</div>
+
+                    <div class="slds-m-bottom_x-small">
+                        <div class="metric-label slds-m-bottom_xx-small">Demand Score</div>
+                        <lightning-progress-bar value={demandProgress} size="small"></lightning-progress-bar>
+                        <span class="metric-sub">{demandScoreFormatted} / 100</span>
+                    </div>
+
+                    <div class="slds-m-top_x-small">
+                        <div class="metric-label slds-m-bottom_xx-small">Competition Level</div>
+                        <span class={competitionBadgeClass}>{site.competitionLevel}</span>
+                    </div>
+
+                    <div class="slds-grid slds-wrap slds-gutters_x-small slds-m-top_x-small">
+                        <div class="slds-col slds-size_1-of-2">
+                            <div class="metric-label">Footfall Index</div>
+                            <div class="metric-value">{footfallIndexFormatted}</div>
+                        </div>
+                        <div class="slds-col slds-size_1-of-2">
+                            <div class="metric-label">Demographic Score</div>
+                            <div class="metric-value">{demographicScoreFormatted}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Financial Factors -->
+            <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2">
+                <div class="factor-box">
+                    <div class="factor-title">Financial Factors</div>
+                    <div class="slds-grid slds-wrap slds-gutters_x-small">
+                        <div class="slds-col slds-size_1-of-2">
+                            <div class="metric-label">Annual Revenue (₹)</div>
+                            <div class="metric-value">{annualRevenueFormatted}</div>
+                        </div>
+                        <div class="slds-col slds-size_1-of-2">
+                            <div class="metric-label">EBITDA Margin (%)</div>
+                            <div class="metric-value">{ebitdaMarginFormatted}</div>
+                        </div>
+                        <div class="slds-col slds-size_1-of-2 slds-m-top_x-small">
+                            <div class="metric-label">Payback Period</div>
+                            <div class="metric-value">{paybackPeriodFormatted} <span class="metric-unit">yrs</span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Row 2: Proposed Sites Table full width -->
+        <div class="slds-grid slds-gutters slds-wrap">
+            <div class="slds-col slds-size_1-of-1">
+                <template if:true={hasProposedSites}>
+                    <div class="factor-box">
+                        <div class="factor-title">Proposed Sites</div>
+                        <div class="table-scroll">
+                        <table class="slds-table slds-table_bordered slds-table_col-bordered slds-table_cell-buffer site-panel-table">
+                            <thead>
+                                <tr class="slds-line-height_reset">
+                                    <th>Site</th>
+                                    <th>Activity</th>
+                                    <th>Confidence</th>
+                                    <th>Impact</th>
+                                    <th>Competition</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <template for:each={proposedSitesWithIndex} for:item="ps">
+                                    <tr key={ps.siteId}>
+                                        <td>
+                                            <a data-siteid={ps.siteId} onclick={handleSiteNavigation}>{ps.siteLabel}</a>
+                                        </td>
+                                        <td>{ps.competitionActivity}</td>
+                                        <td>{ps.competitionConfidence}</td>
+                                        <td>{ps.competitionImpact}</td>
+                                        <td>{ps.competitionLevel}</td>
+                                    </tr>
+                                </template>
+                            </tbody>
+                        </table>
+                        </div>
+                    </div>
+                </template>
+                <template if:false={hasProposedSites}>
+                    <div class="factor-box slds-text-body_small slds-text-color_weak">
+                        No proposed site data available.
+                    </div>
+                </template>
+            </div>
+        </div>
+    </div>
+</template>

@@ -1,0 +1,303 @@
+<template>
+    <lightning-card title="Retail Expansion Intelligence" icon-name="custom:custom78">
+
+        <div slot="actions">
+            <lightning-button-icon
+                icon-name="utility:notification"
+                variant="border-filled"
+                alternative-text="Send Visit Alerts"
+                title="Send overdue &amp; due-soon visit notifications to surveyors"
+                disabled={isSendingNotifications}
+                onclick={handleSendNotifications}>
+            </lightning-button-icon>
+        </div>
+
+        <div class="slds-p-around_medium maxHeight">
+
+            <!-- Filter Bar -->
+            <div class="slds-grid slds-gutters slds-wrap slds-m-bottom_medium slds-grid_vertical-align-end">
+                <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-3">
+                    <lightning-combobox
+                        label="Filter by Retail Store Group"
+                        placeholder="All Groups"
+                        value={selectedGroup}
+                        options={groupOptions}
+                        onchange={handleGroupChange}>
+                    </lightning-combobox>
+                </div>
+                <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-3">
+                    <lightning-input
+                        type="search"
+                        label="Search Retail Store"
+                        placeholder="e.g. Kondapur"
+                        value={searchTerm}
+                        onchange={handleSearchChange}>
+                    </lightning-input>
+                </div>
+            </div>
+
+            <!-- KPI Tiles -->
+            <div class="slds-grid slds-gutters slds-wrap slds-m-bottom_medium">
+                <div class="slds-col slds-size_1-of-2 slds-medium-size_1-of-4">
+                    <div class="kpi-tile">
+                        <div class="kpi-icon-wrap kpi-blue">
+                            <lightning-icon icon-name="utility:store" size="small" alternative-text="Sites"></lightning-icon>
+                        </div>
+                        <div class="kpi-body">
+                            <div class="kpi-value">{kpiTotalSites}</div>
+                            <div class="kpi-label">Total Stores</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="slds-col slds-size_1-of-2 slds-medium-size_1-of-4">
+                    <div class="kpi-tile">
+                        <div class="kpi-icon-wrap kpi-green">
+                            <lightning-icon icon-name="utility:trending" size="small" alternative-text="Score"></lightning-icon>
+                        </div>
+                        <div class="kpi-body">
+                            <div class="kpi-value">{kpiAvgScore}</div>
+                            <div class="kpi-label">Avg Demand Score</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="slds-col slds-size_1-of-2 slds-medium-size_1-of-4">
+                    <div class="kpi-tile">
+                        <div class="kpi-icon-wrap kpi-purple">
+                            <lightning-icon icon-name="utility:currency" size="small" alternative-text="Revenue"></lightning-icon>
+                        </div>
+                        <div class="kpi-body">
+                            <div class="kpi-value">{kpiAvgRevenue}</div>
+                            <div class="kpi-label">Avg Annual Revenue</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="slds-col slds-size_1-of-2 slds-medium-size_1-of-4">
+                    <div class="kpi-tile">
+                        <div class="kpi-icon-wrap kpi-orange">
+                            <lightning-icon icon-name="utility:clock" size="small" alternative-text="Payback"></lightning-icon>
+                        </div>
+                        <div class="kpi-body">
+                            <div class="kpi-value">{kpiAvgPayback}</div>
+                            <div class="kpi-label">Avg Payback Period</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Main Two-Column Layout: Table Left | Map Right -->
+            <div class="slds-grid slds-gutters slds-wrap slds-m-bottom_large two-col-layout">
+
+                <!-- Left: Table -->
+                <div class="slds-col slds-size_1-of-1 slds-medium-size_7-of-12">
+                    <div class="slds-grid slds-grid_align-spread slds-m-bottom_x-small">
+                        <span class="slds-text-heading_small">Top Ranked Proposed Retail Stores</span>
+                        <span class="slds-text-body_small slds-text-color_weak">{summaryLabel}</span>
+                    </div>
+                    <table class="slds-table slds-table_bordered slds-table_col-bordered sites-table">
+                        <thead>
+                            <tr class="slds-line-height_reset">
+                                <th class="col-name">Store Name</th>
+                                <th class="col-zone">Retail Store Group</th>
+                                <th class="col-score">Demand Score</th>
+                                <th class="col-actions"></th>
+                            </tr>
+                        </thead>
+                        <template for:each={displayedSites} for:item="row">
+                            <tbody key={row.Id}>
+                                <tr>
+                                    <td>
+                                        <a href={row.siteUrl} target="_self" class="site-name-link">{row.Name}</a>
+                                    </td>
+                                    <td>
+                                        <a href={row.groupUrl} target="_self" class="site-name-link">{row.ZoneName}</a>
+                                    </td>
+                                    <td>
+                                        <lightning-progress-bar value={row.demandProgress} size="x-small"></lightning-progress-bar>
+                                        <span class="demand-score-label">{row.demandScoreLabel}</span>
+                                    </td>
+                                    <td class="col-actions-cell">
+                                        <lightning-button
+                                            label="Map"
+                                            variant="brand"
+                                            data-id={row.Id}
+                                            onclick={handleRowAction}
+                                            class="slds-m-right_xx-small">
+                                        </lightning-button>
+                                        <lightning-button
+                                            label={row.expandBtnLabel}
+                                            variant="neutral"
+                                            data-id={row.Id}
+                                            onclick={handleToggleExpand}>
+                                        </lightning-button>
+                                    </td>
+                                </tr>
+                                    <template if:true={row.isExpanded}>
+                                        <tr class="expanded-detail-row">
+                                            <td colspan="4" class="slds-p-around_small">
+                                                <template if:true={row.evaluationData}>
+                                                    <c-site-detail-panel site={row.evaluationData}></c-site-detail-panel>
+                                                </template>
+                                                <template if:false={row.evaluationData}>
+                                                    <div class="slds-p-around_small slds-text-align_center">
+                                                        <lightning-spinner alternative-text="Loading" size="small"></lightning-spinner>
+                                                    </div>
+                                                </template>
+                                            </td>
+                                        </tr>
+                                    </template>
+                            </tbody>
+                        </template>
+                    </table>
+                    <template if:true={hasMore}>
+                        <div class="slds-m-top_small slds-text-align_center">
+                            <lightning-button
+                                label="Load More"
+                                variant="neutral"
+                                icon-name="utility:chevrondown"
+                                icon-position="right"
+                                onclick={handleLoadMore}>
+                            </lightning-button>
+                        </div>
+                    </template>
+                    <!-- Field Visit Activity -->
+                    <div class="slds-m-top_medium">
+                        <div class="slds-grid slds-grid_vertical-align-center slds-m-bottom_small">
+                            <div class="slds-col slds-grow">
+                                <span class="slds-text-heading_small">
+                                    <lightning-icon icon-name="utility:live_message" size="small" class="slds-m-right_xx-small"></lightning-icon>
+                                    Field Visit Activity
+                                </span>
+                            </div>
+                            <!-- Visit Summary Pills + Filter -->
+                            <div class="slds-col slds-no-flex slds-grid slds-grid_vertical-align-center slds-gutters_xx-small">
+                                <span class="visit-pill pill-completed">{visitCompleted} Completed</span>
+                                <span class="visit-pill pill-progress">{visitInProgress} In Progress</span>
+                                <span class="visit-pill pill-planned">{visitPlanned} Planned</span>
+                                <div class="visit-filter-wrap">
+                                    <lightning-combobox
+                                        label="Filter visits"
+                                        variant="label-hidden"
+                                        placeholder="All Visits"
+                                        value={visitStatusFilter}
+                                        options={visitFilterOptions}
+                                        onchange={handleVisitFilterChange}>
+                                    </lightning-combobox>
+                                </div>
+                            </div>
+                        </div>
+                        <template if:true={hasFilteredVisits}>
+                            <template for:each={filteredVisits} for:item="visit">
+                                <div key={visit.Id} class="visit-card slds-m-bottom_x-small">
+                                    <div class="slds-grid slds-grid_vertical-align-center slds-p-around_small">
+                                        <div class="slds-col slds-no-flex slds-m-right_small">
+                                            <lightning-icon icon-name={visit.statusIcon} size="small"></lightning-icon>
+                                        </div>
+                                        <div class="slds-col slds-grow">
+                                            <div class="slds-text-body_regular slds-text-color_default">
+                                                <a href={visit.visitUrl} target="_self" class="site-name-link">{visit.SiteName}</a>
+                                            </div>
+                                            <div class="slds-text-body_small slds-text-color_weak">
+                                                <span class="slds-m-right_xx-small">Planned:</span>{visit.visitDateFormatted}
+                                            </div>
+                                            <template if:true={visit.visitorName}>
+                                                <div class="slds-text-body_small slds-text-color_weak">
+                                                    <span class="slds-m-right_xx-small">Assigned to:</span>{visit.visitorName}
+                                                </div>
+                                            </template>
+                                        </div>
+                                        <div class="visit-right-col">
+                                            <template if:true={visit.urgencyLabel}>
+                                                <div class="visit-urgency-row">
+                                                    <span class={visit.urgencyClass}>{visit.urgencyLabel}</span>
+                                                    <template if:false={visit._notified}>
+                                                        <button
+                                                            class="notify-btn"
+                                                            data-id={visit.Id}
+                                                            disabled={visit._notifying}
+                                                            onclick={handleNotifyVisit}
+                                                            title="Notify assigned surveyor">
+                                                            <lightning-icon
+                                                                icon-name="utility:notification"
+                                                                size="xx-small"
+                                                                alternative-text="Notify">
+                                                            </lightning-icon>
+                                                        </button>
+                                                    </template>
+                                                    <template if:true={visit._notified}>
+                                                        <lightning-icon icon-name="utility:check" size="xx-small" variant="success" title="Notified"></lightning-icon>
+                                                    </template>
+                                                </div>
+                                            </template>
+                                            <div class="visit-status-row">
+                                                <span class={visit.badgeClass}>{visit.Status}</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </template>
+                        </template>
+                        <template if:false={hasFilteredVisits}>
+                            <div class="slds-text-body_small slds-text-color_weak slds-p-around_small">
+                                <template if:true={hasVisits}>No visits match the selected filter.</template>
+                                <template if:false={hasVisits}>No recent field visits found.</template>
+                            </div>
+                        </template>
+                        <template if:true={hasMoreVisits}>
+                            <div class="slds-m-top_small slds-text-align_center">
+                                <lightning-button
+                                    label="Show More"
+                                    variant="neutral"
+                                    icon-name="utility:chevrondown"
+                                    icon-position="right"
+                                    onclick={handleLoadMoreVisits}>
+                                </lightning-button>
+                            </div>
+                        </template>
+                    </div>
+                </div>
+
+                <!-- Right: Map -->
+                <div class="slds-col slds-size_1-of-1 slds-medium-size_5-of-12 slds-grow map-col">
+                    <div class="slds-grid slds-grid_vertical-align-center slds-m-bottom_x-small">
+                        <span class="slds-text-heading_small slds-col slds-grow">Geospatial Distribution</span>
+                        <lightning-button-icon
+                            icon-name={clusterIcon}
+                            size="small"
+                            variant="border"
+                            alternative-text={clusterLabel}
+                            title={clusterLabel}
+                            class="slds-m-right_x-small"
+                            onclick={handleClusterToggle}>
+                        </lightning-button-icon>
+                        <template if:true={isSelectionMode}>
+                            <span class="slds-badge slds-m-right_x-small">
+                                <lightning-icon icon-name="utility:location" size="xx-small" class="slds-m-right_xx-small"></lightning-icon>
+                                {selectedSiteName}
+                            </span>
+                            <lightning-button-icon
+                                icon-name="utility:close"
+                                size="small"
+                                variant="bare"
+                                alternative-text="Clear selection"
+                                title="Clear selection"
+                                onclick={handleClearSelection}>
+                            </lightning-button-icon>
+                        </template>
+                    </div>
+                    <template if:true={hasMapMarkers}>
+                        <lightning-map
+                            map-markers={mapMarkers}
+                            markers-title="Proposed Sites"
+                            list-view={mapListView}>
+                        </lightning-map>
+                    </template>
+                    <template if:false={hasMapMarkers}>
+                        <div class="slds-text-body_small slds-text-color_weak slds-p-around_small">
+                            Loading map data...
+                        </div>
+                    </template>
+                </div>
+            </div>
+        </div>
+    </lightning-card>
+</template>

@@ -1,0 +1,431 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GenAiPromptTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <activeVersionIdentifier>L98ZaMTfVRuyCpWeC+GWWZ1Bbg9SQ3rKIYJ/+5SKVOg=_11</activeVersionIdentifier>
+    <developerName>Store_Agent_Summary</developerName>
+    <masterLabel>Store Agent Summary</masterLabel>
+    <overridable>false</overridable>
+    <templateVersions>
+        <content>You are a retail expansion analyst. Analyse the data below for {!$Input:RetailStore.Name}.
+
+{!$Apex:StoreContextForPromptAction.storeContext}
+
+Respond in EXACTLY this format. Plain text only. No markdown, no HTML, no extra headings.
+
+READINESS: [One sentence on overall expansion readiness based on demand score, EBITDA margin, and payback period.]
+
+TOP SITES:
+- [Site name]: [One-sentence assessment based on competition level, confidence, and status.]
+- [Repeat for every site in the data.]
+
+COMPETITION RISKS:
+- [Key risk derived from competition activity and impact data.]
+- [Add more risks as supported by the data.]
+
+ACTIONS:
+1. [Immediate action — within 30 days.]
+2. [Short-term action — 0 to 6 months.]
+3. [Medium-term action — 6 to 12 months.]
+
+</content>
+        <fileDroppingStrategy>{&quot;dropFilesBy&quot;:&quot;LAST_MODIFIED_DATE&quot;,&quot;dropFileStartingWith&quot;:&quot;OLDEST&quot;}</fileDroppingStrategy>
+        <inputs>
+            <apiName>RetailStore</apiName>
+            <definition>SOBJECT://RetailStore</definition>
+            <masterLabel>RetailStore</masterLabel>
+            <referenceName>Input:RetailStore</referenceName>
+            <required>true</required>
+        </inputs>
+        <isCitationEnabled>false</isCitationEnabled>
+        <primaryModel>sfdc_ai__DefaultGPT5Mini</primaryModel>
+        <status>Published</status>
+        <templateDataProviders>
+            <definition>apex://StoreContextForPromptAction</definition>
+            <description>Queries a retail store by name along with its sites and field visits, and returns a structured plain-text block ready to inject into an Einstein Prompt Template.</description>
+            <label>Get Store Context For Prompt</label>
+            <parameters>
+                <definition>primitive://String</definition>
+                <isRequired>true</isRequired>
+                <parameterName>storeName</parameterName>
+                <valueExpression>{!$Input:RetailStore.Name}</valueExpression>
+            </parameters>
+            <referenceName>Apex:StoreContextForPromptAction</referenceName>
+        </templateDataProviders>
+        <versionIdentifier>L98ZaMTfVRuyCpWeC+GWWZ1Bbg9SQ3rKIYJ/+5SKVOg=_4</versionIdentifier>
+    </templateVersions>
+    <templateVersions>
+        <content>You are a retail expansion analyst. Analyze the data below for {!$Input:RetailStore.Name}.
+
+{!$Apex:StoreContextForPromptAction.storeContext}
+
+Respond in EXACTLY this format. Use **bold** (markdown) only for names and labels as shown below. No HTML, no extra headings.
+
+**READINESS:** [One sentence on overall expansion readiness based on demand score, EBITDA margin, and payback period.]
+
+**TOP SITES:**
+- **[Site name]:** [One-sentence assessment based on competition level, confidence, and status.]
+- [Repeat for every site in the data.]
+
+**COMPETITION RISKS:**
+- **[Risk label]:** [Key risk derived from competition activity and impact data.]
+- [Add more risks as supported by the data.]
+
+**ACTIONS:**
+1. **Immediate (within 30 days):** [Immediate action.]
+2. **Short-term (0–6 months):** [Short-term action.]
+3. **Medium-term (6–12 months):** [Medium-term action.]
+</content>
+        <fileDroppingStrategy>{&quot;dropFilesBy&quot;:&quot;LAST_MODIFIED_DATE&quot;,&quot;dropFileStartingWith&quot;:&quot;OLDEST&quot;}</fileDroppingStrategy>
+        <inputs>
+            <apiName>RetailStore</apiName>
+            <definition>SOBJECT://RetailStore</definition>
+            <masterLabel>RetailStore</masterLabel>
+            <referenceName>Input:RetailStore</referenceName>
+            <required>true</required>
+        </inputs>
+        <isCitationEnabled>false</isCitationEnabled>
+        <primaryModel>sfdc_ai__DefaultGPT5Mini</primaryModel>
+        <status>Published</status>
+        <templateDataProviders>
+            <definition>apex://StoreContextForPromptAction</definition>
+            <description>Queries a retail store by name along with its sites and field visits, and returns a structured plain-text block ready to inject into an Einstein Prompt Template.</description>
+            <label>Get Store Context For Prompt</label>
+            <parameters>
+                <definition>primitive://String</definition>
+                <isRequired>true</isRequired>
+                <parameterName>storeName</parameterName>
+                <valueExpression>{!$Input:RetailStore.Name}</valueExpression>
+            </parameters>
+            <referenceName>Apex:StoreContextForPromptAction</referenceName>
+        </templateDataProviders>
+        <versionIdentifier>L98ZaMTfVRuyCpWeC+GWWZ1Bbg9SQ3rKIYJ/+5SKVOg=_5</versionIdentifier>
+    </templateVersions>
+    <templateVersions>
+        <content>You are a retail expansion analyst. Analyze the data below for {!$Input:RetailStore.Name}.
+
+{!$Apex:StoreContextForPromptAction.storeContext}
+
+Respond ONLY with a valid JSON object. No markdown, no plain text, no extra explanation outside the JSON.
+
+Use EXACTLY this structure:
+
+{
+ &quot;store&quot;: {
+  &quot;name&quot;: &quot;[Store name]&quot;,
+  &quot;demandScore&quot;: &quot;[Value]&quot;,
+  &quot;ebitdaMargin&quot;: &quot;[Value]&quot;,
+  &quot;paybackPeriod&quot;: &quot;[Value]&quot;
+ },
+ &quot;sites&quot;: [
+  {
+   &quot;name&quot;: &quot;[Site name]&quot;,
+   &quot;status&quot;: &quot;[Status]&quot;,
+   &quot;competitionLevel&quot;: &quot;[Low | Medium | High]&quot;,
+   &quot;confidence&quot;: &quot;[Value]&quot;,
+   &quot;assessment&quot;: &quot;[One-sentence assessment]&quot;
+  }
+ ],
+ &quot;visits&quot;: [
+  {
+   &quot;site&quot;: &quot;[Site name]&quot;,
+   &quot;date&quot;: &quot;[Visit date]&quot;,
+   &quot;outcome&quot;: &quot;[Brief outcome or observation from the visit]&quot;
+  }
+ ],
+ &quot;summary&quot;: {
+  &quot;readiness&quot;: &quot;[One sentence on overall expansion readiness based on demand score, EBITDA margin, and payback period.]&quot;,
+  &quot;competitionRisks&quot;: [
+   {
+    &quot;label&quot;: &quot;[Risk label]&quot;,
+    &quot;detail&quot;: &quot;[Risk detail derived from competition activity and impact data]&quot;
+   }
+  ],
+  &quot;actions&quot;: [
+   {
+    &quot;timeline&quot;: &quot;Immediate (within 30 days)&quot;,
+    &quot;action&quot;: &quot;[Immediate action]&quot;
+   },
+   {
+    &quot;timeline&quot;: &quot;Short-term (0–6 months)&quot;,
+    &quot;action&quot;: &quot;[Short-term action]&quot;
+   },
+   {
+    &quot;timeline&quot;: &quot;Medium-term (6–12 months)&quot;,
+    &quot;action&quot;: &quot;[Medium-term action]&quot;
+   }
+  ]
+ }
+}
+</content>
+        <fileDroppingStrategy>{&quot;dropFilesBy&quot;:&quot;LAST_MODIFIED_DATE&quot;,&quot;dropFileStartingWith&quot;:&quot;OLDEST&quot;}</fileDroppingStrategy>
+        <inputs>
+            <apiName>RetailStore</apiName>
+            <definition>SOBJECT://RetailStore</definition>
+            <masterLabel>RetailStore</masterLabel>
+            <referenceName>Input:RetailStore</referenceName>
+            <required>true</required>
+        </inputs>
+        <isCitationEnabled>false</isCitationEnabled>
+        <primaryModel>sfdc_ai__DefaultGPT5Mini</primaryModel>
+        <status>Published</status>
+        <templateDataProviders>
+            <definition>apex://StoreContextForPromptAction</definition>
+            <description>Queries a retail store by name along with its sites and field visits, and returns a structured plain-text block ready to inject into an Einstein Prompt Template.</description>
+            <label>Get Store Context For Prompt</label>
+            <parameters>
+                <definition>primitive://String</definition>
+                <isRequired>true</isRequired>
+                <parameterName>storeName</parameterName>
+                <valueExpression>{!$Input:RetailStore.Name}</valueExpression>
+            </parameters>
+            <referenceName>Apex:StoreContextForPromptAction</referenceName>
+        </templateDataProviders>
+        <versionIdentifier>L98ZaMTfVRuyCpWeC+GWWZ1Bbg9SQ3rKIYJ/+5SKVOg=_6</versionIdentifier>
+    </templateVersions>
+    <templateVersions>
+        <content>You are a retail expansion analyst. Analyze the data below for {!$Input:RetailStore.Name}.
+
+{!$Apex:StoreContextForPromptAction.storeContext}
+
+Respond ONLY with a valid JSON object. No markdown, no plain text, no extra explanation outside the JSON.
+
+Use EXACTLY this structure:
+
+{
+ &quot;store&quot;: {
+  &quot;name&quot;: &quot;[Store name]&quot;,
+  &quot;demandScore&quot;: &quot;[Value]&quot;,
+  &quot;ebitdaMargin&quot;: &quot;[Value]&quot;,
+  &quot;paybackPeriod&quot;: &quot;[Value]&quot;
+ },
+ &quot;sites&quot;: [
+  {
+   &quot;name&quot;: &quot;[Site name]&quot;,
+   &quot;status&quot;: &quot;[Status]&quot;,
+   &quot;competitionLevel&quot;: &quot;[Low | Medium | High]&quot;,
+   &quot;confidence&quot;: &quot;[Value]&quot;,
+   &quot;assessment&quot;: &quot;[One-sentence assessment]&quot;
+  }
+ ],
+ &quot;visits&quot;: [
+  {
+   &quot;site&quot;: &quot;[Site name]&quot;,
+   &quot;date&quot;: &quot;[Visit date]&quot;,
+   &quot;outcome&quot;: &quot;[Brief outcome or observation from the visit]&quot;
+  }
+ ],
+ &quot;summary&quot;: {
+  &quot;readiness&quot;: &quot;[One sentence on overall expansion readiness based on demand score, EBITDA margin, and payback period.]&quot;,
+  &quot;competitionRisks&quot;: [
+   {
+    &quot;label&quot;: &quot;[Risk label]&quot;,
+    &quot;detail&quot;: &quot;[Risk detail derived from competition activity and impact data]&quot;
+   }
+  ],
+  &quot;actions&quot;: [
+   {
+    &quot;timeline&quot;: &quot;Immediate (within 30 days)&quot;,
+    &quot;action&quot;: &quot;[Immediate action]&quot;
+   },
+   {
+    &quot;timeline&quot;: &quot;Short-term (0–6 months)&quot;,
+    &quot;action&quot;: &quot;[Short-term action]&quot;
+   },
+   {
+    &quot;timeline&quot;: &quot;Medium-term (6–12 months)&quot;,
+    &quot;action&quot;: &quot;[Medium-term action]&quot;
+   }
+  ]
+ }
+}
+</content>
+        <fileDroppingStrategy>{&quot;dropFilesBy&quot;:&quot;LAST_MODIFIED_DATE&quot;,&quot;dropFileStartingWith&quot;:&quot;OLDEST&quot;}</fileDroppingStrategy>
+        <inputs>
+            <apiName>RetailStore</apiName>
+            <definition>SOBJECT://RetailStore</definition>
+            <masterLabel>RetailStore</masterLabel>
+            <referenceName>Input:RetailStore</referenceName>
+            <required>true</required>
+        </inputs>
+        <isCitationEnabled>false</isCitationEnabled>
+        <primaryModel>sfdc_ai__DefaultVertexAIGeminiPro25</primaryModel>
+        <status>Published</status>
+        <templateDataProviders>
+            <definition>apex://StoreContextForPromptAction</definition>
+            <description>Queries a retail store by name along with its sites and field visits, and returns a structured plain-text block ready to inject into an Einstein Prompt Template.</description>
+            <label>Get Store Context For Prompt</label>
+            <parameters>
+                <definition>primitive://String</definition>
+                <isRequired>true</isRequired>
+                <parameterName>storeName</parameterName>
+                <valueExpression>{!$Input:RetailStore.Name}</valueExpression>
+            </parameters>
+            <referenceName>Apex:StoreContextForPromptAction</referenceName>
+        </templateDataProviders>
+        <versionIdentifier>L98ZaMTfVRuyCpWeC+GWWZ1Bbg9SQ3rKIYJ/+5SKVOg=_10</versionIdentifier>
+    </templateVersions>
+    <templateVersions>
+        <content>You are a retail expansion analyst. Analyze the data below for {!$Input:RetailStore.Name}.
+
+{!$Apex:StoreContextForPromptAction.storeContext}
+
+Respond ONLY with a valid JSON object. No markdown, no plain text, no extra explanation outside the JSON.
+
+Use EXACTLY this structure:
+
+{
+ &quot;store&quot;: {
+  &quot;name&quot;: &quot;[Store name]&quot;,
+  &quot;demandScore&quot;: &quot;[Value]&quot;,
+  &quot;ebitdaMargin&quot;: &quot;[Value]&quot;,
+  &quot;paybackPeriod&quot;: &quot;[Value]&quot;
+ },
+ &quot;sites&quot;: [
+  {
+   &quot;name&quot;: &quot;[Site name]&quot;,
+   &quot;status&quot;: &quot;[Status]&quot;,
+   &quot;competitionLevel&quot;: &quot;[Low | Medium | High]&quot;,
+   &quot;confidence&quot;: &quot;[Value]&quot;,
+   &quot;assessment&quot;: &quot;[One-sentence assessment]&quot;
+  }
+ ],
+ &quot;visits&quot;: [
+  {
+   &quot;site&quot;: &quot;[Site name]&quot;,
+   &quot;date&quot;: &quot;[Visit date]&quot;,
+   &quot;outcome&quot;: &quot;[Brief outcome or observation from the visit]&quot;
+  }
+ ],
+ &quot;summary&quot;: {
+  &quot;readiness&quot;: &quot;[One sentence on overall expansion readiness based on demand score, EBITDA margin, and payback period.]&quot;,
+  &quot;competitionRisks&quot;: [
+   {
+    &quot;label&quot;: &quot;[Risk label]&quot;,
+    &quot;detail&quot;: &quot;[Risk detail derived from competition activity and impact data]&quot;
+   }
+  ],
+  &quot;actions&quot;: [
+   {
+    &quot;timeline&quot;: &quot;Immediate (within 30 days)&quot;,
+    &quot;action&quot;: &quot;[Immediate action]&quot;
+   },
+   {
+    &quot;timeline&quot;: &quot;Short-term (0–6 months)&quot;,
+    &quot;action&quot;: &quot;[Short-term action]&quot;
+   },
+   {
+    &quot;timeline&quot;: &quot;Medium-term (6–12 months)&quot;,
+    &quot;action&quot;: &quot;[Medium-term action]&quot;
+   }
+  ]
+ }
+}
+</content>
+        <fileDroppingStrategy>{&quot;dropFilesBy&quot;:&quot;LAST_MODIFIED_DATE&quot;,&quot;dropFileStartingWith&quot;:&quot;OLDEST&quot;}</fileDroppingStrategy>
+        <inputs>
+            <apiName>RetailStore</apiName>
+            <definition>SOBJECT://RetailStore</definition>
+            <masterLabel>RetailStore</masterLabel>
+            <referenceName>Input:RetailStore</referenceName>
+            <required>true</required>
+        </inputs>
+        <isCitationEnabled>false</isCitationEnabled>
+        <primaryModel>sfdc_ai__DefaultVertexAIGemini25FlashLite001</primaryModel>
+        <status>Published</status>
+        <templateDataProviders>
+            <definition>apex://StoreContextForPromptAction</definition>
+            <description>Queries a retail store by name along with its sites and field visits, and returns a structured plain-text block ready to inject into an Einstein Prompt Template.</description>
+            <label>Get Store Context For Prompt</label>
+            <parameters>
+                <definition>primitive://String</definition>
+                <isRequired>true</isRequired>
+                <parameterName>storeName</parameterName>
+                <valueExpression>{!$Input:RetailStore.Name}</valueExpression>
+            </parameters>
+            <referenceName>Apex:StoreContextForPromptAction</referenceName>
+        </templateDataProviders>
+        <versionIdentifier>L98ZaMTfVRuyCpWeC+GWWZ1Bbg9SQ3rKIYJ/+5SKVOg=_8</versionIdentifier>
+    </templateVersions>
+    <templateVersions>
+        <content>You are a retail expansion analyst. Analyze the data below for {!$Input:RetailStore.Name}.
+
+{!$Apex:StoreContextForPromptAction.storeContext}
+
+Respond ONLY with a valid JSON object. No markdown, no plain text, no extra explanation outside the JSON. Avoid ```json at start and ``` at end in the raw response
+Use EXACTLY this structure:
+
+{
+ &quot;store&quot;: {
+  &quot;name&quot;: &quot;[Store name]&quot;,
+  &quot;demandScore&quot;: &quot;[Value]&quot;,
+  &quot;ebitdaMargin&quot;: &quot;[Value]&quot;,
+  &quot;paybackPeriod&quot;: &quot;[Value]&quot;
+ },
+ &quot;sites&quot;: [
+  {
+   &quot;name&quot;: &quot;[Site name]&quot;,
+   &quot;status&quot;: &quot;[Status]&quot;,
+   &quot;competitionLevel&quot;: &quot;[Low | Medium | High]&quot;,
+   &quot;confidence&quot;: &quot;[Value]&quot;,
+   &quot;assessment&quot;: &quot;[One-sentence assessment]&quot;
+  }
+ ],
+ &quot;visits&quot;: [
+  {
+   &quot;site&quot;: &quot;[Site name]&quot;,
+   &quot;date&quot;: &quot;[Visit date]&quot;,
+   &quot;outcome&quot;: &quot;[Brief outcome or observation from the visit]&quot;
+  }
+ ],
+ &quot;summary&quot;: {
+  &quot;readiness&quot;: &quot;[One sentence on overall expansion readiness based on demand score, EBITDA margin, and payback period.]&quot;,
+  &quot;competitionRisks&quot;: [
+   {
+    &quot;label&quot;: &quot;[Risk label]&quot;,
+    &quot;detail&quot;: &quot;[Risk detail derived from competition activity and impact data]&quot;
+   }
+  ],
+  &quot;actions&quot;: [
+   {
+    &quot;timeline&quot;: &quot;Immediate (within 30 days)&quot;,
+    &quot;action&quot;: &quot;[Immediate action]&quot;
+   },
+   {
+    &quot;timeline&quot;: &quot;Short-term (0–6 months)&quot;,
+    &quot;action&quot;: &quot;[Short-term action]&quot;
+   },
+   {
+    &quot;timeline&quot;: &quot;Medium-term (6–12 months)&quot;,
+    &quot;action&quot;: &quot;[Medium-term action]&quot;
+   }
+  ]
+ }
+}
+</content>
+        <fileDroppingStrategy>{&quot;dropFilesBy&quot;:&quot;LAST_MODIFIED_DATE&quot;,&quot;dropFileStartingWith&quot;:&quot;OLDEST&quot;}</fileDroppingStrategy>
+        <inputs>
+            <apiName>RetailStore</apiName>
+            <definition>SOBJECT://RetailStore</definition>
+            <masterLabel>RetailStore</masterLabel>
+            <referenceName>Input:RetailStore</referenceName>
+            <required>true</required>
+        </inputs>
+        <isCitationEnabled>false</isCitationEnabled>
+        <primaryModel>sfdc_ai__DefaultBedrockAnthropicClaude47Opus</primaryModel>
+        <status>Published</status>
+        <templateDataProviders>
+            <definition>apex://StoreContextForPromptAction</definition>
+            <description>Queries a retail store by name along with its sites and field visits, and returns a structured plain-text block ready to inject into an Einstein Prompt Template.</description>
+            <label>Get Store Context For Prompt</label>
+            <parameters>
+                <definition>primitive://String</definition>
+                <isRequired>true</isRequired>
+                <parameterName>storeName</parameterName>
+                <valueExpression>{!$Input:RetailStore.Name}</valueExpression>
+            </parameters>
+            <referenceName>Apex:StoreContextForPromptAction</referenceName>
+        </templateDataProviders>
+        <versionIdentifier>L98ZaMTfVRuyCpWeC+GWWZ1Bbg9SQ3rKIYJ/+5SKVOg=_11</versionIdentifier>
+    </templateVersions>
+    <type>einstein_gpt__flex</type>
+    <visibility>Global</visibility>
+</GenAiPromptTemplate>

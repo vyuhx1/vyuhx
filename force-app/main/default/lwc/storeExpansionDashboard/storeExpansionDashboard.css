@@ -1,0 +1,238 @@
+/* lightning-map — tall enough to show map + optional list view */
+lightning-map {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+
+}
+
+/* Two-column layout: neutralise slds-gutters negative margins that cause card overflow */
+.two-col-layout {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    box-sizing: border-box;
+    width: 100%;
+}
+
+/* Both columns must stay within their allocated flex width */
+.two-col-layout > .slds-col {
+    min-width: 0;
+    box-sizing: border-box;
+}
+
+/* Map column: prevent the lightning-map from overflowing its allocated width */
+.map-col {
+    min-width: 0 !important;
+    max-width: 100%;
+    box-sizing: border-box;
+
+}
+.maxHeight{
+    max-width: 100%;
+    box-sizing: border-box;
+}
+
+.two-col-layout > .slds-col {
+    min-width: 0 !important;
+    max-width: 100%;
+    box-sizing: border-box;
+}
+
+
+/* ── KPI Tiles ─────────────────────────────────────────────── */
+.kpi-tile {
+    display: flex;
+    align-items: center;
+    background: #ffffff;
+    border-radius: 8px;
+    padding: 14px 16px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.10);
+    gap: 14px;
+    min-height: 72px;
+}
+
+.kpi-icon-wrap {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+
+.kpi-blue  { background: #e8f4fd; color: #0176d3; }
+.kpi-green { background: #e3f5ec; color: #2e844a; }
+.kpi-purple{ background: #f3eefb; color: #7b5ea7; }
+.kpi-orange{ background: #fef3e2; color: #c96a00; }
+
+.kpi-body { display: flex; flex-direction: column; }
+
+.kpi-value {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: #080707;
+    line-height: 1.2;
+}
+
+.kpi-label {
+    font-size: 0.75rem;
+    color: #706e6b;
+    margin-top: 2px;
+}
+
+/* ── Visit Summary Pills ────────────────────────────────────── */
+.visit-pill {
+    display: inline-block;
+    padding: 3px 10px;
+    border-radius: 12px;
+    font-size: 11px;
+    font-weight: 600;
+    margin-left: 4px;
+    white-space: nowrap;
+}
+.pill-completed { background: #e3f5ec; color: #2e844a; }
+.pill-progress  { background: #e8f4fd; color: #0176d3; }
+.pill-planned   { background: #f3f3f3; color: #444444; }
+.pill-cancelled { background: #fde8e8; color: #ba0517; }
+
+/* ── Urgency Badges ─────────────────────────────────────────── */
+.urgency-badge {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 10px;
+    font-size: 11px;
+    font-weight: 700;
+    margin-right: 4px;
+}
+.urgency-overdue { background: #ba0517; color: #fff; }
+.urgency-soon    { background: #c96a00; color: #fff; }
+
+.notify-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 1.5rem;
+    height: 1.5rem;
+    border: 1px solid #d8dde6;
+    border-radius: 50%;
+    background: #fff;
+    cursor: pointer;
+    padding: 0;
+    transition: background 0.15s;
+}
+.notify-btn:hover:not(:disabled) { background: #e8f0fe; }
+.notify-btn:disabled { opacity: 0.5; cursor: not-allowed; }
+
+/* ── Visit tile right column (vertical stack) ───────────────── */
+.visit-right-col {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 5px;
+    flex-shrink: 0;
+    margin-left: 8px;
+}
+.visit-urgency-row {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+.visit-status-row {
+    display: flex;
+    align-items: center;
+}
+
+/* ── Visit filter dropdown (inline with header) ─────────────── */
+.visit-filter-wrap {
+    margin-left: 6px;
+    width: 130px;
+}
+
+/* ── Visit Cards ────────────────────────────────────────────── */
+.visit-card {
+    background: #ffffff;
+    border-radius: 4px;
+    border-left: 4px solid #dddbda;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+/* ── Status Badges ──────────────────────────────────────────── */
+.status-badge {
+    display: inline-block;
+    padding: 3px 12px;
+    border-radius: 12px;
+    font-size: 12px;
+    font-weight: 600;
+    white-space: nowrap;
+}
+.status-completed  { background-color: #4bca81; color: #ffffff; }
+.status-in-progress{ background-color: #0176d3; color: #ffffff; }
+.status-cancelled  { background-color: #ba0517; color: #ffffff; }
+.status-planned    { background-color: #747474; color: #ffffff; }
+
+/* ── Competition cell badges ────────────────────────────────── */
+.comp-badge {
+    display: inline-block;
+    padding: 2px 10px;
+    border-radius: 10px;
+    font-size: 11px;
+    font-weight: 600;
+}
+.comp-low    { background: #e3f5ec; color: #2e844a; }
+.comp-medium { background: #fef3e2; color: #c96a00; }
+.comp-high   { background: #fde8e8; color: #ba0517; }
+
+/* ── Custom Sites Table ─────────────────────────────────────── */
+.sites-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+}
+.sites-table thead th {
+    background: #f3f2f2;
+    font-size: 12px;
+    font-weight: 700;
+    color: #444444;
+    padding: 8px 10px;
+    text-align: left;
+    white-space: nowrap;
+}
+.sites-table tbody tr:hover td {
+    background: #f8f8f8;
+}
+.sites-table tbody td {
+    padding: 8px 10px;
+    vertical-align: middle;
+    border-bottom: 1px solid #e8e8e8;
+}
+.col-name    { width: 26%; }
+.col-score   { width: 20%; }
+.col-revenue { width: 16%; }
+.col-payback { width: 10%; }
+.col-comp    { width: 12%; }
+.col-actions { width: 16%; }
+.col-actions-cell { text-align: right; white-space: nowrap; }
+
+.site-name-link {
+    color: #0176d3;
+    font-weight: 600;
+    text-decoration: none;
+}
+.site-name-link:hover { text-decoration: underline; }
+
+/* ── Demand Score Bar ───────────────────────────────────────── */
+.demand-score-label {
+    display: inline-block;
+    font-size: 11px;
+    color: #706e6b;
+    margin-top: 2px;
+}
+
+/* ── Expandable Detail Row ──────────────────────────────────── */
+.expanded-detail-row td {
+    background: #f3f8fe;
+    border-top: 2px solid #0176d3;
+    padding: 16px;
+}

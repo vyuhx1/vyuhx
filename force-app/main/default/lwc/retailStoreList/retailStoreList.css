@@ -1,0 +1,57 @@
+/* ── Store carousel navigation ──────────────────────────── */
+.store-nav-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: linear-gradient(135deg, #f0f5ff 0%, #e8f0fe 100%);
+    border: 1px solid #c9d9f8;
+    border-radius: 10px;
+    padding: 0.5rem 0.75rem;
+    margin-bottom: 1rem;
+}
+
+.store-nav-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2rem;
+    height: 2rem;
+    border: 1px solid #c9d9f8;
+    border-radius: 50%;
+    background: #ffffff;
+    box-shadow: 0 1px 4px rgba(1, 118, 211, 0.15);
+    cursor: pointer;
+    transition: background 0.15s, box-shadow 0.15s, border-color 0.15s;
+    color: #0176d3;
+    padding: 0;
+}
+
+.store-nav-btn:hover:not(:disabled) {
+    background: #0176d3;
+    border-color: #0176d3;
+    box-shadow: 0 2px 8px rgba(1, 118, 211, 0.35);
+    color: #ffffff;
+}
+
+.store-nav-btn:disabled {
+    opacity: 0.35;
+    cursor: not-allowed;
+    box-shadow: none;
+}
+
+.store-nav-center {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+}
+
+.store-nav-icon {
+    --lwc-colorTextIconDefault: #0176d3;
+}
+
+.store-nav-label {
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: #0176d3;
+    letter-spacing: 0.03em;
+}

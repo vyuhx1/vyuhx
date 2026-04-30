@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GenAiFunction xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Returns visit details for the currently logged-in user. Produces both a plain-text summary and a rich VisitResponseDTO for the Lightning Type card renderer.</description>
+    <developerName>Get_My_Visits</developerName>
+    <invocationTarget>GetMyVisitsAction</invocationTarget>
+    <invocationTargetType>apex</invocationTargetType>
+    <isConfirmationRequired>false</isConfirmationRequired>
+    <isIncludeInProgressIndicator>true</isIncludeInProgressIndicator>
+    <localDeveloperName>Get_My_Visits</localDeveloperName>
+    <masterLabel>Get My Visits</masterLabel>
+    <progressIndicatorMessage>Default</progressIndicatorMessage>
+</GenAiFunction>

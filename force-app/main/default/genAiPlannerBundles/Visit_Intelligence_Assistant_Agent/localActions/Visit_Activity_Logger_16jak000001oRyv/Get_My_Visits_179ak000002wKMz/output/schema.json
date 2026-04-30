@@ -1,0 +1,25 @@
+{
+  "unevaluatedProperties" : false,
+  "properties" : {
+    "visitResponse" : {
+      "title" : "Visit Response",
+      "description" : "Structured VisitResponseDTO rendered by the My Visits Lightning Type card (myVisitDetails LWC).",
+      "lightning:type" : "c__My_Visits_Response",
+      "lightning:isPII" : false,
+      "copilotAction:isDisplayable" : true,
+      "copilotAction:isUsedByPlanner" : true,
+      "copilotAction:useHydratedPrompt" : false
+    },
+    "visitSummary" : {
+      "title" : "Visit Summary",
+      "description" : "Plain-text summary of visits assigned to the running user, ready for the agent to speak back.",
+      "lightning:type" : "lightning__textType",
+      "lightning:isPII" : false,
+      "copilotAction:isDisplayable" : false,
+      "copilotAction:isUsedByPlanner" : true,
+      "copilotAction:useHydratedPrompt" : false
+    }
+  },
+  "lightning:type" : "lightning__objectType",
+  "lightning:textIndexed" : true
+}

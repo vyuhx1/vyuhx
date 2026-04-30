@@ -1,0 +1,99 @@
+<template>
+    <div class="dashboard-shell">
+
+        <!-- Header bar -->
+        <div class="dashboard-header">
+            <div class="header-left">
+                <lightning-icon icon-name="standard:timesheet" size="small" class="slds-m-right_x-small"></lightning-icon>
+                <span class="header-title">My Visit Schedule</span>
+            </div>
+            <div class="header-right">
+                <span class="visit-counter">{currentIndexDisplay} of {totalVisits} visits</span>
+            </div>
+        </div>
+
+        <!-- Stats bar -->
+        <template if:true={hasVisits}>
+            <div class="stats-bar">
+                <div class="stat-tile stat-inprogress">
+                    <div class="stat-val">{inProgressCount}</div>
+                    <div class="stat-lbl">In Progress</div>
+                </div>
+                <div class="stat-tile stat-planned">
+                    <div class="stat-val">{plannedCount}</div>
+                    <div class="stat-lbl">Planned</div>
+                </div>
+                <div class="stat-tile stat-completed">
+                    <div class="stat-val">{completedCount}</div>
+                    <div class="stat-lbl">Completed</div>
+                </div>
+            </div>
+        </template>
+
+        <!-- Loading -->
+        <template if:true={isLoading}>
+            <div class="loading-box">
+                <lightning-spinner alternative-text="Loading visits..." size="medium"></lightning-spinner>
+            </div>
+        </template>
+
+        <!-- Error -->
+        <template if:true={hasError}>
+            <div class="empty-state">
+                <lightning-icon icon-name="utility:error" size="medium" variant="error"></lightning-icon>
+                <p>Unable to load visits. Check browser console for details.</p>
+            </div>
+        </template>
+
+        <!-- Empty -->
+        <template if:true={isEmpty}>
+            <div class="empty-state">
+                <lightning-icon icon-name="utility:check" size="large" variant="success"></lightning-icon>
+                <p class="empty-title">All caught up!</p>
+                <p class="empty-sub">No upcoming visits assigned to you.</p>
+            </div>
+        </template>
+
+        <!-- Main content: card left, map right -->
+        <template if:true={hasVisits}>
+            <div class="dashboard-body">
+
+                <!-- Left: visit detail card + nav -->
+                <div class="left-panel">
+                    <c-visit-dashboard-card visit={currentVisit}></c-visit-dashboard-card>
+
+                    <!-- Prev / Next -->
+                    <div class="nav-row">
+                        <button class="nav-btn" onclick={handlePrev} disabled={isFirst}>
+                            &#8249;
+                        </button>
+                        <span class="nav-label">{currentIndexDisplay} / {totalVisits}</span>
+                        <button class="nav-btn" onclick={handleNext} disabled={isLast}>
+                            &#8250;
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Right: map -->
+                <div class="right-panel">
+                    <template if:true={hasMapPin}>
+                        <lightning-map
+                            map-markers={mapMarkers}
+                            zoom-level="14"
+                            class="visit-map"
+                            list-view="hidden">
+                        </lightning-map>
+                    </template>
+                    <template if:false={hasMapPin}>
+                        <div class="no-map">
+                            <lightning-icon icon-name="utility:location" size="large" variant="inverse"></lightning-icon>
+                            <p>No location data for this visit.</p>
+                        </div>
+                    </template>
+                </div>
+
+            </div>
+        </template>
+
+    </div>
+</template>

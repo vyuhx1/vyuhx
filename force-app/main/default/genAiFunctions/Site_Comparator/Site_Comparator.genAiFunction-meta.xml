@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GenAiFunction xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>The &quot;Head-to-Head&quot; Site Comparator
+**Goal:** Evaluate two competing locations side-by-side.</description>
+    <developerName>Site_Comparator</developerName>
+    <invocationTarget>Site_Comparator</invocationTarget>
+    <invocationTargetType>generatePromptResponse</invocationTargetType>
+    <isConfirmationRequired>false</isConfirmationRequired>
+    <isIncludeInProgressIndicator>false</isIncludeInProgressIndicator>
+    <localDeveloperName>Site_Comparator</localDeveloperName>
+    <masterLabel>Site Comparator</masterLabel>
+</GenAiFunction>

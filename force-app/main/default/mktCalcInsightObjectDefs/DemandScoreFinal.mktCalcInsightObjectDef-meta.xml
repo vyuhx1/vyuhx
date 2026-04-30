@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<MktCalcInsightObjectDef xmlns="http://soap.sforce.com/2006/04/metadata">
+    <creationType>Custom</creationType>
+    <expression>SELECT
+    Demographic_Data__dlm.UniqueId__c AS UniqueId__c,
+    Demographic_Data__dlm.Pincode__c AS Pincode__c,
+    Demographic_Data__dlm.Area__c AS Area__c,
+    Demographic_Data__dlm.SubArea__c AS SubArea__c,
+    Demographic_Data__dlm.City__c AS City__c,
+
+    MAX(
+        (CASE WHEN ((Demographic_Data__dlm.Total_Population__c / 500000.0) * 100) &gt; 100 THEN 100 ELSE ((Demographic_Data__dlm.Total_Population__c / 500000.0) * 100) END * 0.20)
+        +
+        (CASE WHEN (Demographic_Data__dlm.Age_25_44__c / Demographic_Data__dlm.Total_Population__c * 100) &gt; 100 THEN 100 ELSE (Demographic_Data__dlm.Age_25_44__c / Demographic_Data__dlm.Total_Population__c * 100) END * 0.15)
+        +
+        (CASE WHEN ((Demographic_Data__dlm.Workforce_Participation__c * 0.6) + (Demographic_Data__dlm.Office_Workers__c * 0.4)) &gt; 100 THEN 100 ELSE ((Demographic_Data__dlm.Workforce_Participation__c * 0.6) + (Demographic_Data__dlm.Office_Workers__c * 0.4)) END * 0.15)
+        +
+        (CASE WHEN ((Demographic_Data__dlm.Population_Growth_Rate__c * 0.4) + (Demographic_Data__dlm.Household_Growth_Rate__c * 0.4) + (Demographic_Data__dlm.Migration_Inflow_Rate__c * 0.2)) &gt; 100 THEN 100 ELSE ((Demographic_Data__dlm.Population_Growth_Rate__c * 0.4) + (Demographic_Data__dlm.Household_Growth_Rate__c * 0.4) + (Demographic_Data__dlm.Migration_Inflow_Rate__c * 0.2)) END * 0.15)
+        +
+        (CASE WHEN ((Demographic_Data__dlm.Literacy_Rate__c + ((Demographic_Data__dlm.Population_Density_per_sq_km__c / 30000.0) * 100)) / 2) &gt; 100 THEN 100 ELSE ((Demographic_Data__dlm.Literacy_Rate__c + ((Demographic_Data__dlm.Population_Density_per_sq_km__c / 30000.0) * 100)) / 2) END * 0.10)
+        +
+        (CASE WHEN Demographic_Data__dlm.Literacy_Rate__c &gt; 100 THEN 100 ELSE Demographic_Data__dlm.Literacy_Rate__c END * 0.25)
+    ) * 0.65
+    AS Demographic_Score__c,
+
+    CASE WHEN AVG(
+        ((Footfall_Metrics__dlm.Net_Footfall_Count__c / NULLIF(Footfall_Metrics__dlm.Time_Interval_Minutes__c, 0)) / 20.0 * 100 * 0.50)
+        + (Footfall_Metrics__dlm.Mobility_Intensity_Score__c * 0.30)
+        + (Footfall_Metrics__dlm.Capture_Confidence_Score__c * 0.20)
+    ) &gt; 100 THEN 100
+    ELSE AVG(
+        ((Footfall_Metrics__dlm.Net_Footfall_Count__c / NULLIF(Footfall_Metrics__dlm.Time_Interval_Minutes__c, 0)) / 20.0 * 100 * 0.50)
+        + (Footfall_Metrics__dlm.Mobility_Intensity_Score__c * 0.30)
+        + (Footfall_Metrics__dlm.Capture_Confidence_Score__c * 0.20)
+    )
+    END AS Footfall_Index__c,
+
+    (
+        MAX(
+            (CASE WHEN ((Demographic_Data__dlm.Total_Population__c / 500000.0) * 100) &gt; 100 THEN 100 ELSE ((Demographic_Data__dlm.Total_Population__c / 500000.0) * 100) END * 0.20)
+            +
+            (CASE WHEN (Demographic_Data__dlm.Age_25_44__c / Demographic_Data__dlm.Total_Population__c * 100) &gt; 100 THEN 100 ELSE (Demographic_Data__dlm.Age_25_44__c / Demographic_Data__dlm.Total_Population__c * 100) END * 0.15)
+            +
+            (CASE WHEN ((Demographic_Data__dlm.Workforce_Participation__c * 0.6) + (Demographic_Data__dlm.Office_Workers__c * 0.4)) &gt; 100 THEN 100 ELSE ((Demographic_Data__dlm.Workforce_Participation__c * 0.6) + (Demographic_Data__dlm.Office_Workers__c * 0.4)) END * 0.15)
+            +
+            (CASE WHEN ((Demographic_Data__dlm.Population_Growth_Rate__c * 0.4) + (Demographic_Data__dlm.Household_Growth_Rate__c * 0.4) + (Demographic_Data__dlm.Migration_Inflow_Rate__c * 0.2)) &gt; 100 THEN 100 ELSE ((Demographic_Data__dlm.Population_Growth_Rate__c * 0.4) + (Demographic_Data__dlm.Household_Growth_Rate__c * 0.4) + (Demographic_Data__dlm.Migration_Inflow_Rate__c * 0.2)) END * 0.15)
+            +
+            (CASE WHEN ((Demographic_Data__dlm.Literacy_Rate__c + ((Demographic_Data__dlm.Population_Density_per_sq_km__c / 30000.0) * 100)) / 2) &gt; 100 THEN 100 ELSE ((Demographic_Data__dlm.Literacy_Rate__c + ((Demographic_Data__dlm.Population_Density_per_sq_km__c / 30000.0) * 100)) / 2) END * 0.10)
+            +
+            (CASE WHEN Demographic_Data__dlm.Literacy_Rate__c &gt; 100 THEN 100 ELSE Demographic_Data__dlm.Literacy_Rate__c END * 0.25)
+        ) * 0.65
+        +
+        CASE WHEN AVG(
+            ((Footfall_Metrics__dlm.Net_Footfall_Count__c / NULLIF(Footfall_Metrics__dlm.Time_Interval_Minutes__c, 0)) / 20.0 * 100 * 0.50)
+            + (Footfall_Metrics__dlm.Mobility_Intensity_Score__c * 0.30)
+            + (Footfall_Metrics__dlm.Capture_Confidence_Score__c * 0.20)
+        ) &gt; 100 THEN 100
+        ELSE AVG(
+            ((Footfall_Metrics__dlm.Net_Footfall_Count__c / NULLIF(Footfall_Metrics__dlm.Time_Interval_Minutes__c, 0)) / 20.0 * 100 * 0.50)
+            + (Footfall_Metrics__dlm.Mobility_Intensity_Score__c * 0.30)
+            + (Footfall_Metrics__dlm.Capture_Confidence_Score__c * 0.20)
+        )
+        END * 0.35
+    ) * 0.5 + 50
+    AS Demand_Score__c
+
+FROM Demographic_Data__dlm
+
+LEFT JOIN Footfall_Metrics__dlm
+    ON Demographic_Data__dlm.UniqueId__c = Footfall_Metrics__dlm.UniqueId__c
+    AND Footfall_Metrics__dlm.Anomaly_Flag__c = &apos;N&apos;
+
+GROUP BY
+    Demographic_Data__dlm.UniqueId__c,
+    Demographic_Data__dlm.Pincode__c,
+    Demographic_Data__dlm.Area__c,
+    Demographic_Data__dlm.SubArea__c,
+    Demographic_Data__dlm.City__c</expression>
+    <masterLabel>Demand Score</masterLabel>
+</MktCalcInsightObjectDef>

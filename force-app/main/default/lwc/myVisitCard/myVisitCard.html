@@ -1,0 +1,109 @@
+<template>
+    <div class="mvc-shell">
+
+        <!-- Header: title + Directions -->
+        <div class="mvc-header">
+            <div class="mvc-title-row">
+                <lightning-icon icon-name="standard:timesheet" size="small" class="mvc-title-icon"></lightning-icon>
+                <span class="mvc-title">Visit Details</span>
+            </div>
+            <template if:true={mapsUrl}>
+                <a class="mvc-directions-btn" href={mapsUrl} target="_blank" rel="noopener noreferrer">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="mvc-dir-icon">
+                        <path fill="#fff" d="M21.71 11.29l-9-9a1 1 0 0 0-1.42 0l-9 9a1 1 0 0 0 0 1.42l9 9a1 1 0 0 0 1.42 0l9-9a1 1 0 0 0 0-1.42zM13 16.17V13H9v-2h4V7.83l4.17 4.17z"/>
+                    </svg>
+                    Directions
+                </a>
+            </template>
+        </div>
+
+        <!-- Location: 3-column grid, plain text (no links) -->
+        <div class="mvc-section mvc-location-grid">
+            <div class="mvc-loc-col">
+                <div class="mvc-label">Retail Store Group</div>
+                <div class="mvc-value">{groupDisplay}</div>
+            </div>
+            <div class="mvc-loc-col">
+                <div class="mvc-label">Retail Store</div>
+                <div class="mvc-value">{retailStoreDisplay}</div>
+            </div>
+            <div class="mvc-loc-col mvc-loc-col_last">
+                <div class="mvc-label">Site</div>
+                <div class="mvc-value">{siteDisplay}</div>
+            </div>
+        </div>
+
+        <!-- Info row: Status | Priority | Surveyor | View Visit -->
+        <div class="mvc-info-row">
+            <div class="mvc-info-cell">
+                <div class="mvc-label">Status</div>
+                <span class={statusBadgeClass}>{statusLabel}</span>
+            </div>
+            <div class="mvc-info-cell">
+                <div class="mvc-label">Priority</div>
+                <div class="mvc-value">{priorityDisplay}</div>
+            </div>
+            <div class="mvc-info-cell">
+                <div class="mvc-label">Assigned Surveyor</div>
+                <div class="mvc-value">{visit.visitorName}</div>
+            </div>
+            <div class="mvc-info-cell-btn">
+                <lightning-button
+                    label="View Visit"
+                    variant="brand"
+                    onclick={handleViewRecord}>
+                </lightning-button>
+            </div>
+        </div>
+
+        <!-- Schedule: Planned + Actual side by side -->
+        <div class="mvc-schedule-row">
+            <div class="mvc-section mvc-schedule-col">
+                <div class="mvc-section-title">Planned Schedule</div>
+                <div class="mvc-schedule-stack">
+                    <div class="mvc-label">Start</div>
+                    <div class="mvc-value">{plannedStartDisplay}</div>
+                </div>
+                <div class="mvc-schedule-stack slds-m-top_x-small">
+                    <div class="mvc-label">End</div>
+                    <div class="mvc-value">{plannedEndDisplay}</div>
+                </div>
+            </div>
+            <template if:true={hasActualTimes}>
+                <div class="mvc-section mvc-schedule-col">
+                    <div class="mvc-section-title">Actual Times</div>
+                    <div class="mvc-schedule-stack">
+                        <div class="mvc-label">Started</div>
+                        <div class="mvc-value">{actualStartDisplay}</div>
+                    </div>
+                    <div class="mvc-schedule-stack slds-m-top_x-small">
+                        <div class="mvc-label">Completed</div>
+                        <div class="mvc-value">{actualEndDisplay}</div>
+                    </div>
+                </div>
+            </template>
+        </div>
+
+        <!-- Field Notes with pagination -->
+        <template if:true={hasNotes}>
+            <div class="mvc-notes-wrap">
+                <div class="mvc-notes-header">
+                    <span class="mvc-notes-label">Field Notes</span>
+                    <template if:true={hasMultipleNotes}>
+                        <div class="mvc-note-nav">
+                            <button class="mvc-note-nav-btn" onclick={handlePrevNote} disabled={isFirstNote}>&#8249;</button>
+                            <span class="mvc-note-nav-count">{noteNavDisplay}</span>
+                            <button class="mvc-note-nav-btn" onclick={handleNextNote} disabled={isLastNote}>&#8250;</button>
+                        </div>
+                    </template>
+                </div>
+                <div class="mvc-note-card">
+                    <div class="mvc-note-title">{currentNote.noteTitle}</div>
+                    <div class="mvc-note-preview">{currentNote.notePreview}</div>
+                    <div class="mvc-note-date">{currentNote.lastModified}</div>
+                </div>
+            </div>
+        </template>
+
+    </div>
+</template>

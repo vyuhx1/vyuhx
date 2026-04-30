@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GenAiFunction xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Returns key details of a Retail Store given its Id or Name. Falls back to all stores if no match is found.</description>
+    <developerName>Get_Retail_Store_Details</developerName>
+    <invocationTarget>RetailStoreDetailsAction</invocationTarget>
+    <invocationTargetType>apex</invocationTargetType>
+    <isConfirmationRequired>false</isConfirmationRequired>
+    <isIncludeInProgressIndicator>false</isIncludeInProgressIndicator>
+    <localDeveloperName>Get_Retail_Store_Details</localDeveloperName>
+    <masterLabel>Get Retail Store Details</masterLabel>
+</GenAiFunction>

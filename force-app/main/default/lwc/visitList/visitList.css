@@ -1,0 +1,102 @@
+/* ── Stats Bar ───────────────────────────────────────────── */
+.stats-bar {
+    display: flex;
+    gap: 0.75rem;
+}
+
+.stat-tile {
+    flex: 1;
+    border-radius: 8px;
+    padding: 0.875rem 0.5rem;
+    text-align: center;
+    border: 1px solid transparent;
+}
+
+.stat-value {
+    font-size: 1.75rem;
+    font-weight: 700;
+    line-height: 1;
+    margin-bottom: 4px;
+}
+
+.stat-label {
+    font-size: 0.72rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+/* Planned — neutral blue */
+.stat-planned {
+    background: #eaf3fb;
+    border-color: #0176d3;
+}
+.stat-planned .stat-value { color: #0176d3; }
+.stat-planned .stat-label { color: #0176d3; }
+
+/* In Progress — warning orange */
+.stat-inprogress {
+    background: #fff8ed;
+    border-color: #dd7a01;
+}
+.stat-inprogress .stat-value { color: #dd7a01; }
+.stat-inprogress .stat-label { color: #dd7a01; }
+
+/* Completed — success green */
+.stat-completed {
+    background: #eaf6ef;
+    border-color: #2e844a;
+}
+.stat-completed .stat-value { color: #2e844a; }
+.stat-completed .stat-label { color: #2e844a; }
+
+/* Cancelled — error red */
+.stat-cancelled {
+    background: #fdf0f0;
+    border-color: #ba0517;
+}
+.stat-cancelled .stat-value { color: #ba0517; }
+.stat-cancelled .stat-label { color: #ba0517; }
+
+/* ── Paginator Nav ───────────────────────────────────────── */
+.nav-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #f3f3f3;
+    border: 1px solid #dddbda;
+    border-radius: 8px;
+    padding: 0.5rem 0.75rem;
+}
+
+.nav-label {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: #3e3e3c;
+}
+
+.nav-btn {
+    background: #ffffff;
+    border: 1px solid #dddbda;
+    border-radius: 50%;
+    width: 2rem;
+    height: 2rem;
+    font-size: 1.4rem;
+    line-height: 1;
+    cursor: pointer;
+    color: #0176d3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.15s;
+}
+
+.nav-btn:hover:not(:disabled) {
+    background: #eaf3fb;
+}
+
+.nav-btn:disabled {
+    color: #c9c7c5;
+    cursor: not-allowed;
+    border-color: #e0e0e0;
+}

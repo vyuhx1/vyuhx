@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GenAiFunction xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Risk Assessor (Conservative CFO Persona)
+**Goal:** Identify potential downsides before capital is committed.</description>
+    <developerName>Risk_Assessor</developerName>
+    <invocationTarget>Risk_Assessor</invocationTarget>
+    <invocationTargetType>generatePromptResponse</invocationTargetType>
+    <isConfirmationRequired>false</isConfirmationRequired>
+    <isIncludeInProgressIndicator>false</isIncludeInProgressIndicator>
+    <localDeveloperName>Risk_Assessor</localDeveloperName>
+    <masterLabel>Risk Assessor</masterLabel>
+</GenAiFunction>

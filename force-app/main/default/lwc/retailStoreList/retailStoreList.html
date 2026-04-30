@@ -1,0 +1,30 @@
+<template>
+    <lightning-card title="Retail Store List" icon-name="standard:store">
+        <div class="slds-p-around_medium">
+            <template if:true={hasStores}>
+
+                <!-- Store Navigation Bar -->
+                <div class="store-nav-bar">
+                    <button class="store-nav-btn" disabled={isStorePreviousDisabled} onclick={handlePreviousStore} aria-label="Previous store">
+                        <lightning-icon icon-name="utility:chevronleft" size="x-small"></lightning-icon>
+                    </button>
+                    <div class="store-nav-center">
+                        <lightning-icon icon-name="standard:store" size="x-small" class="store-nav-icon"></lightning-icon>
+                        <span class="store-nav-label">{storePosLabel}</span>
+                    </div>
+                    <button class="store-nav-btn" disabled={isStoreNextDisabled} onclick={handleNextStore} aria-label="Next store">
+                        <lightning-icon icon-name="utility:chevronright" size="x-small"></lightning-icon>
+                    </button>
+                </div>
+
+                <c-retail-store-card store={currentStore}></c-retail-store-card>
+
+            </template>
+            <template if:false={hasStores}>
+                <div class="slds-text-body_regular slds-text-color_weak slds-p-vertical_small">
+                    No retail stores found.
+                </div>
+            </template>
+        </div>
+    </lightning-card>
+</template>

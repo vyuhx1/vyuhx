@@ -1,0 +1,42 @@
+{
+  "unevaluatedProperties" : false,
+  "properties" : {
+    "dateFilter" : {
+      "title" : "dateFilter",
+      "description" : "Filter completed visits by date: Today, Yesterday, or a date in dd-MM-yyyy format (e.g., 23-04-2026)",
+      "lightning:type" : "lightning__textType",
+      "lightning:isPII" : false,
+      "copilotAction:isUserInput" : false
+    },
+    "retailStoreGroupName" : {
+      "title" : "retailStoreGroupName",
+      "description" : "Name of the Retail Store Group / Zone to look up visits for (e.g., Hyderabad North)",
+      "lightning:type" : "lightning__textType",
+      "lightning:isPII" : false,
+      "copilotAction:isUserInput" : false
+    },
+    "retailStoreName" : {
+      "title" : "retailStoreName",
+      "description" : "Name of the Retail Store to look up visits for (e.g., Kothaguda)",
+      "lightning:type" : "lightning__textType",
+      "lightning:isPII" : false,
+      "copilotAction:isUserInput" : false
+    },
+    "siteName" : {
+      "title" : "siteName",
+      "description" : "Name of the site (Context) to look up visits for (e.g., Kothaguda Site A)",
+      "lightning:type" : "lightning__textType",
+      "lightning:isPII" : false,
+      "copilotAction:isUserInput" : false
+    },
+    "statusFilter" : {
+      "title" : "statusFilter",
+      "description" : "Filter by visit status: Planned, InProgress, Completed, or Cancelled. Leave blank for all.",
+      "lightning:type" : "lightning__textType",
+      "lightning:isPII" : false,
+      "copilotAction:isUserInput" : false
+    }
+  },
+  "lightning:type" : "lightning__objectType",
+  "lightning:textIndexed" : true
+}

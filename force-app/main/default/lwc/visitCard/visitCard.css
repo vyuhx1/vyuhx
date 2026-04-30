@@ -1,0 +1,227 @@
+/* ── Custom card header: title + Get Directions inline ───── */
+.card-header-row {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    gap: 1rem;
+}
+
+.card-title-text {
+    font-size: 1.125rem;
+    font-weight: 700;
+    color: #181818;
+    white-space: nowrap;
+    flex: 1;
+}
+
+/* ── Section boxes ──────────────────────────────────────── */
+.section-box {
+    background: #f8f9fb;
+    border: 1px solid #e0e5ee;
+    border-radius: 8px;
+    padding: 1rem;
+}
+
+.section-title {
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: #3e3e3c;
+    padding-bottom: 0.5rem;
+    margin-bottom: 0.75rem;
+    border-bottom: 2px solid #0176d3;
+}
+
+/* ── Metric tiles ───────────────────────────────────────── */
+.metric-label {
+    font-size: 0.75rem;
+    color: #706e6b;
+    margin-bottom: 2px;
+}
+
+.metric-value {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #181818;
+}
+
+/* ── Location 3-column grid ─────────────────────────────── */
+.location-grid {
+    display: flex;
+    gap: 0;
+}
+
+.location-col {
+    flex: 1;
+    padding-right: 1rem;
+    border-right: 1px solid #e0e5ee;
+    margin-right: 1rem;
+}
+
+.location-col:last-child {
+    border-right: none;
+    margin-right: 0;
+    padding-right: 0;
+}
+
+.breadcrumb-link {
+    color: #0176d3;
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+/* ── Side-by-side schedule cols, stacked start/end ──────── */
+.schedule-stack {
+    display: flex;
+    flex-direction: column;
+}
+
+/* ── Info row: Status | Priority | Surveyor | Button ────── */
+.info-row {
+    display: flex;
+    align-items: flex-end;
+    gap: 1.25rem;
+    flex-wrap: wrap;
+    padding: 0.75rem 1rem;
+    background: #f8f9fb;
+    border: 1px solid #e0e5ee;
+    border-radius: 8px;
+}
+
+.info-cell {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+/* Button pinned to right end of info row */
+.info-cell-btn {
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+}
+
+/* ── Get Directions button (matches View Visit pill style) ── */
+.directions-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    font-size: 0.78rem;
+    font-weight: 700;
+    color: #ffffff;
+    text-decoration: none;
+    padding: 0 0.9rem;
+    height: 1.6rem;
+    border: none;
+    border-radius: 2rem;
+    background: #0176d3;
+    cursor: pointer;
+    transition: background 0.15s;
+    white-space: nowrap;
+}
+
+.directions-btn:hover {
+    background: #014486;
+}
+
+.dir-icon {
+    width: 14px;
+    height: 14px;
+    flex-shrink: 0;
+}
+
+/* ── Field Note cards ───────────────────────────────────── */
+.note-card {
+    background: #f0f4ff;
+    border-left: 3px solid #0176d3;
+    border-radius: 4px;
+    padding: 0.6rem 0.75rem;
+}
+
+.note-title {
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: #3e3e3c;
+    margin-bottom: 2px;
+}
+
+.note-preview {
+    font-size: 0.875rem;
+    color: #3e3e3c;
+    line-height: 1.4;
+}
+
+.note-date {
+    font-size: 0.72rem;
+    color: #706e6b;
+    margin-top: 4px;
+}
+
+/* ── Side-by-side schedule row ───────────────────────────── */
+.schedule-row {
+    display: flex;
+    gap: 1rem;
+    align-items: stretch;
+}
+
+.schedule-col {
+    flex: 1;
+    min-width: 0;
+}
+
+/* ── Field Notes header + pagination ─────────────────────── */
+.note-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.note-section-label {
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: #3e3e3c;
+    border-bottom: 2px solid #0176d3;
+    padding-bottom: 0.5rem;
+    flex: 1;
+}
+
+.note-nav {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    margin-left: 1rem;
+}
+
+.note-nav-btn {
+    background: #f3f2f2;
+    border: 1px solid #dddbda;
+    border-radius: 50%;
+    width: 1.75rem;
+    height: 1.75rem;
+    cursor: pointer;
+    font-size: 1.1rem;
+    line-height: 1;
+    color: #0176d3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+}
+
+.note-nav-btn:disabled {
+    color: #c9c7c5;
+    cursor: not-allowed;
+}
+
+.note-nav-count {
+    font-size: 0.72rem;
+    color: #706e6b;
+    min-width: 2.5rem;
+    text-align: center;
+}

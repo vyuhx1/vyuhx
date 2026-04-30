@@ -1,0 +1,108 @@
+<template>
+    <lightning-card icon-name="standard:timesheet">
+
+        <div slot="title" class="card-header-row">
+            <span class="card-title-text">Visit Details</span>
+            <template if:true={mapsUrl}>
+                <a class="directions-btn" href={mapsUrl} target="_blank" rel="noopener noreferrer">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="dir-icon"><path fill="#fff" d="M21.71 11.29l-9-9a1 1 0 0 0-1.42 0l-9 9a1 1 0 0 0 0 1.42l9 9a1 1 0 0 0 1.42 0l9-9a1 1 0 0 0 0-1.42zM13 16.17V13H9v-2h4V7.83l4.17 4.17z"/></svg>
+                    Directions
+                </a>
+            </template>
+        </div>
+
+        <div class="slds-p-around_medium">
+
+            <!-- Location 3-column tile -->
+            <div class="section-box slds-m-bottom_medium">
+                <div class="location-grid">
+                    <div class="location-col">
+                        <div class="metric-label">Retail Store Group</div>
+                        <a class="breadcrumb-link" onclick={handleGroupNavigation}>{visit.groupName}</a>
+                    </div>
+                    <div class="location-col">
+                        <div class="metric-label">Retail Store</div>
+                        <a class="breadcrumb-link" onclick={handleRetailStoreNavigation}>{visit.retailStore}</a>
+                    </div>
+                    <div class="location-col">
+                        <div class="metric-label">Site</div>
+                        <a class="breadcrumb-link" onclick={handleStoreNavigation}>{visit.siteName}</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Info row: Status | Priority | Surveyor + View Visit (right) -->
+            <div class="info-row slds-m-bottom_medium">
+                <div class="info-cell">
+                    <div class="metric-label">Status</div>
+                    <lightning-badge label={statusLabel} variant={statusVariant}></lightning-badge>
+                </div>
+                <div class="info-cell">
+                    <div class="metric-label">Priority</div>
+                    <div class="metric-value">{priorityDisplay}</div>
+                </div>
+                <div class="info-cell">
+                    <div class="metric-label">Assigned Surveyor</div>
+                    <div class="metric-value">{visit.visitorName}</div>
+                </div>
+                <div class="info-cell-btn">
+                    <lightning-button
+                        label="View Visit"
+                        variant="brand"
+                        onclick={handleViewRecord}>
+                    </lightning-button>
+                </div>
+            </div>
+
+            <!-- Planned & Actual times side by side, each stacked start/end -->
+            <div class="schedule-row slds-m-bottom_medium">
+                <div class="section-box schedule-col">
+                    <div class="section-title">Planned Schedule</div>
+                    <div class="schedule-stack">
+                        <div class="metric-label">Start</div>
+                        <div class="metric-value">{plannedStartDisplay}</div>
+                    </div>
+                    <div class="schedule-stack slds-m-top_x-small">
+                        <div class="metric-label">End</div>
+                        <div class="metric-value">{plannedEndDisplay}</div>
+                    </div>
+                </div>
+                <template if:true={hasActualTimes}>
+                    <div class="section-box schedule-col">
+                        <div class="section-title">Actual Times</div>
+                        <div class="schedule-stack">
+                            <div class="metric-label">Started</div>
+                            <div class="metric-value">{actualStartDisplay}</div>
+                        </div>
+                        <div class="schedule-stack slds-m-top_x-small">
+                            <div class="metric-label">Completed</div>
+                            <div class="metric-value">{actualEndDisplay}</div>
+                        </div>
+                    </div>
+                </template>
+            </div>
+
+            <!-- Field Notes with prev/next pagination -->
+            <template if:true={hasNotes}>
+                <div class="slds-m-top_small">
+                    <div class="note-header slds-m-bottom_small">
+                        <div class="note-section-label">Field Notes</div>
+                        <template if:true={hasMultipleNotes}>
+                            <div class="note-nav">
+                                <button class="note-nav-btn" onclick={handlePrevNote} disabled={isFirstNote}>&#8249;</button>
+                                <span class="note-nav-count">{noteNavDisplay}</span>
+                                <button class="note-nav-btn" onclick={handleNextNote} disabled={isLastNote}>&#8250;</button>
+                            </div>
+                        </template>
+                    </div>
+                    <div class="note-card">
+                        <div class="note-title">{currentNote.noteTitle}</div>
+                        <div class="note-preview">{currentNote.notePreview}</div>
+                        <div class="note-date">{currentNote.lastModified}</div>
+                    </div>
+                </div>
+            </template>
+
+        </div>
+    </lightning-card>
+</template>

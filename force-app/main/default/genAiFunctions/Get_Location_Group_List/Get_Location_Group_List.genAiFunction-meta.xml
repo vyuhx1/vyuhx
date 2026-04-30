@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GenAiFunction xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Retrieves Retail Location Groups with their Retail Stores, Sites and Visits hierarchy. Optionally filter by group name — leave blank to get all.</description>
+    <developerName>Get_Location_Group_List</developerName>
+    <invocationTarget>AgentLocationGroupListAction</invocationTarget>
+    <invocationTargetType>apex</invocationTargetType>
+    <isConfirmationRequired>false</isConfirmationRequired>
+    <isIncludeInProgressIndicator>false</isIncludeInProgressIndicator>
+    <localDeveloperName>Get_Location_Group_List</localDeveloperName>
+    <masterLabel>Get Location Group List</masterLabel>
+</GenAiFunction>

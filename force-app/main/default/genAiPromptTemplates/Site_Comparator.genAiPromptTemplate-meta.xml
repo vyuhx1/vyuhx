@@ -1,0 +1,332 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GenAiPromptTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <activeVersionIdentifier>L98ZaMTfVRuyCpWeC+GWWZ1Bbg9SQ3rKIYJ/+5SKVOg=_5</activeVersionIdentifier>
+    <developerName>Site_Comparator</developerName>
+    <masterLabel>Site Comparator</masterLabel>
+    <overridable>false</overridable>
+    <templateVersions>
+        <content>The &quot;Head-to-Head&quot; Site Comparator
+**Goal:** Evaluate two competing locations side-by-side.
+ * **Template Type:** Flex Template
+ * **Inputs:** RetailStoreA, RetailStoreB
+ * **Prompt Text:**
+```text
+You are the Lead Strategic Advisor comparing two proposed locations.
+
+**Site A:** {!$Input:RetailStoreA.Name} | Demand: {!$Input:RetailStoreA.Current_Demand_Score__c} | Est. Rev: ${!$Input:RetailStoreA.Expected_Annual_Revenue__c} | Payback: {!$Input:RetailStoreA.Payback_Period_Years__c} yrs
+**Site B:** {!$Input:RetailStoreB.Name} | Demand: {!$Input:RetailStoreB.Current_Demand_Score__c} | Est. Rev: ${!$Input:RetailStoreB.Expected_Annual_Revenue__c} | Payback: {!$Input:RetailStoreB.Payback_Period_Years__c} yrs
+
+Generate a direct comparison using the exact Markdown format below:
+
+### ⚖️ Location Comparison: {!$Input:RetailStoreA.Name} vs. {!$Input:RetailStoreB.Name}
+
+| Metric | {!$Input:RetailStoreA.Name} | {!$Input:RetailStoreB.Name} | Advantage |
+| :--- | :--- | :--- | :--- |
+| **Demand Score** | {!$Input:RetailStoreA.Current_Demand_Score__c} | {!$Input:RetailStoreB.Current_Demand_Score__c} | [Winner] |
+| **Est. Revenue** | ${!$Input:RetailStoreA.Expected_Annual_Revenue__c} | ${!$Input:RetailStoreB.Expected_Annual_Revenue__c} | [Winner] |
+| **Payback Period**| {!$Input:RetailStoreA.Payback_Period_Years__c} yrs | {!$Input:RetailStoreB.Payback_Period_Years__c} yrs | [Winner (Lower is better)] |
+
+**🏆 Recommended Location:** [State clearly which site is the better investment with a 2-sentence justification.]
+
+</content>
+        <fileDroppingStrategy>{&quot;dropFilesBy&quot;:&quot;LAST_MODIFIED_DATE&quot;,&quot;dropFileStartingWith&quot;:&quot;OLDEST&quot;}</fileDroppingStrategy>
+        <inputs>
+            <apiName>RetailStoreB</apiName>
+            <definition>SOBJECT://RetailStore</definition>
+            <masterLabel>RetailStoreB</masterLabel>
+            <referenceName>Input:RetailStoreB</referenceName>
+            <required>true</required>
+        </inputs>
+        <inputs>
+            <apiName>RetailStoreA</apiName>
+            <definition>SOBJECT://RetailStore</definition>
+            <masterLabel>RetailStoreA</masterLabel>
+            <referenceName>Input:RetailStoreA</referenceName>
+            <required>true</required>
+        </inputs>
+        <isCitationEnabled>false</isCitationEnabled>
+        <primaryModel>sfdc_ai__DefaultGPT5Mini</primaryModel>
+        <status>Published</status>
+        <versionIdentifier>L98ZaMTfVRuyCpWeC+GWWZ1Bbg9SQ3rKIYJ/+5SKVOg=_1</versionIdentifier>
+    </templateVersions>
+    <templateVersions>
+        <content>The &quot;Head-to-Head&quot; Site Comparator
+**Goal:** Evaluate two competing locations side-by-side.
+ * **Template Type:** Flex Template
+ * **Inputs:** RetailStoreA, RetailStoreB
+ * **Prompt Text:**
+```text
+You are the Lead Strategic Advisor comparing two proposed locations.
+
+**Site A:** {!$Input:RetailStoreA.Name} | Demand: {!$Input:RetailStoreA.Current_Demand_Score__c} | Est. Rev: ${!$Input:RetailStoreA.Expected_Annual_Revenue__c} | Payback: {!$Input:RetailStoreA.Payback_Period_Years__c} yrs
+**Site B:** {!$Input:RetailStoreB.Name} | Demand: {!$Input:RetailStoreB.Current_Demand_Score__c} | Est. Rev: ${!$Input:RetailStoreB.Expected_Annual_Revenue__c} | Payback: {!$Input:RetailStoreB.Payback_Period_Years__c} yrs
+
+Generate a direct comparison using the exact Markdown format below:
+
+&lt;h3&gt;⚖️ Location Comparison: {!$Input:RetailStoreA.Name} vs. {!$Input:RetailStoreB.Name}&lt;/h3&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Metric&lt;/th&gt;
+      &lt;th&gt;{!$Input:RetailStoreA.Name}&lt;/th&gt;
+      &lt;th&gt;{!$Input:RetailStoreB.Name}&lt;/th&gt;
+      &lt;th&gt;Advantage&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Demand Score&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;{!$Input:RetailStoreA.Current_Demand_Score__c}&lt;/td&gt;
+      &lt;td&gt;{!$Input:RetailStoreB.Current_Demand_Score__c}&lt;/td&gt;
+      &lt;td&gt;[Winner]&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Est. Revenue&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;${!$Input:RetailStoreA.Expected_Annual_Revenue__c}&lt;/td&gt;
+      &lt;td&gt;${!$Input:RetailStoreB.Expected_Annual_Revenue__c}&lt;/td&gt;
+      &lt;td&gt;[Winner]&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Payback Period&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;{!$Input:RetailStoreA.Payback_Period_Years__c} yrs&lt;/td&gt;
+      &lt;td&gt;{!$Input:RetailStoreB.Payback_Period_Years__c} yrs&lt;/td&gt;
+      &lt;td&gt;[Winner (Lower is better)]&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;b&gt;🏆 Recommended Location:&lt;/b&gt; [State clearly which site is the better investment with a 2-sentence justification.]
+
+</content>
+        <fileDroppingStrategy>{&quot;dropFilesBy&quot;:&quot;LAST_MODIFIED_DATE&quot;,&quot;dropFileStartingWith&quot;:&quot;OLDEST&quot;}</fileDroppingStrategy>
+        <inputs>
+            <apiName>RetailStoreB</apiName>
+            <definition>SOBJECT://RetailStore</definition>
+            <masterLabel>RetailStoreB</masterLabel>
+            <referenceName>Input:RetailStoreB</referenceName>
+            <required>true</required>
+        </inputs>
+        <inputs>
+            <apiName>RetailStoreA</apiName>
+            <definition>SOBJECT://RetailStore</definition>
+            <masterLabel>RetailStoreA</masterLabel>
+            <referenceName>Input:RetailStoreA</referenceName>
+            <required>true</required>
+        </inputs>
+        <isCitationEnabled>false</isCitationEnabled>
+        <primaryModel>sfdc_ai__DefaultGPT5Mini</primaryModel>
+        <status>Published</status>
+        <versionIdentifier>L98ZaMTfVRuyCpWeC+GWWZ1Bbg9SQ3rKIYJ/+5SKVOg=_2</versionIdentifier>
+    </templateVersions>
+    <templateVersions>
+        <content>The &quot;Head-to-Head&quot; Site Comparator
+**Goal:** Evaluate two competing locations side-by-side.
+ * **Template Type:** Flex Template
+ * **Inputs:** RetailStoreA, RetailStoreB
+ * **Prompt Text:**
+```text
+You are the Lead Strategic Advisor comparing two proposed locations.
+
+**Site A:** {!$Input:RetailStoreA.Name} | Demand: {!$Input:RetailStoreA.Current_Demand_Score__c} | Est. Rev: ${!$Input:RetailStoreA.Expected_Annual_Revenue__c} | Payback: {!$Input:RetailStoreA.Payback_Period_Years__c} yrs
+**Site B:** {!$Input:RetailStoreB.Name} | Demand: {!$Input:RetailStoreB.Current_Demand_Score__c} | Est. Rev: ${!$Input:RetailStoreB.Expected_Annual_Revenue__c} | Payback: {!$Input:RetailStoreB.Payback_Period_Years__c} yrs
+
+Generate a direct comparison using the exact Markdown format below:
+
+&lt;h3&gt;⚖️ Location Comparison: {!$Input:RetailStoreA.Name} vs. {!$Input:RetailStoreB.Name}&lt;/h3&gt;
+&lt;table style=&quot;border-collapse: collapse; width: 100%;&quot;&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th style=&quot;border: 1px solid black; padding: 8px; text-align: left;&quot;&gt;Metric&lt;/th&gt;
+      &lt;th style=&quot;border: 1px solid black; padding: 8px; text-align: left;&quot;&gt;{!$Input:RetailStoreA.Name}&lt;/th&gt;
+      &lt;th style=&quot;border: 1px solid black; padding: 8px; text-align: left;&quot;&gt;{!$Input:RetailStoreB.Name}&lt;/th&gt;
+      &lt;th style=&quot;border: 1px solid black; padding: 8px; text-align: left;&quot;&gt;Advantage&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;border: 1px solid black; padding: 8px;&quot;&gt;&lt;strong&gt;Demand Score&lt;/strong&gt;&lt;/td&gt;
+      &lt;td style=&quot;border: 1px solid black; padding: 8px;&quot;&gt;{!$Input:RetailStoreA.Current_Demand_Score__c}&lt;/td&gt;
+      &lt;td style=&quot;border: 1px solid black; padding: 8px;&quot;&gt;{!$Input:RetailStoreB.Current_Demand_Score__c}&lt;/td&gt;
+      &lt;td style=&quot;border: 1px solid black; padding: 8px;&quot;&gt;[Winner]&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;border: 1px solid black; padding: 8px;&quot;&gt;&lt;strong&gt;Est. Revenue&lt;/strong&gt;&lt;/td&gt;
+      &lt;td style=&quot;border: 1px solid black; padding: 8px;&quot;&gt;${!$Input:RetailStoreA.Expected_Annual_Revenue__c}&lt;/td&gt;
+      &lt;td style=&quot;border: 1px solid black; padding: 8px;&quot;&gt;${!$Input:RetailStoreB.Expected_Annual_Revenue__c}&lt;/td&gt;
+      &lt;td style=&quot;border: 1px solid black; padding: 8px;&quot;&gt;[Winner]&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;border: 1px solid black; padding: 8px;&quot;&gt;&lt;strong&gt;Payback Period&lt;/strong&gt;&lt;/td&gt;
+      &lt;td style=&quot;border: 1px solid black; padding: 8px;&quot;&gt;{!$Input:RetailStoreA.Payback_Period_Years__c} yrs&lt;/td&gt;
+      &lt;td style=&quot;border: 1px solid black; padding: 8px;&quot;&gt;{!$Input:RetailStoreB.Payback_Period_Years__c} yrs&lt;/td&gt;
+      &lt;td style=&quot;border: 1px solid black; padding: 8px;&quot;&gt;[Winner (Lower is better)]&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;&lt;br/&gt;
+
+&lt;b&gt;🏆 Recommended Location:&lt;/b&gt; [State clearly which site is the better investment with a 2-sentence justification.]
+
+</content>
+        <fileDroppingStrategy>{&quot;dropFilesBy&quot;:&quot;LAST_MODIFIED_DATE&quot;,&quot;dropFileStartingWith&quot;:&quot;OLDEST&quot;}</fileDroppingStrategy>
+        <inputs>
+            <apiName>RetailStoreA</apiName>
+            <definition>SOBJECT://RetailStore</definition>
+            <masterLabel>RetailStoreA</masterLabel>
+            <referenceName>Input:RetailStoreA</referenceName>
+            <required>true</required>
+        </inputs>
+        <inputs>
+            <apiName>RetailStoreB</apiName>
+            <definition>SOBJECT://RetailStore</definition>
+            <masterLabel>RetailStoreB</masterLabel>
+            <referenceName>Input:RetailStoreB</referenceName>
+            <required>true</required>
+        </inputs>
+        <isCitationEnabled>false</isCitationEnabled>
+        <primaryModel>sfdc_ai__DefaultGPT5Mini</primaryModel>
+        <status>Published</status>
+        <versionIdentifier>L98ZaMTfVRuyCpWeC+GWWZ1Bbg9SQ3rKIYJ/+5SKVOg=_3</versionIdentifier>
+    </templateVersions>
+    <templateVersions>
+        <content>The &quot;Head-to-Head&quot; Site Comparator
+**Goal:** Evaluate two competing locations side-by-side.
+ * **Template Type:** Flex Template
+ * **Inputs:** RetailStoreA, RetailStoreB
+ * **Prompt Text:**
+```text
+You are the Lead Strategic Advisor comparing two proposed locations.
+
+**Site A:** {!$Input:RetailStoreA.Name} | Demand: {!$Input:RetailStoreA.Current_Demand_Score__c} | Est. Rev: ${!$Input:RetailStoreA.Expected_Annual_Revenue__c} | Payback: {!$Input:RetailStoreA.Payback_Period_Years__c} yrs
+**Site B:** {!$Input:RetailStoreB.Name} | Demand: {!$Input:RetailStoreB.Current_Demand_Score__c} | Est. Rev: ${!$Input:RetailStoreB.Expected_Annual_Revenue__c} | Payback: {!$Input:RetailStoreB.Payback_Period_Years__c} yrs
+
+Restrict the decimal values to 2 points
+Generate a direct comparison using the exact Markdown format below:
+
+&lt;h1&gt;&lt;b&gt;⚖️ Location Comparison: {!$Input:RetailStoreA.Name} vs. {!$Input:RetailStoreB.Name}&lt;/b&gt;&lt;/h1&gt;
+&lt;table style=&quot;border-collapse: collapse; width: 100%;&quot;&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th style=&quot;border: 1px solid black; padding: 8px; text-align: left;&quot;&gt;Metric&lt;/th&gt;
+      &lt;th style=&quot;border: 1px solid black; padding: 8px; text-align: left;&quot;&gt;{!$Input:RetailStoreA.Name}&lt;/th&gt;
+      &lt;th style=&quot;border: 1px solid black; padding: 8px; text-align: left;&quot;&gt;{!$Input:RetailStoreB.Name}&lt;/th&gt;
+      &lt;th style=&quot;border: 1px solid black; padding: 8px; text-align: left;&quot;&gt;Advantage&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;border: 1px solid black; padding: 8px;&quot;&gt;&lt;strong&gt;Demand Score&lt;/strong&gt;&lt;/td&gt;
+      &lt;td style=&quot;border: 1px solid black; padding: 8px;&quot;&gt;{!$Input:RetailStoreA.Current_Demand_Score__c}&lt;/td&gt;
+      &lt;td style=&quot;border: 1px solid black; padding: 8px;&quot;&gt;{!$Input:RetailStoreB.Current_Demand_Score__c}&lt;/td&gt;
+      &lt;td style=&quot;border: 1px solid black; padding: 8px;&quot;&gt;[Winner]&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;border: 1px solid black; padding: 8px;&quot;&gt;&lt;strong&gt;Est. Revenue&lt;/strong&gt;&lt;/td&gt;
+      &lt;td style=&quot;border: 1px solid black; padding: 8px;&quot;&gt;${!$Input:RetailStoreA.Expected_Annual_Revenue__c}&lt;/td&gt;
+      &lt;td style=&quot;border: 1px solid black; padding: 8px;&quot;&gt;${!$Input:RetailStoreB.Expected_Annual_Revenue__c}&lt;/td&gt;
+      &lt;td style=&quot;border: 1px solid black; padding: 8px;&quot;&gt;[Winner]&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;border: 1px solid black; padding: 8px;&quot;&gt;&lt;strong&gt;Payback Period&lt;/strong&gt;&lt;/td&gt;
+      &lt;td style=&quot;border: 1px solid black; padding: 8px;&quot;&gt;{!$Input:RetailStoreA.Payback_Period_Years__c} yrs&lt;/td&gt;
+      &lt;td style=&quot;border: 1px solid black; padding: 8px;&quot;&gt;{!$Input:RetailStoreB.Payback_Period_Years__c} yrs&lt;/td&gt;
+      &lt;td style=&quot;border: 1px solid black; padding: 8px;&quot;&gt;[Winner (Lower is better)]&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;&lt;br/&gt;
+
+&lt;b&gt;🏆 Recommended Location:&lt;/b&gt; [State clearly which site is the better investment with a 2-sentence justification.]
+
+</content>
+        <fileDroppingStrategy>{&quot;dropFilesBy&quot;:&quot;LAST_MODIFIED_DATE&quot;,&quot;dropFileStartingWith&quot;:&quot;OLDEST&quot;}</fileDroppingStrategy>
+        <inputs>
+            <apiName>RetailStoreB</apiName>
+            <definition>SOBJECT://RetailStore</definition>
+            <masterLabel>RetailStoreB</masterLabel>
+            <referenceName>Input:RetailStoreB</referenceName>
+            <required>true</required>
+        </inputs>
+        <inputs>
+            <apiName>RetailStoreA</apiName>
+            <definition>SOBJECT://RetailStore</definition>
+            <masterLabel>RetailStoreA</masterLabel>
+            <referenceName>Input:RetailStoreA</referenceName>
+            <required>true</required>
+        </inputs>
+        <isCitationEnabled>false</isCitationEnabled>
+        <primaryModel>sfdc_ai__DefaultGPT5Mini</primaryModel>
+        <status>Published</status>
+        <versionIdentifier>L98ZaMTfVRuyCpWeC+GWWZ1Bbg9SQ3rKIYJ/+5SKVOg=_4</versionIdentifier>
+    </templateVersions>
+    <templateVersions>
+        <content>The &quot;Head-to-Head&quot; Site Comparator
+**Goal:** Evaluate two competing locations side-by-side.
+ * **Template Type:** Flex Template
+ * **Inputs:** RetailStoreA, RetailStoreB
+ * **Prompt Text:**
+```text
+You are the Lead Strategic Advisor comparing two proposed locations.
+
+**Site A:** {!$Input:RetailStoreA.Name} | Demand: {!$Input:RetailStoreA.Current_Demand_Score__c} | Est. Rev: ${!$Input:RetailStoreA.Expected_Annual_Revenue__c} | Payback: {!$Input:RetailStoreA.Payback_Period_Years__c} yrs
+**Site B:** {!$Input:RetailStoreB.Name} | Demand: {!$Input:RetailStoreB.Current_Demand_Score__c} | Est. Rev: ${!$Input:RetailStoreB.Expected_Annual_Revenue__c} | Payback: {!$Input:RetailStoreB.Payback_Period_Years__c} yrs
+
+Restrict the decimal values to 2 points
+Generate a direct comparison using the exact Markdown format below:
+
+&lt;h1&gt;&lt;b&gt;⚖️ Location Comparison: {!$Input:RetailStoreA.Name} vs. {!$Input:RetailStoreB.Name}&lt;/b&gt;&lt;/h1&gt;
+&lt;table style=&quot;border-collapse: collapse; width: 100%;&quot;&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th style=&quot;border: 1px solid black; padding: 8px; text-align: left;&quot;&gt;Metric&lt;/th&gt;
+      &lt;th style=&quot;border: 1px solid black; padding: 8px; text-align: left;&quot;&gt;{!$Input:RetailStoreA.Name}&lt;/th&gt;
+      &lt;th style=&quot;border: 1px solid black; padding: 8px; text-align: left;&quot;&gt;{!$Input:RetailStoreB.Name}&lt;/th&gt;
+      &lt;th style=&quot;border: 1px solid black; padding: 8px; text-align: left;&quot;&gt;Advantage&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;border: 1px solid black; padding: 8px;&quot;&gt;&lt;strong&gt;Demand Score&lt;/strong&gt;&lt;/td&gt;
+      &lt;td style=&quot;border: 1px solid black; padding: 8px;&quot;&gt;{!$Input:RetailStoreA.Current_Demand_Score__c}&lt;/td&gt;
+      &lt;td style=&quot;border: 1px solid black; padding: 8px;&quot;&gt;{!$Input:RetailStoreB.Current_Demand_Score__c}&lt;/td&gt;
+      &lt;td style=&quot;border: 1px solid black; padding: 8px;&quot;&gt;[Winner]&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;border: 1px solid black; padding: 8px;&quot;&gt;&lt;strong&gt;Est. Revenue&lt;/strong&gt;&lt;/td&gt;
+      &lt;td style=&quot;border: 1px solid black; padding: 8px;&quot;&gt;${!$Input:RetailStoreA.Expected_Annual_Revenue__c}&lt;/td&gt;
+      &lt;td style=&quot;border: 1px solid black; padding: 8px;&quot;&gt;${!$Input:RetailStoreB.Expected_Annual_Revenue__c}&lt;/td&gt;
+      &lt;td style=&quot;border: 1px solid black; padding: 8px;&quot;&gt;[Winner]&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;border: 1px solid black; padding: 8px;&quot;&gt;&lt;strong&gt;Payback Period&lt;/strong&gt;&lt;/td&gt;
+      &lt;td style=&quot;border: 1px solid black; padding: 8px;&quot;&gt;{!$Input:RetailStoreA.Payback_Period_Years__c} yrs&lt;/td&gt;
+      &lt;td style=&quot;border: 1px solid black; padding: 8px;&quot;&gt;{!$Input:RetailStoreB.Payback_Period_Years__c} yrs&lt;/td&gt;
+      &lt;td style=&quot;border: 1px solid black; padding: 8px;&quot;&gt;[Winner (Lower is better)]&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;b&gt;🏆 Recommended Location:&lt;/b&gt; [State clearly which site is the better investment with a 2-sentence justification.]
+
+</content>
+        <fileDroppingStrategy>{&quot;dropFilesBy&quot;:&quot;LAST_MODIFIED_DATE&quot;,&quot;dropFileStartingWith&quot;:&quot;OLDEST&quot;}</fileDroppingStrategy>
+        <inputs>
+            <apiName>RetailStoreA</apiName>
+            <definition>SOBJECT://RetailStore</definition>
+            <masterLabel>RetailStoreA</masterLabel>
+            <referenceName>Input:RetailStoreA</referenceName>
+            <required>true</required>
+        </inputs>
+        <inputs>
+            <apiName>RetailStoreB</apiName>
+            <definition>SOBJECT://RetailStore</definition>
+            <masterLabel>RetailStoreB</masterLabel>
+            <referenceName>Input:RetailStoreB</referenceName>
+            <required>true</required>
+        </inputs>
+        <isCitationEnabled>false</isCitationEnabled>
+        <primaryModel>sfdc_ai__DefaultGPT5Mini</primaryModel>
+        <status>Published</status>
+        <versionIdentifier>L98ZaMTfVRuyCpWeC+GWWZ1Bbg9SQ3rKIYJ/+5SKVOg=_5</versionIdentifier>
+    </templateVersions>
+    <type>einstein_gpt__flex</type>
+    <visibility>Global</visibility>
+</GenAiPromptTemplate>

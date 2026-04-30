@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<FieldSrcTrgtRelationship xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <definitionCreationType>Calculated_Insight</definitionCreationType>
+    <masterLabel>DemandScoreFinal_SubArea_map_Demographic_Data_SubArea_1776323423837</masterLabel>
+    <owner>DataCloud</owner>
+    <relationshipCardinality>ManyToOne</relationshipCardinality>
+    <sourceFieldName>DemandScoreFinal__cio.SubArea__c</sourceFieldName>
+    <targetEntity xsi:nil="true"/>
+    <targetFieldName>Demographic_Data__dlm.SubArea__c</targetFieldName>
+</FieldSrcTrgtRelationship>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GenAiFunction xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>The &quot;Store Format&quot; Recommender (Retail Strategist Persona)
+Goal is to Determine *what type* of store to build based on the data.</description>
+    <developerName>Store_Format_Recommender</developerName>
+    <invocationTarget>Store_Format_Recomm</invocationTarget>
+    <invocationTargetType>generatePromptResponse</invocationTargetType>
+    <isConfirmationRequired>false</isConfirmationRequired>
+    <isIncludeInProgressIndicator>false</isIncludeInProgressIndicator>
+    <localDeveloperName>Store_Format_Recommender</localDeveloperName>
+    <masterLabel>Store Format Recommender</masterLabel>
+</GenAiFunction>

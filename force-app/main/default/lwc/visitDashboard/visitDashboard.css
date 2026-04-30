@@ -1,0 +1,206 @@
+/* ── Stats bar ─────────────────────────────────────────── */
+.stats-bar {
+    display: flex;
+    gap: 0;
+    border-bottom: 1px solid #e0e5ee;
+}
+
+.stat-tile {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0.55rem 0.5rem;
+    border-right: 1px solid rgba(255,255,255,0.25);
+}
+
+.stat-tile:last-child {
+    border-right: none;
+}
+
+.stat-inprogress { background: #fff3cd; }
+.stat-planned    { background: #dce9f7; }
+.stat-completed  { background: #d4edda; }
+
+.stat-val {
+    font-size: 1.15rem;
+    font-weight: 800;
+    line-height: 1;
+    color: #181818;
+}
+
+.stat-lbl {
+    font-size: 0.67rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: #3e3e3c;
+    margin-top: 2px;
+}
+
+/* ── Shell ─────────────────────────────────────────────── */
+.dashboard-shell {
+    background: #f3f4f6;
+    border-radius: 12px;
+    overflow: hidden;
+    min-height: 500px;
+    display: flex;
+    flex-direction: column;
+}
+
+/* ── Header ────────────────────────────────────────────── */
+.dashboard-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.85rem 1.25rem;
+    background: #0176d3;
+    color: #fff;
+}
+
+.header-left {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+}
+
+.header-title {
+    font-size: 1rem;
+    font-weight: 700;
+    color: #fff;
+    letter-spacing: 0.01em;
+}
+
+.visit-counter {
+    font-size: 0.78rem;
+    color: #cce3f7;
+}
+
+/* ── Body (side by side) ───────────────────────────────── */
+.dashboard-body {
+    display: flex;
+    flex: 1;
+    min-height: 460px;
+    overflow: hidden;
+}
+
+/* ── Left panel ────────────────────────────────────────── */
+.left-panel {
+    width: 50%;
+    min-width: 280px;
+    display: flex;
+    flex-direction: column;
+    border-right: 1px solid #e0e5ee;
+    background: #fff;
+    height: 100%;
+    overflow: hidden;
+}
+
+/* Card content scrolls, nav stays pinned */
+.left-panel c-visit-dashboard-card {
+    flex: 1;
+    overflow-y: auto;
+    display: block;
+    min-height: 0;
+}
+
+/* ── Nav row — pinned at panel bottom ──────────────────── */
+.nav-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    padding: 0.6rem 1rem;
+    border-top: 1px solid #e0e5ee;
+    background: #f8f9fb;
+    flex-shrink: 0;
+}
+
+.nav-btn {
+    background: #fff;
+    border: 1px solid #d8dde6;
+    border-radius: 50%;
+    width: 2rem;
+    height: 2rem;
+    font-size: 1.2rem;
+    color: #0176d3;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+    padding: 0;
+    transition: background 0.15s;
+}
+
+.nav-btn:hover:not(:disabled) {
+    background: #e8f0fe;
+}
+
+.nav-btn:disabled {
+    color: #c9c7c5;
+    cursor: not-allowed;
+}
+
+.nav-label {
+    font-size: 0.8rem;
+    color: #706e6b;
+    min-width: 3rem;
+    text-align: center;
+}
+
+/* ── Right panel (map) ─────────────────────────────────── */
+.right-panel {
+    width: 50%;
+    background: #e8f0fe;
+    position: relative;
+    min-height: 460px;
+}
+
+.visit-map {
+    width: 100%;
+    height: 100%;
+    min-height: 460px;
+}
+
+.no-map {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    gap: 0.75rem;
+    color: #706e6b;
+    font-size: 0.875rem;
+}
+
+/* ── Loading / empty ───────────────────────────────────── */
+.loading-box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 4rem;
+}
+
+.empty-state {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 3rem 1.5rem;
+    gap: 0.5rem;
+    text-align: center;
+}
+
+.empty-title {
+    font-size: 1rem;
+    font-weight: 700;
+    color: #181818;
+    margin: 0;
+}
+
+.empty-sub {
+    font-size: 0.875rem;
+    color: #706e6b;
+    margin: 0;
+}

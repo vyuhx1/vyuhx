@@ -1,0 +1,126 @@
+<template>
+    <lightning-card title={site.siteName} icon-name="standard:store">
+        <div slot="actions">
+            <lightning-button
+                label="View Record"
+                variant="brand"
+                onclick={handleViewRecord}>
+            </lightning-button>
+        </div>
+        <div class="slds-p-around_medium">
+
+            <!-- Zone Badge -->
+            <div class="slds-m-bottom_medium">
+                <lightning-badge label={site.zone}></lightning-badge>
+            </div>
+
+            <!-- Strategic Factors Section -->
+            <div class="section-box slds-m-bottom_medium">
+                <div class="section-title">Strategic Factors</div>
+
+                <!-- Demand Score full-width with bar -->
+                <div class="slds-m-bottom_small">
+                    <div class="metric-label slds-m-bottom_xx-small">Demand Score</div>
+                    <lightning-progress-bar value={demandProgress} size="medium"></lightning-progress-bar>
+                    <div class="slds-text-body_small slds-m-top_xx-small">{demandScoreFormatted} / 100</div>
+                </div>
+
+                <div class="slds-grid slds-wrap slds-gutters_small">
+                    <!-- Footfall Index -->
+                    <div class="slds-col slds-size_1-of-2 slds-m-bottom_small">
+                        <div class="metric-label">Footfall Index</div>
+                        <div class="metric-value">{footfallIndexFormatted}</div>
+                    </div>
+
+                    <!-- Demographic Score -->
+                    <div class="slds-col slds-size_1-of-2 slds-m-bottom_small">
+                        <div class="metric-label">Demographic Score</div>
+                        <div class="metric-value">{demographicScoreFormatted}</div>
+                    </div>
+
+                    <!-- Competition Level -->
+                    <div class="slds-col slds-size_1-of-1">
+                        <div class="metric-label slds-m-bottom_xx-small">Competition Level</div>
+                        <lightning-badge label={site.competitionLevel} variant={competitionVariant}></lightning-badge>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Financial Factors Section -->
+            <div class="section-box slds-m-bottom_medium">
+                <div class="section-title">Financial Factors</div>
+                <div class="slds-grid slds-wrap slds-gutters_small">
+
+                    <!-- Projected Annual Revenue -->
+                    <div class="slds-col slds-size_1-of-2 slds-m-bottom_small">
+                        <div class="metric-label">Projected Annual Revenue</div>
+                        <div class="metric-value">{annualRevenueFormatted}</div>
+                    </div>
+
+                    <!-- EBITDA Margin -->
+                    <div class="slds-col slds-size_1-of-2 slds-m-bottom_small">
+                        <div class="metric-label">EBITDA Margin (%)</div>
+                        <div class="metric-value">{ebitdaMarginFormatted}</div>
+                    </div>
+
+                    <!-- Payback Period -->
+                    <div class="slds-col slds-size_1-of-2">
+                        <div class="metric-label">Payback Period</div>
+                        <div class="metric-value">
+                            {paybackPeriodFormatted}
+                            <span class="metric-unit"> Years</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Proposed Sites Table -->
+            <template if:true={hasProposedSites}>
+                <div class="slds-m-top_medium">
+                    <div class="section-title slds-m-bottom_small">Proposed Sites</div>
+                    <div class="table-wrapper">
+                        <table class="slds-table slds-table_cell-buffer slds-table_bordered slds-table_col-bordered slds-table_striped competitor-table">
+                            <thead>
+                                <tr class="slds-line-height_reset thead-row">
+                                    <th scope="col" class="col-center thead-cell"><div class="slds-truncate">Site</div></th>
+                                    <th scope="col" class="col-center thead-cell"><div class="slds-truncate">Activity</div></th>
+                                    <th scope="col" class="col-center thead-cell"><div class="slds-truncate">Confidence</div></th>
+                                    <th scope="col" class="col-center thead-cell"><div class="slds-truncate">Impact</div></th>
+                                    <th scope="col" class="col-center thead-cell"><div class="slds-truncate">Competition Level</div></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <template for:each={proposedSitesWithIndex} for:item="cs">
+                                    <tr key={cs.competitionConfidence}>
+                                        <td class="col-center idx-cell">
+                                            <a class="site-link" data-siteid={cs.siteId} onclick={handleSiteNavigation}>{cs.siteLabel}</a>
+                                        </td>
+                                        <td class="col-center">{cs.competitionActivity}</td>
+                                        <td class="col-center">{cs.competitionConfidence}</td>
+                                        <td class="col-center">{cs.competitionImpact}</td>
+                                        <td class="col-center">{cs.competitionLevel}</td>
+                                    </tr>
+                                </template>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </template>
+
+            <!-- Proposed Site Map -->
+            <template if:true={hasMapMarkers}>
+                <div class="slds-m-top_medium">
+                    <div class="section-title slds-m-bottom_small">Proposed Site Locations</div>
+                    <lightning-map
+                        map-markers={mapMarkers}
+                        markers-title="Proposed Sites"
+                        zoom-level="12"
+                        list-view="visible"
+                        show-footer>
+                    </lightning-map>
+                </div>
+            </template>
+
+        </div>
+    </lightning-card>
+</template>

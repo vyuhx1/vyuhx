@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DataStreamDefinition xmlns="http://soap.sforce.com/2006/04/metadata">
+    <areHeadersIncludedInFile>false</areHeadersIncludedInFile>
+    <bulkIngest>false</bulkIngest>
+    <creationType>Custom</creationType>
+    <dataConnector>UploadedFiles</dataConnector>
+    <dataConnectorType>UploadedFiles</dataConnectorType>
+    <dataPlatformDataSetItemName>CONNECTORSFRAMEWORK</dataPlatformDataSetItemName>
+    <dataSource>UploadedFiles</dataSource>
+    <isLimitedToNewFiles>false</isLimitedToNewFiles>
+    <isMissingFileFailure>false</isMissingFileFailure>
+    <masterLabel>Competitor Outlet</masterLabel>
+    <mktDataLakeObject>Competitor_Outlet__dll</mktDataLakeObject>
+    <mktDataTranObject>Competitor_Outlet</mktDataTranObject>
+    <parameters>
+        <fullName>Competitor_Outlet_delimiter</fullName>
+        <paramName>delimiter</paramName>
+        <value>,</value>
+    </parameters>
+    <parameters>
+        <fullName>Competitor_Outlet_fileName</fullName>
+        <paramName>fileName</paramName>
+        <value>Competitor_Outlet1.csv</value>
+    </parameters>
+    <parameters>
+        <fullName>Competitor_Outlet_fileType</fullName>
+        <paramName>fileType</paramName>
+        <value>CSV</value>
+    </parameters>
+    <parameters>
+        <fullName>Competitor_Outlet_importDirectory</fullName>
+        <paramName>importDirectory</paramName>
+        <value>005ak00000WVBb3AAH/2026-04-24T06:36:42:715Z</value>
+    </parameters>
+    <parameters>
+        <fullName>Competitor_Outlet_isDataStreamConfigValid</fullName>
+        <paramName>isDataStreamConfigValid</paramName>
+        <value>true</value>
+    </parameters>
+    <parameters>
+        <fullName>Competitor_Outlet_parentDirectory</fullName>
+        <paramName>parentDirectory</paramName>
+        <value>s3://aws-prod8-cacentral1-cdp2-lakehouse-2/sfdrive/a360-prod8-8db48e93c476457d8ddc27bf4d22ac02/a1fdaf74-17b1-4c64-8123-0a628cbfa5d0__uuid/flup-fileUploads/dc_file_upload</value>
+    </parameters>
+</DataStreamDefinition>

@@ -1,0 +1,79 @@
+/* ── Section boxes ──────────────────────────────────────── */
+.section-box {
+    background: #f8f9fb;
+    border: 1px solid #e0e5ee;
+    border-radius: 8px;
+    padding: 1rem;
+}
+
+.section-title {
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: #3e3e3c;
+    padding-bottom: 0.5rem;
+    margin-bottom: 0.75rem;
+    border-bottom: 2px solid #0176d3;
+}
+
+/* ── Metric tiles ───────────────────────────────────────── */
+.metric-label {
+    font-size: 0.75rem;
+    color: #706e6b;
+    margin-bottom: 2px;
+}
+
+.metric-value {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #181818;
+}
+
+.metric-unit {
+    font-size: 0.75rem;
+    font-weight: 400;
+    color: #706e6b;
+}
+
+/* ── Links ──────────────────────────────────────────────── */
+.store-link,
+.site-link {
+    color: #0176d3;
+    cursor: pointer;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.store-link:hover,
+.site-link:hover {
+    text-decoration: underline;
+}
+
+/* ── Visit / competition table ──────────────────────────── */
+.table-wrapper {
+    overflow-x: auto;
+}
+
+.visit-table {
+    width: 100%;
+    font-size: 0.8rem;
+}
+
+.thead-row {
+    background: #f3f3f3;
+}
+
+.thead-cell {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: #3e3e3c;
+}
+
+.col-center {
+    text-align: center !important;
+}
+
+.col-left {
+    text-align: left !important;
+}

@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GenAiPlannerBundle xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <description>Visit Voice is the voice‑enabled, conversational form of the Visit Intelligence Assistant, designed to help field teams and planners interact with visit execution data hands‑free and in real time.
+It allows users to start visits, retrieve visit details, log observations, update visit status, and close visits using natural voice commands, while ensuring all actions are accurately recorded in Consumer Goods Cloud Visit Execution.
+Visit Voice transforms on‑ground execution into immediate, structured intelligence that feeds back into AI‑driven retail readiness, demand validation, and expansion decisions within the VyuhX platform.</description>
+    <localActionLinks>
+        <genAiFunctionName>AnswerQuestionsWithKnowledge_16jak000001ntcH</genAiFunctionName>
+    </localActionLinks>
+    <localTopicLinks>
+        <genAiPluginName>Visit_Activity_Logger_16jak000001ntcH</genAiPluginName>
+    </localTopicLinks>
+    <localTopics>
+        <fullName>Visit_Activity_Logger_16jak000001ntcH</fullName>
+        <canEscalate>false</canEscalate>
+        <description>Visit Activity Logger captures, updates, and maintains on‑ground visit execution details for retail locations.
+It records field observations, task completion, status updates, and outcomes from Consumer Goods Cloud Visits, ensuring that real‑world execution intelligence is reflected accurately in Salesforce.
+The sub‑agent updates visit records with observations, competitor sightings, footfall notes, photos, and completion status, and synchronizes these updates with ongoing AI‑driven expansion and readiness evaluations.
+By maintaining an accurate visit history, it enables Agentforce to refine confidence scores, reassess risks, and incorporate human‑validated insights into retail decision‑making.</description>
+        <developerName>Visit_Activity_Logger_16jak000001ntcH</developerName>
+        <genAiPluginInstructions>
+            <description>Identify the correct Visit record using Visit ID, retail store, retail store group, sites provided in context.</description>
+            <developerName>instruction_0_1777302820289</developerName>
+            <language xsi:nil="true"/>
+            <masterLabel>instruction_0_1777302820289</masterLabel>
+            <sortOrder>0</sortOrder>
+        </genAiPluginInstructions>
+        <genAiPluginInstructions>
+            <description>Verify the visit is eligible for updates (Planned or In Progress status).</description>
+            <developerName>instruction_1_1777302820289</developerName>
+            <language xsi:nil="true"/>
+            <masterLabel>instruction_1_1777302820289</masterLabel>
+            <sortOrder>1</sortOrder>
+        </genAiPluginInstructions>
+        <genAiPluginInstructions>
+            <description>Update the Visit details accurately based on execution.</description>
+            <developerName>instruction_2_1777302820289</developerName>
+            <language xsi:nil="true"/>
+            <masterLabel>instruction_2_1777302820289</masterLabel>
+            <sortOrder>2</sortOrder>
+        </genAiPluginInstructions>
+        <genAiPluginInstructions>
+            <description>Record actual visit date/time and completion details when available.</description>
+            <developerName>instruction_3_1777302820289</developerName>
+            <language xsi:nil="true"/>
+            <masterLabel>instruction_3_1777302820289</masterLabel>
+            <sortOrder>3</sortOrder>
+        </genAiPluginInstructions>
+        <genAiPluginInstructions>
+            <description>Log on‑ground observations clearly.</description>
+            <developerName>instruction_4_1777302820289</developerName>
+            <language xsi:nil="true"/>
+            <masterLabel>instruction_4_1777302820289</masterLabel>
+            <sortOrder>4</sortOrder>
+        </genAiPluginInstructions>
+        <genAiPluginInstructions>
+            <description>Update Visit notes and reflect in visit record.</description>
+            <developerName>instruction_5_1777302820289</developerName>
+            <language xsi:nil="true"/>
+            <masterLabel>instruction_5_1777302820289</masterLabel>
+            <sortOrder>5</sortOrder>
+        </genAiPluginInstructions>
+        <genAiPluginInstructions>
+            <description>Always evaluate retail readiness per UniqueId (location) and ensure conclusions apply only to that specific location.</description>
+            <developerName>instructions_0_1777362965077</developerName>
+            <language>en_US</language>
+            <masterLabel>instructions_0_1777362965077</masterLabel>
+            <sortOrder>6</sortOrder>
+        </genAiPluginInstructions>
+        <language>en_US</language>
+        <localActionLinks>
+            <functionName>Look_Up_Visits_179ak000002v6HF</functionName>
+        </localActionLinks>
+        <localActionLinks>
+            <functionName>Evaluate_Proposed_Site_179ak000002v6HF</functionName>
+        </localActionLinks>
+        <localActionLinks>
+            <functionName>Visit_Activity_Log_179ak000002v6HF</functionName>
+        </localActionLinks>
+        <localActionLinks>
+            <functionName>Get_My_Visits_179ak000002v6HF</functionName>
+        </localActionLinks>
+        <localActions>
+            <fullName>Evaluate_Proposed_Site_179ak000002v6HF</fullName>
+            <description>Generates ROI and competition analysis for all matching proposed sites.</description>
+            <developerName>Evaluate_Proposed_Site_179ak000002v6HF</developerName>
+            <invocationTarget>AgentSiteEvaluatorAction</invocationTarget>
+            <invocationTargetType>apex</invocationTargetType>
+            <isConfirmationRequired>false</isConfirmationRequired>
+            <isIncludeInProgressIndicator>false</isIncludeInProgressIndicator>
+            <localDeveloperName>Evaluate_Proposed_Site</localDeveloperName>
+            <masterLabel>Evaluate Proposed Site</masterLabel>
+            <source>Evaluate_Proposed_Site</source>
+        </localActions>
+        <localActions>
+            <fullName>Visit_Activity_Log_179ak000002v6HF</fullName>
+            <description>Logs activity against a Visit using an action keyword: &quot;start&quot; captures the current time as ActualVisitStartTime and sets status to InProgress; &quot;end&quot; captures the current time as ActualVisitEndTime and sets status to Completed; &quot;update notes&quot; attaches a note to the visit without changing times or status.</description>
+            <developerName>Visit_Activity_Log_179ak000002v6HF</developerName>
+            <invocationTarget>LogVisitActivityAction</invocationTarget>
+            <invocationTargetType>apex</invocationTargetType>
+            <isConfirmationRequired>false</isConfirmationRequired>
+            <isIncludeInProgressIndicator>true</isIncludeInProgressIndicator>
+            <localDeveloperName>Visit_Activity_Log</localDeveloperName>
+            <masterLabel>Visit Activity Log</masterLabel>
+            <progressIndicatorMessage>Default</progressIndicatorMessage>
+            <source>Visit_Activity_Log</source>
+        </localActions>
+        <localActions>
+            <fullName>Get_My_Visits_179ak000002v6HF</fullName>
+            <description>Returns visit details for the currently logged-in user. Produces both a plain-text summary and a rich VisitResponseDTO for the Lightning Type card renderer.</description>
+            <developerName>Get_My_Visits_179ak000002v6HF</developerName>
+            <invocationTarget>GetMyVisitsAction</invocationTarget>
+            <invocationTargetType>apex</invocationTargetType>
+            <isConfirmationRequired>false</isConfirmationRequired>
+            <isIncludeInProgressIndicator>true</isIncludeInProgressIndicator>
+            <localDeveloperName>Get_My_Visits</localDeveloperName>
+            <masterLabel>Get My Visits</masterLabel>
+            <progressIndicatorMessage>Default</progressIndicatorMessage>
+            <source>Get_My_Visits</source>
+        </localActions>
+        <localActions>
+            <fullName>Look_Up_Visits_179ak000002v6HF</fullName>
+            <description>Retrieves field visits by site name, retail store, or store group — with optional status and date filters. Also returns attached ContentNotes.</description>
+            <developerName>Look_Up_Visits_179ak000002v6HF</developerName>
+            <invocationTarget>AgentVisitLookupAction</invocationTarget>
+            <invocationTargetType>apex</invocationTargetType>
+            <isConfirmationRequired>false</isConfirmationRequired>
+            <isIncludeInProgressIndicator>true</isIncludeInProgressIndicator>
+            <localDeveloperName>Look_Up_Visits</localDeveloperName>
+            <masterLabel>Look Up Visits</masterLabel>
+            <progressIndicatorMessage>Default</progressIndicatorMessage>
+            <source>Look_Up_Visits</source>
+        </localActions>
+        <localDeveloperName>Visit_Activity_Logger</localDeveloperName>
+        <masterLabel>Visit Activity Logger</masterLabel>
+        <pluginType>Topic</pluginType>
+        <scope>Visit Activity Logger is responsible for capturing, updating, and validating on‑ground visit execution data for retail locations within the VyuhX platform.
+Its scope is to ensure that field visits conducted using Consumer Goods Cloud Visit Execution are accurately logged, enriched with observations, and reflected back into Salesforce so that AI‑driven expansion, demand, and readiness decisions remain grounded in real‑world execution.
+This sub‑agent acts as the human‑in‑the‑loop execution bridge, closing the gap between Data Cloud analytics and on‑site reality.
+ 
+In Scope (What It Does)
+Log activities performed during a site visit
+Update visit status and outcomes
+Capture field observations (footfall, competition, visibility, issues)
+Track task completion during visits
+Calculate and assign a Visit Execution Score
+Adjust confidence for AI recommendations
+Feed visit outcomes back into retail readiness and expansion logic
+
+Out of Scope (What It Does NOT Do)
+Does not create visits (handled by Visit Creation Assistant)
+Does not calculate demand, financial, or competition scores directly
+Does not override AI recommendations autonomously
+Does not manage routing, scheduling, or workforce planning</scope>
+        <source>Visit_Activity_Logger</source>
+    </localTopics>
+    <masterLabel>Visit Voice Assistant</masterLabel>
+    <plannerActions>
+        <fullName>AnswerQuestionsWithKnowledge_16jak000001ntcH</fullName>
+        <description>Answers questions about company policies and procedures, troubleshooting steps, or product information. For example: “What is your return policy?” “How do I fix an issue?” or “What features does a product have?”</description>
+        <developerName>AnswerQuestionsWithKnowledge_16jak000001ntcH</developerName>
+        <invocationTarget>streamKnowledgeSearch</invocationTarget>
+        <invocationTargetType>standardInvocableAction</invocationTargetType>
+        <isConfirmationRequired>false</isConfirmationRequired>
+        <isIncludeInProgressIndicator>true</isIncludeInProgressIndicator>
+        <localDeveloperName>AnswerQuestionsWithKnowledge</localDeveloperName>
+        <masterLabel>Answer Questions with Knowledge</masterLabel>
+        <progressIndicatorMessage>Getting answers</progressIndicatorMessage>
+        <source>EmployeeCopilot__AnswerQuestionsWithKnowledge</source>
+    </plannerActions>
+    <plannerSurfaces>
+        <adaptiveResponseAllowed>true</adaptiveResponseAllowed>
+        <callRecordingAllowed>false</callRecordingAllowed>
+        <surface>SurfaceAction__Messaging</surface>
+        <surfaceType>Messaging</surfaceType>
+    </plannerSurfaces>
+    <plannerSurfaces>
+        <adaptiveResponseAllowed>true</adaptiveResponseAllowed>
+        <callRecordingAllowed>false</callRecordingAllowed>
+        <surface>SurfaceAction__CustomerWebClient</surface>
+        <surfaceType>CustomerWebClient</surfaceType>
+    </plannerSurfaces>
+    <plannerSurfaces>
+        <adaptiveResponseAllowed>true</adaptiveResponseAllowed>
+        <callRecordingAllowed>false</callRecordingAllowed>
+        <outboundRouteConfigs>
+            <escalationMessage>Let me transfer the call to Human Agent, thank you for your patience, please hold</escalationMessage>
+            <outboundRouteName>Phone_OmniChannel_Agent_Routing</outboundRouteName>
+            <outboundRouteType>OmniChannelFlow</outboundRouteType>
+        </outboundRouteConfigs>
+        <surface>SurfaceAction__Telephony</surface>
+        <surfaceType>Telephony</surfaceType>
+    </plannerSurfaces>
+    <plannerType>Atlas__VoiceAgent</plannerType>
+    <ruleExpressions>
+        <conditions>
+            <leftOperand>isVerified</leftOperand>
+            <leftOperandType>Variable</leftOperandType>
+            <operator>equal</operator>
+            <rightOperandValue>true</rightOperandValue>
+        </conditions>
+        <expression>Verified_User</expression>
+        <expressionLabel>Verified User</expressionLabel>
+        <expressionName>Verified_User</expressionName>
+        <expressionType>sel</expressionType>
+    </ruleExpressions>
+    <voiceDefinition>
+        <developerName>Visit_Voice_Assistant</developerName>
+        <inboundFillerWordsBool>false</inboundFillerWordsBool>
+        <inboundKeywords>{&quot;keyterm&quot;:[]}</inboundKeywords>
+        <inboundModel>sfdc_ai__Default_Nova_2_PhoneCall</inboundModel>
+        <label>Visit Voice Assistant</label>
+        <languageCode>en_US</languageCode>
+        <outboundModel>sfdc_ai__Default_Eleven_Flash_V2_5</outboundModel>
+        <outboundSimilarity>0.75</outboundSimilarity>
+        <outboundSpeedNum>1.0</outboundSpeedNum>
+        <outboundStability>0.5</outboundStability>
+        <outboundVoice>Tessa</outboundVoice>
+        <pronunciationDict>{&quot;pronunciations&quot;:[]}</pronunciationDict>
+        <voiceIdentifier>kw7MsfzXoT4yQD1Lgo5A</voiceIdentifier>
+    </voiceDefinition>
+</GenAiPlannerBundle>

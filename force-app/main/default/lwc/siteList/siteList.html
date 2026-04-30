@@ -1,0 +1,21 @@
+<template>
+    <lightning-card title="Sites" icon-name="standard:location">
+        <div class="slds-p-around_medium">
+            <template if:true={hasSites}>
+                <div class="slds-m-bottom_small slds-text-body_small slds-text-color_weak">
+                    {siteCount} site(s) found
+                </div>
+                <template for:each={sites} for:item="site">
+                    <div key={site.siteId} class="slds-m-bottom_medium">
+                        <c-site-card site={site}></c-site-card>
+                    </div>
+                </template>
+            </template>
+            <template if:false={hasSites}>
+                <div class="slds-text-body_regular slds-text-color_weak slds-p-vertical_small">
+                    No sites found.
+                </div>
+            </template>
+        </div>
+    </lightning-card>
+</template>

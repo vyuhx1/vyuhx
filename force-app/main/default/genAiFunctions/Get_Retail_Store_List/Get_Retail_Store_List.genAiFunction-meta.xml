@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GenAiFunction xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Retrieves a list of retail stores. Optionally filter by name — leave blank to get all stores.</description>
+    <developerName>Get_Retail_Store_List</developerName>
+    <invocationTarget>AgentRetailStoreListAction</invocationTarget>
+    <invocationTargetType>apex</invocationTargetType>
+    <isConfirmationRequired>false</isConfirmationRequired>
+    <isIncludeInProgressIndicator>false</isIncludeInProgressIndicator>
+    <localDeveloperName>Get_Retail_Store_List</localDeveloperName>
+    <masterLabel>Get Retail Store List</masterLabel>
+</GenAiFunction>

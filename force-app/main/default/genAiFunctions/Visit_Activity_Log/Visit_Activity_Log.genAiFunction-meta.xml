@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GenAiFunction xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Logs activity against a Visit using an action keyword: &quot;start&quot; captures the current time as ActualVisitStartTime and sets status to InProgress; &quot;end&quot; captures the current time as ActualVisitEndTime and sets status to Completed; &quot;update notes&quot; attaches a note to the visit without changing times or status.</description>
+    <developerName>Visit_Activity_Log</developerName>
+    <invocationTarget>LogVisitActivityAction</invocationTarget>
+    <invocationTargetType>apex</invocationTargetType>
+    <isConfirmationRequired>false</isConfirmationRequired>
+    <isIncludeInProgressIndicator>true</isIncludeInProgressIndicator>
+    <localDeveloperName>Visit_Activity_Log</localDeveloperName>
+    <masterLabel>Visit Activity Log</masterLabel>
+    <progressIndicatorMessage>Default</progressIndicatorMessage>
+</GenAiFunction>

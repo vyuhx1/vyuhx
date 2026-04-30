@@ -1,0 +1,347 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GenAiPromptTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <activeVersionIdentifier>L98ZaMTfVRuyCpWeC+GWWZ1Bbg9SQ3rKIYJ/+5SKVOg=_9</activeVersionIdentifier>
+    <developerName>On_Site_Scorecard</developerName>
+    <masterLabel>On-Site Scorecard</masterLabel>
+    <overridable>false</overridable>
+    <templateVersions>
+        <content>You are the Store Expansion Strategic Advisor for a leading retail brand. A field surveyor has just requested an evaluation for a proposed site.
+Review the following data for the proposed location:
+- Site Name: {!$Input:RetailStore.Name}
+- Footfall Index: {!$Input:RetailStore.Footfall_Index__c}
+- Demographic Score: {!$Input:RetailStore.Demographic_Score__c}/100
+- Demand Score: {!$Input:RetailStore.Demand_Score__c}/100
+- Est. Annual Revenue: ${!$Input:RetailStore.Estimated_Annual_Revenue__c}
+- Payback Period: {!$Input:RetailStore.Payback_Period__c} years
+Provide a strategic assessment using the exact Markdown format below. Do not add conversational filler.
+### 📍 Site Evaluation: {!$Input:RetailStore.Name}
+**📊 Core Metrics**
+* **Demand Score:** {!$Input:RetailStore.Demand_Score__c}/100 
+* **Footfall Index:** {!$Input:RetailStore.Footfall_Index__c}
+* **Demographic Strength:** {!$Input:RetailStore.Demographic_Score__c}/100
+
+**💰 Financial Projection**
+* **Expected Annual Revenue:** ${!$Input:RetailStore.Estimated_Annual_Revenue__c}
+* **Estimated Payback Period:** {!$Input:RetailStore.Payback_Period_Years__c} years
+
+**💡 Strategic Verdict**
+[Based on the Demand Score and Payback Period, provide a 2-sentence recommendation. Categorize the site as &quot;Highly Recommended&quot;, &quot;Requires Review&quot;, or &quot;High Risk&quot;.]
+</content>
+        <fileDroppingStrategy>{&quot;dropFilesBy&quot;:&quot;LAST_MODIFIED_DATE&quot;,&quot;dropFileStartingWith&quot;:&quot;OLDEST&quot;}</fileDroppingStrategy>
+        <inputs>
+            <apiName>RetailStore</apiName>
+            <definition>SOBJECT://RetailStore</definition>
+            <masterLabel>RetailStore</masterLabel>
+            <referenceName>Input:RetailStore</referenceName>
+            <required>true</required>
+        </inputs>
+        <isCitationEnabled>false</isCitationEnabled>
+        <primaryModel>sfdc_ai__DefaultGPT5Mini</primaryModel>
+        <status>Draft</status>
+        <versionIdentifier>L98ZaMTfVRuyCpWeC+GWWZ1Bbg9SQ3rKIYJ/+5SKVOg=_1</versionIdentifier>
+    </templateVersions>
+    <templateVersions>
+        <content>You are the Store Expansion Strategic Advisor for a leading retail brand. A field surveyor has just requested an evaluation for a proposed site.
+Review the following data for the proposed location:
+- Site Name: {!$Input:RetailStore.Name}
+- Footfall Index: {!$Input:RetailStore.Footfall_Index__c}
+- Demographic Score: {!$Input:RetailStore.Demographic_Score__c}/100
+- Demand Score: {!$Input:RetailStore.Demand_Score__c}/100
+- Est. Annual Revenue: ${!$Input:RetailStore.Estimated_Annual_Revenue__c}
+- Payback Period: {!$Input:RetailStore.Payback_Period__c} years
+Provide a strategic assessment using the exact Markdown format below. Do not add conversational filler.
+### 📍 Site Evaluation: {!$Input:RetailStore.Name}
+**📊 Core Metrics**
+* **Demand Score:** {!$Input:RetailStore.Demand_Score__c}/100 
+* **Footfall Index:** {!$Input:RetailStore.Footfall_Index__c}
+* **Demographic Strength:** {!$Input:RetailStore.Demographic_Score__c}/100
+
+**💰 Financial Projection**
+* **Expected Annual Revenue:** ${!$Input:RetailStore.Estimated_Annual_Revenue__c}
+* **Estimated Payback Period:** {!$Input:RetailStore.Payback_Period_Years__c} years
+
+**💡 Strategic Verdict**
+[Based on the Demand Score and Payback Period, provide a 2-sentence recommendation. Categorize the site as &quot;Highly Recommended&quot;, &quot;Requires Review&quot;, or &quot;High Risk&quot;.]
+</content>
+        <fileDroppingStrategy>{&quot;dropFilesBy&quot;:&quot;LAST_MODIFIED_DATE&quot;,&quot;dropFileStartingWith&quot;:&quot;OLDEST&quot;}</fileDroppingStrategy>
+        <inputs>
+            <apiName>RetailStore</apiName>
+            <definition>SOBJECT://RetailStore</definition>
+            <masterLabel>RetailStore</masterLabel>
+            <referenceName>Input:RetailStore</referenceName>
+            <required>true</required>
+        </inputs>
+        <isCitationEnabled>false</isCitationEnabled>
+        <primaryModel>sfdc_ai__DefaultGPT5Mini</primaryModel>
+        <status>Published</status>
+        <versionIdentifier>L98ZaMTfVRuyCpWeC+GWWZ1Bbg9SQ3rKIYJ/+5SKVOg=_2</versionIdentifier>
+    </templateVersions>
+    <templateVersions>
+        <content>You are the Store Expansion Strategic Advisor for a leading retail brand. A field surveyor has just requested an evaluation for a proposed site.
+Review the following data for the proposed location:
+- Site Name: {!$Input:RetailStore.Name}
+- Footfall Index: {!$Input:RetailStore.Footfall_Index__c}
+- Demographic Score: {!$Input:RetailStore.Demographic_Score__c}/100
+- Demand Score: {!$Input:RetailStore.Demand_Score__c}/100
+- Est. Annual Revenue: ${!$Input:RetailStore.Expected_Annual_Revenue__c}
+- Payback Period: {!$Input:RetailStore.Payback_Period__c} years
+Provide a strategic assessment using the exact Markdown format below. Do not add conversational filler.
+### 📍 Site Evaluation: {!$Input:RetailStore.Name}
+&lt;b&gt;📊 Core Metrics&lt;/b&gt;
+* **Demand Score:** {!$Input:RetailStore.Demand_Score__c}/100 
+* **Footfall Index:** {!$Input:RetailStore.Footfall_Index__c}
+* **Demographic Strength:** {!$Input:RetailStore.Demographic_Score__c}/100
+
+**💰 Financial Projection**
+* **Expected Annual Revenue:** ${!$Input:RetailStore.Expected_Annual_Revenue__c}
+* **Estimated Payback Period:** {!$Input:RetailStore.Payback_Period_Years__c} years
+
+**💡 Strategic Verdict**
+[Based on the Demand Score and Payback Period, provide a 2-sentence recommendation. Categorize the site as &quot;Highly Recommended&quot;, &quot;Requires Review&quot;, or &quot;High Risk&quot;.]
+</content>
+        <fileDroppingStrategy>{&quot;dropFilesBy&quot;:&quot;LAST_MODIFIED_DATE&quot;,&quot;dropFileStartingWith&quot;:&quot;OLDEST&quot;}</fileDroppingStrategy>
+        <inputs>
+            <apiName>RetailStore</apiName>
+            <definition>SOBJECT://RetailStore</definition>
+            <masterLabel>RetailStore</masterLabel>
+            <referenceName>Input:RetailStore</referenceName>
+            <required>true</required>
+        </inputs>
+        <isCitationEnabled>false</isCitationEnabled>
+        <primaryModel>sfdc_ai__DefaultGPT5Mini</primaryModel>
+        <status>Published</status>
+        <versionIdentifier>L98ZaMTfVRuyCpWeC+GWWZ1Bbg9SQ3rKIYJ/+5SKVOg=_3</versionIdentifier>
+    </templateVersions>
+    <templateVersions>
+        <content>You are the Store Expansion Strategic Advisor for a leading retail brand. A field surveyor has just requested an evaluation for a proposed site.
+Review the following data for the proposed location:
+- Site Name: {!$Input:RetailStore.Name}
+- Footfall Index: {!$Input:RetailStore.Footfall_Index__c}
+- Demographic Score: {!$Input:RetailStore.Demographic_Score__c}/100
+- Demand Score: {!$Input:RetailStore.Demand_Score__c}/100
+- Est. Annual Revenue: ${!$Input:RetailStore.Expected_Annual_Revenue__c}
+- Payback Period: {!$Input:RetailStore.Payback_Period__c} years
+Provide a strategic assessment using the exact Markdown format below. Do not add conversational filler.
+&lt;h3&gt;📍 Site Evaluation: {!$Input:RetailStore.Name}&lt;/h3&gt;
+&lt;b&gt;📊 Core Metrics&lt;/b&gt;
+&lt;ul&gt;&lt;li&gt; &lt;b&gt;Demand Score:&lt;/b&gt; {!$Input:RetailStore.Demand_Score__c}/100 &lt;/li&gt;
+&lt;li&gt; &lt;b&gt;Footfall Index:&lt;/b&gt; {!$Input:RetailStore.Footfall_Index__c} &lt;/li&gt;
+&lt;li&gt; &lt;b&gt;Demographic Strength:&lt;/b&gt; {!$Input:RetailStore.Demographic_Score__c}/100 &lt;/li&gt;&lt;/ul&gt;
+
+&lt;b&gt;💰 Financial Projection&lt;/b&gt;
+&lt;ul&gt;&lt;li&gt; &lt;b&gt;Expected Annual Revenue:&lt;/b&gt; ${!$Input:RetailStore.Expected_Annual_Revenue__c} &lt;/li&gt;
+&lt;li&gt; &lt;b&gt;Estimated Payback Period:&lt;/b&gt; {!$Input:RetailStore.Payback_Period_Years__c} years &lt;/li&gt;&lt;/ul&gt;
+
+&lt;b&gt;💡 Strategic Verdict:&lt;/b&gt;
+[Based on the Demand Score and Payback Period, provide a 2-sentence recommendation. Categorize the site as &quot;Highly Recommended&quot;, &quot;Requires Review&quot;, or &quot;High Risk&quot;.]
+</content>
+        <fileDroppingStrategy>{&quot;dropFilesBy&quot;:&quot;LAST_MODIFIED_DATE&quot;,&quot;dropFileStartingWith&quot;:&quot;OLDEST&quot;}</fileDroppingStrategy>
+        <inputs>
+            <apiName>RetailStore</apiName>
+            <definition>SOBJECT://RetailStore</definition>
+            <masterLabel>RetailStore</masterLabel>
+            <referenceName>Input:RetailStore</referenceName>
+            <required>true</required>
+        </inputs>
+        <isCitationEnabled>false</isCitationEnabled>
+        <primaryModel>sfdc_ai__DefaultGPT5Mini</primaryModel>
+        <status>Published</status>
+        <versionIdentifier>L98ZaMTfVRuyCpWeC+GWWZ1Bbg9SQ3rKIYJ/+5SKVOg=_4</versionIdentifier>
+    </templateVersions>
+    <templateVersions>
+        <content>You are the Store Expansion Strategic Advisor for a leading retail brand. A field surveyor has just requested an evaluation for a proposed site.
+Review the following data for the proposed location:
+- Site Name: {!$Input:RetailStore.Name}
+- Footfall Index: {!$Input:RetailStore.Footfall_Index__c}
+- Demographic Score: {!$Input:RetailStore.Demographic_Score__c}/100
+- Demand Score: {!$Input:RetailStore.Demand_Score__c}/100
+- Est. Annual Revenue: ${!$Input:RetailStore.Expected_Annual_Revenue__c}
+- Payback Period: {!$Input:RetailStore.Payback_Period__c} years
+Provide a strategic assessment using the exact Markdown format below. Do not add conversational filler.
+Any decimal value restrict to 2 decimal points
+&lt;h1&gt;&lt;b&gt;📍 Site Evaluation: {!$Input:RetailStore.Name}&lt;/b&gt;&lt;/h1&gt;
+&lt;b&gt;📊 Core Metrics&lt;/b&gt;
+&lt;ul&gt;&lt;li&gt; &lt;b&gt;Demand Score:&lt;/b&gt; {!$Input:RetailStore.Current_Demand_Score__c}/100 &lt;/li&gt;
+&lt;li&gt; &lt;b&gt;Footfall Index:&lt;/b&gt; {!$Input:RetailStore.Footfall_Index__c} &lt;/li&gt;
+&lt;li&gt; &lt;b&gt;Demographic Strength:&lt;/b&gt; {!$Input:RetailStore.Demographic_Score__c}/100 &lt;/li&gt;&lt;/ul&gt;
+&lt;b&gt;💰 Financial Projection&lt;/b&gt;
+&lt;ul&gt;&lt;li&gt; &lt;b&gt;Expected Annual Revenue:&lt;/b&gt; ${!$Input:RetailStore.Expected_Annual_Revenue__c} &lt;/li&gt;
+&lt;li&gt; &lt;b&gt;Estimated Payback Period:&lt;/b&gt; {!$Input:RetailStore.Payback_Period_Years__c} years &lt;/li&gt;&lt;/ul&gt;
+&lt;b&gt;💡 Strategic Verdict:&lt;/b&gt;
+[Based on the Demand Score and Payback Period, provide a 2-sentence recommendation. Categorize the site as &quot;Highly Recommended&quot;, &quot;Requires Review&quot;, or &quot;High Risk&quot;.]
+</content>
+        <fileDroppingStrategy>{&quot;dropFilesBy&quot;:&quot;LAST_MODIFIED_DATE&quot;,&quot;dropFileStartingWith&quot;:&quot;OLDEST&quot;}</fileDroppingStrategy>
+        <inputs>
+            <apiName>RetailStore</apiName>
+            <definition>SOBJECT://RetailStore</definition>
+            <masterLabel>RetailStore</masterLabel>
+            <referenceName>Input:RetailStore</referenceName>
+            <required>true</required>
+        </inputs>
+        <isCitationEnabled>false</isCitationEnabled>
+        <primaryModel>sfdc_ai__DefaultGPT5Mini</primaryModel>
+        <status>Published</status>
+        <versionIdentifier>L98ZaMTfVRuyCpWeC+GWWZ1Bbg9SQ3rKIYJ/+5SKVOg=_5</versionIdentifier>
+    </templateVersions>
+    <templateVersions>
+        <content>You are the Store Expansion Strategic Advisor for a leading retail brand. A field surveyor has just requested an evaluation for a proposed site.
+Review the following data for the proposed location:
+- Site Name: {!$Input:RetailStore.Name}
+- Footfall Index: {!$Input:RetailStore.Footfall_Index__c}
+- Demographic Score: {!$Input:RetailStore.Demographic_Score__c}/100
+- Demand Score: {!$Input:RetailStore.Demand_Score__c}/100
+- Est. Annual Revenue: ${!$Input:RetailStore.Expected_Annual_Revenue__c}
+- Payback Period: {!$Input:RetailStore.Payback_Period__c} years
+
+Restrict the decimal values to 2 points.
+Provide a strategic assessment using the exact Markdown format below. Do not add conversational filler.
+&lt;h1&gt;&lt;b&gt;📍 Site Evaluation: {!$Input:RetailStore.Name}&lt;/b&gt;&lt;/h1&gt;
+&lt;b&gt;📊 Core Metrics&lt;/b&gt;
+&lt;ul&gt;&lt;li&gt; &lt;b&gt;Demand Score:&lt;/b&gt; {!$Input:RetailStore.Current_Demand_Score__c}/100 &lt;/li&gt;
+&lt;li&gt; &lt;b&gt;Footfall Index:&lt;/b&gt; {!$Input:RetailStore.Footfall_Index__c} &lt;/li&gt;
+&lt;li&gt; &lt;b&gt;Demographic Strength:&lt;/b&gt; {!$Input:RetailStore.Demographic_Score__c}/100 &lt;/li&gt;&lt;/ul&gt;
+
+&lt;b&gt;💰 Financial Projection&lt;/b&gt;
+&lt;ul&gt;&lt;li&gt; &lt;b&gt;Expected Annual Revenue:&lt;/b&gt; ${!$Input:RetailStore.Expected_Annual_Revenue__c} &lt;/li&gt;
+&lt;li&gt; &lt;b&gt;Estimated Payback Period:&lt;/b&gt; {!$Input:RetailStore.Payback_Period_Years__c} years &lt;/li&gt;&lt;/ul&gt;
+
+&lt;b&gt;💡 Strategic Verdict:&lt;/b&gt;
+[Based on the Demand Score and Payback Period, provide a 2-sentence recommendation. Categorize the site as &quot;Highly Recommended&quot;, &quot;Requires Review&quot;, or &quot;High Risk&quot;.]
+</content>
+        <fileDroppingStrategy>{&quot;dropFilesBy&quot;:&quot;LAST_MODIFIED_DATE&quot;,&quot;dropFileStartingWith&quot;:&quot;OLDEST&quot;}</fileDroppingStrategy>
+        <inputs>
+            <apiName>RetailStore</apiName>
+            <definition>SOBJECT://RetailStore</definition>
+            <masterLabel>RetailStore</masterLabel>
+            <referenceName>Input:RetailStore</referenceName>
+            <required>true</required>
+        </inputs>
+        <isCitationEnabled>false</isCitationEnabled>
+        <primaryModel>sfdc_ai__DefaultGPT5Mini</primaryModel>
+        <status>Published</status>
+        <versionIdentifier>L98ZaMTfVRuyCpWeC+GWWZ1Bbg9SQ3rKIYJ/+5SKVOg=_6</versionIdentifier>
+    </templateVersions>
+    <templateVersions>
+        <content>You are the Store Expansion Strategic Advisor for a leading retail brand. A field surveyor has just requested an evaluation for a proposed site.
+Review the following data for the proposed location:
+- Site Name: {!$Input:RetailStore.Name}
+- Footfall Index: {!$Input:RetailStore.Footfall_Index__c}
+- Demographic Score: {!$Input:RetailStore.Demographic_Score__c}/100
+- Demand Score: {!$Input:RetailStore.Demand_Score__c}/100
+- Est. Annual Revenue: ${!$Input:RetailStore.Expected_Annual_Revenue__c}
+- Payback Period: {!$Input:RetailStore.Payback_Period__c} years
+
+Restrict the decimal values to 2 points.
+Provide a strategic assessment using the exact Markdown format below. Do not add conversational filler.
+&lt;h3&gt;📍 Site Evaluation: {!$Input:RetailStore.Name}&lt;/h3&gt;
+&lt;b&gt;📊 Core Metrics&lt;/b&gt;
+&lt;ul&gt;&lt;li&gt; &lt;b&gt;Demand Score:&lt;/b&gt; {!$Input:RetailStore.Current_Demand_Score__c}/100 &lt;/li&gt;
+&lt;li&gt; &lt;b&gt;Footfall Index:&lt;/b&gt; {!$Input:RetailStore.Footfall_Index__c} &lt;/li&gt;
+&lt;li&gt; &lt;b&gt;Demographic Strength:&lt;/b&gt; {!$Input:RetailStore.Demographic_Score__c}/100 &lt;/li&gt;&lt;/ul&gt;
+&lt;b&gt;💰 Financial Projection&lt;/b&gt;
+&lt;ul&gt;&lt;li&gt; &lt;b&gt;Expected Annual Revenue:&lt;/b&gt; ${!$Input:RetailStore.Expected_Annual_Revenue__c} &lt;/li&gt;
+&lt;li&gt; &lt;b&gt;Estimated Payback Period:&lt;/b&gt; {!$Input:RetailStore.Payback_Period_Years__c} years &lt;/li&gt;&lt;/ul&gt;
+&lt;b&gt;💡 Strategic Verdict:&lt;/b&gt;
+[Based on the Demand Score and Payback Period, provide a 2-sentence recommendation. Categorize the site as &quot;Highly Recommended&quot;, &quot;Requires Review&quot;, or &quot;High Risk&quot;.]
+</content>
+        <fileDroppingStrategy>{&quot;dropFilesBy&quot;:&quot;LAST_MODIFIED_DATE&quot;,&quot;dropFileStartingWith&quot;:&quot;OLDEST&quot;}</fileDroppingStrategy>
+        <inputs>
+            <apiName>RetailStore</apiName>
+            <definition>SOBJECT://RetailStore</definition>
+            <masterLabel>RetailStore</masterLabel>
+            <referenceName>Input:RetailStore</referenceName>
+            <required>true</required>
+        </inputs>
+        <isCitationEnabled>false</isCitationEnabled>
+        <primaryModel>sfdc_ai__DefaultGPT5Mini</primaryModel>
+        <status>Published</status>
+        <versionIdentifier>L98ZaMTfVRuyCpWeC+GWWZ1Bbg9SQ3rKIYJ/+5SKVOg=_7</versionIdentifier>
+    </templateVersions>
+    <templateVersions>
+        <content>You are the Store Expansion Strategic Advisor for a leading retail brand. A field surveyor has just requested an evaluation for a proposed site.
+Review the following data for the proposed location:
+- Site Name: {!$Input:RetailStore.Name}
+- Footfall Index: {!$Input:RetailStore.Footfall_Index__c}
+- Demographic Score: {!$Input:RetailStore.Demographic_Score__c}/100
+- Demand Score: {!$Input:RetailStore.Demand_Score__c}/100
+- Est. Annual Revenue: ${!$Input:RetailStore.Expected_Annual_Revenue__c}
+- Payback Period: {!$Input:RetailStore.Payback_Period__c} years
+
+Restrict the decimal values to 2 points.
+Provide a strategic assessment using the exact Markdown format below. Do not add conversational filler.
+&lt;h3&gt;&lt;b&gt;📍 Site Evaluation: {!$Input:RetailStore.Name}&lt;/b&gt;&lt;/h3&gt;
+&lt;b&gt;📊 Core Metrics&lt;/b&gt;
+&lt;ul&gt;&lt;li&gt; &lt;b&gt;Demand Score:&lt;/b&gt; {!$Input:RetailStore.Current_Demand_Score__c}/100 &lt;/li&gt;
+&lt;li&gt; &lt;b&gt;Footfall Index:&lt;/b&gt; {!$Input:RetailStore.Footfall_Index__c} &lt;/li&gt;
+&lt;li&gt; &lt;b&gt;Demographic Strength:&lt;/b&gt; {!$Input:RetailStore.Demographic_Score__c}/100 &lt;/li&gt;&lt;/ul&gt;
+&lt;b&gt;💰 Financial Projection&lt;/b&gt;
+&lt;ul&gt;&lt;li&gt; &lt;b&gt;Expected Annual Revenue:&lt;/b&gt; ${!$Input:RetailStore.Expected_Annual_Revenue__c} &lt;/li&gt;
+&lt;li&gt; &lt;b&gt;Estimated Payback Period:&lt;/b&gt; {!$Input:RetailStore.Payback_Period_Years__c} years &lt;/li&gt;&lt;/ul&gt;
+&lt;b&gt;💡 Strategic Verdict:&lt;/b&gt;
+[Based on the Demand Score and Payback Period, provide a 2-sentence recommendation. Categorize the site as &quot;Highly Recommended&quot;, &quot;Requires Review&quot;, or &quot;High Risk&quot;.]
+</content>
+        <fileDroppingStrategy>{&quot;dropFilesBy&quot;:&quot;LAST_MODIFIED_DATE&quot;,&quot;dropFileStartingWith&quot;:&quot;OLDEST&quot;}</fileDroppingStrategy>
+        <inputs>
+            <apiName>RetailStore</apiName>
+            <definition>SOBJECT://RetailStore</definition>
+            <masterLabel>RetailStore</masterLabel>
+            <referenceName>Input:RetailStore</referenceName>
+            <required>true</required>
+        </inputs>
+        <isCitationEnabled>false</isCitationEnabled>
+        <primaryModel>sfdc_ai__DefaultGPT5Mini</primaryModel>
+        <status>Published</status>
+        <versionIdentifier>L98ZaMTfVRuyCpWeC+GWWZ1Bbg9SQ3rKIYJ/+5SKVOg=_8</versionIdentifier>
+    </templateVersions>
+    <templateVersions>
+        <content>{!$Apex:RetailStoreDetailsAction.summaryText}
+You are the Store Expansion Strategic Advisor for a leading retail brand. A field surveyor has just requested an evaluation for a proposed site.
+Review the following data for the proposed location:
+- Site Name: {!$Input:RetailStore.Name}
+- Footfall Index: {!$Input:RetailStore.Footfall_Index__c}
+- Demographic Score: {!$Input:RetailStore.Demographic_Score__c}/100
+- Demand Score: {!$Input:RetailStore.Demand_Score__c}/100
+- Est. Annual Revenue: ${!$Input:RetailStore.Expected_Annual_Revenue__c}
+- Payback Period: {!$Input:RetailStore.Payback_Period__c} years
+
+Restrict the decimal values to 2 points.
+Provide a strategic assessment using the exact Markdown format below. Do not add conversational filler.
+&lt;h3&gt;&lt;b&gt;📍 Site Evaluation: {!$Input:RetailStore.Name}&lt;/b&gt;&lt;/h3&gt;
+&lt;b&gt;📊 Core Metrics&lt;/b&gt;
+&lt;ul&gt;&lt;li&gt; &lt;b&gt;Demand Score:&lt;/b&gt; {!$Input:RetailStore.Current_Demand_Score__c}/100 &lt;/li&gt;
+&lt;li&gt; &lt;b&gt;Footfall Index:&lt;/b&gt; {!$Input:RetailStore.Footfall_Index__c} &lt;/li&gt;
+&lt;li&gt; &lt;b&gt;Demographic Strength:&lt;/b&gt; {!$Input:RetailStore.Demographic_Score__c}/100 &lt;/li&gt;&lt;/ul&gt;
+&lt;b&gt;💰 Financial Projection&lt;/b&gt;
+&lt;ul&gt;&lt;li&gt; &lt;b&gt;Expected Annual Revenue:&lt;/b&gt; ${!$Input:RetailStore.Expected_Annual_Revenue__c} &lt;/li&gt;
+&lt;li&gt; &lt;b&gt;Estimated Payback Period:&lt;/b&gt; {!$Input:RetailStore.Payback_Period_Years__c} years &lt;/li&gt;&lt;/ul&gt;
+&lt;b&gt;💡 Strategic Verdict:&lt;/b&gt;
+[Based on the Demand Score and Payback Period, provide a 2-sentence recommendation. Categorize the site as &quot;Highly Recommended&quot;, &quot;Requires Review&quot;, or &quot;High Risk&quot;.]
+</content>
+        <fileDroppingStrategy>{&quot;dropFilesBy&quot;:&quot;LAST_MODIFIED_DATE&quot;,&quot;dropFileStartingWith&quot;:&quot;OLDEST&quot;}</fileDroppingStrategy>
+        <inputs>
+            <apiName>RetailStore</apiName>
+            <definition>SOBJECT://RetailStore</definition>
+            <masterLabel>RetailStore</masterLabel>
+            <referenceName>Input:RetailStore</referenceName>
+            <required>true</required>
+        </inputs>
+        <isCitationEnabled>false</isCitationEnabled>
+        <primaryModel>sfdc_ai__DefaultGPT5Mini</primaryModel>
+        <status>Published</status>
+        <templateDataProviders>
+            <definition>apex://RetailStoreDetailsAction</definition>
+            <description>Returns key details of a Retail Store given its Id or Name. Falls back to all stores if no match is found.</description>
+            <label>Get Retail Store Details</label>
+            <parameters>
+                <definition>primitive://String</definition>
+                <isRequired>true</isRequired>
+                <parameterName>storeIdOrName</parameterName>
+                <valueExpression>{!$Input:RetailStore.Name}</valueExpression>
+            </parameters>
+            <referenceName>Apex:RetailStoreDetailsAction</referenceName>
+        </templateDataProviders>
+        <versionIdentifier>L98ZaMTfVRuyCpWeC+GWWZ1Bbg9SQ3rKIYJ/+5SKVOg=_9</versionIdentifier>
+    </templateVersions>
+    <type>einstein_gpt__flex</type>
+    <visibility>Global</visibility>
+</GenAiPromptTemplate>

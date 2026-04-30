@@ -1,0 +1,30 @@
+<template>
+    <lightning-card title="Retail Store Groups" icon-name="standard:groups">
+        <div class="slds-p-around_medium">
+            <template if:true={hasGroups}>
+
+                <!-- Group Navigation Bar -->
+                <div class="group-nav-bar">
+                    <button class="group-nav-btn" disabled={isGroupPreviousDisabled} onclick={handlePreviousGroup} aria-label="Previous group">
+                        <lightning-icon icon-name="utility:chevronleft" size="x-small"></lightning-icon>
+                    </button>
+                    <div class="group-nav-center">
+                        <lightning-icon icon-name="standard:groups" size="x-small" class="group-nav-icon"></lightning-icon>
+                        <span class="group-nav-label">{groupPosLabel}</span>
+                    </div>
+                    <button class="group-nav-btn" disabled={isGroupNextDisabled} onclick={handleNextGroup} aria-label="Next group">
+                        <lightning-icon icon-name="utility:chevronright" size="x-small"></lightning-icon>
+                    </button>
+                </div>
+
+                <c-location-group-card group={currentGroup}></c-location-group-card>
+
+            </template>
+            <template if:false={hasGroups}>
+                <div class="slds-text-body_regular slds-text-color_weak slds-p-vertical_small">
+                    No retail store groups found.
+                </div>
+            </template>
+        </div>
+    </lightning-card>
+</template>

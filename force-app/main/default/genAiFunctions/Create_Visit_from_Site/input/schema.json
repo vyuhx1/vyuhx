@@ -1,0 +1,21 @@
+{
+  "required" : [ "SiteName", "recordId" ],
+  "unevaluatedProperties" : false,
+  "properties" : {
+    "SiteName" : {
+      "title" : "SiteName",
+      "description" : "site name",
+      "lightning:type" : "lightning__textType",
+      "lightning:isPII" : false,
+      "copilotAction:isUserInput" : false
+    },
+    "recordId" : {
+      "title" : "recordId",
+      "description" : "record id",
+      "lightning:type" : "lightning__textType",
+      "lightning:isPII" : false,
+      "copilotAction:isUserInput" : false
+    }
+  },
+  "lightning:type" : "lightning__objectType"
+}

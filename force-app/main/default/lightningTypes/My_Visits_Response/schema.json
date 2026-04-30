@@ -1,0 +1,5 @@
+{
+  "description" : "Renders visit details assigned to the running user, displayed inline using the visitCard component.",
+  "lightning:type" : "@apexClassType/c__VisitResponseDTO",
+  "title" : "My Visit Details"
+}

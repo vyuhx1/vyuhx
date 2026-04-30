@@ -1,0 +1,256 @@
+/* ── Shell ───────────────────────────────────────────────── */
+.mvc-shell {
+    background: #ffffff;
+    border: 1px solid #e0e5ee;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+/* ── Header ──────────────────────────────────────────────── */
+.mvc-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #f8f9fb;
+    border-bottom: 1px solid #e0e5ee;
+    padding: 0.75rem 1rem;
+    gap: 1rem;
+}
+
+.mvc-title-row {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    flex: 1;
+}
+
+.mvc-title-icon {
+    flex-shrink: 0;
+}
+
+.mvc-title {
+    font-size: 1rem;
+    font-weight: 700;
+    color: #181818;
+}
+
+.mvc-directions-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    font-size: 0.78rem;
+    font-weight: 700;
+    color: #ffffff;
+    text-decoration: none;
+    padding: 0 0.9rem;
+    height: 1.75rem;
+    border: none;
+    border-radius: 2rem;
+    background: #0176d3;
+    cursor: pointer;
+    transition: background 0.15s;
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+
+.mvc-directions-btn:hover { background: #014486; }
+
+.mvc-dir-icon {
+    width: 14px;
+    height: 14px;
+    flex-shrink: 0;
+}
+
+/* ── Shared labels ────────────────────────────────────────── */
+.mvc-label {
+    font-size: 0.72rem;
+    color: #706e6b;
+    margin-bottom: 3px;
+}
+
+.mvc-value {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #181818;
+}
+
+/* ── Section boxes ──────────────────────────────────────── */
+.mvc-section {
+    background: #f8f9fb;
+    border: 1px solid #e0e5ee;
+    border-radius: 8px;
+    padding: 0.875rem 1rem;
+    margin: 0.75rem 1rem 0;
+}
+
+.mvc-section-title {
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: #3e3e3c;
+    padding-bottom: 0.4rem;
+    margin-bottom: 0.6rem;
+    border-bottom: 2px solid #0176d3;
+}
+
+/* ── Location grid ────────────────────────────────────────── */
+.mvc-location-grid {
+    display: flex;
+    gap: 0;
+    padding-left: 0;
+    padding-right: 0;
+    margin-left: 0.75rem;
+    margin-right: 0.75rem;
+}
+
+.mvc-loc-col {
+    flex: 1;
+    padding: 0 1rem;
+    border-right: 1px solid #e0e5ee;
+}
+
+.mvc-loc-col_last {
+    border-right: none;
+}
+
+/* ── Info row ─────────────────────────────────────────────── */
+.mvc-info-row {
+    display: flex;
+    align-items: flex-end;
+    gap: 1.25rem;
+    flex-wrap: wrap;
+    padding: 0.75rem 1rem;
+    background: #f8f9fb;
+    border: 1px solid #e0e5ee;
+    border-radius: 8px;
+    margin: 0.75rem 1rem 0;
+}
+
+.mvc-info-cell {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+/* Button pinned to right end of info row */
+.mvc-info-cell-btn {
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+/* ── Status badges ────────────────────────────────────────── */
+.mvc-status-badge {
+    display: inline-block;
+    padding: 3px 12px;
+    border-radius: 12px;
+    font-size: 0.78rem;
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+.mvc-status-planned    { background: #e0e0e0; color: #3e3e3c; }
+.mvc-status-inprogress { background: #fff3e0; color: #c96a00; }
+.mvc-status-completed  { background: #e3f5ec; color: #2e844a; }
+.mvc-status-cancelled  { background: #fde8e8; color: #ba0517; }
+
+/* ── Schedule ─────────────────────────────────────────────── */
+.mvc-schedule-row {
+    display: flex;
+    gap: 0.75rem;
+    margin: 0.75rem 1rem 0;
+}
+
+.mvc-schedule-col {
+    flex: 1;
+    min-width: 0;
+    margin: 0;
+}
+
+.mvc-schedule-stack {
+    display: flex;
+    flex-direction: column;
+}
+
+/* ── Notes ────────────────────────────────────────────────── */
+.mvc-notes-wrap {
+    margin: 0.75rem 1rem 0.875rem;
+}
+
+.mvc-notes-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 0.5rem;
+}
+
+.mvc-notes-label {
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: #3e3e3c;
+    border-bottom: 2px solid #0176d3;
+    padding-bottom: 0.4rem;
+    flex: 1;
+}
+
+.mvc-note-nav {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    margin-left: 1rem;
+}
+
+.mvc-note-nav-btn {
+    background: #fff;
+    border: 1px solid #dddbda;
+    border-radius: 50%;
+    width: 1.6rem;
+    height: 1.6rem;
+    font-size: 1.2rem;
+    line-height: 1;
+    cursor: pointer;
+    color: #0176d3;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.mvc-note-nav-btn:disabled { color: #c9c7c5; cursor: not-allowed; }
+.mvc-note-nav-btn:hover:not(:disabled) { background: #eaf3fb; }
+
+.mvc-note-nav-count {
+    font-size: 0.75rem;
+    color: #706e6b;
+    white-space: nowrap;
+}
+
+.mvc-note-card {
+    background: #f0f4ff;
+    border-left: 3px solid #0176d3;
+    border-radius: 4px;
+    padding: 0.6rem 0.75rem;
+}
+
+.mvc-note-title {
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: #3e3e3c;
+    margin-bottom: 2px;
+}
+
+.mvc-note-preview {
+    font-size: 0.875rem;
+    color: #3e3e3c;
+    line-height: 1.4;
+}
+
+.mvc-note-date {
+    font-size: 0.7rem;
+    color: #706e6b;
+    margin-top: 4px;
+}

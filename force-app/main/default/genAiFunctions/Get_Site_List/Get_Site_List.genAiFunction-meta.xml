@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GenAiFunction xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Retrieves Sites__c records. Optionally filter by name — leave blank to get all. Includes related visits when available.</description>
+    <developerName>Get_Site_List</developerName>
+    <invocationTarget>AgentSiteListAction</invocationTarget>
+    <invocationTargetType>apex</invocationTargetType>
+    <isConfirmationRequired>false</isConfirmationRequired>
+    <isIncludeInProgressIndicator>false</isIncludeInProgressIndicator>
+    <localDeveloperName>Get_Site_List</localDeveloperName>
+    <masterLabel>Get Site List</masterLabel>
+</GenAiFunction>

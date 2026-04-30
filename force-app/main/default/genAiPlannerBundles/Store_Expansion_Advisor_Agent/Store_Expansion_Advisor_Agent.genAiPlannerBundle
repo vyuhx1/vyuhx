@@ -1,0 +1,628 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GenAiPlannerBundle xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <description>Assists retail and business teams in evaluating, planning, and executing store expansion strategies by analyzing market data, demographics, competition, and business performance to recommend the best locations and growth opportunities.</description>
+    <localActionLinks>
+        <genAiFunctionName>AnswerQuestionsWithKnowledge_16jak000001nsbN</genAiFunctionName>
+    </localActionLinks>
+    <localTopicLinks>
+        <genAiPluginName>Evaluate_Retail_Readiness_16jak000001nsbN</genAiPluginName>
+    </localTopicLinks>
+    <localTopicLinks>
+        <genAiPluginName>Visit_Activity_Logger_16jak000001nsbN</genAiPluginName>
+    </localTopicLinks>
+    <localTopics>
+        <fullName>Evaluate_Retail_Readiness_16jak000001nsbN</fullName>
+        <aiPluginUtterances>
+            <developerName>utterance_0_1777302002563</developerName>
+            <language>en_US</language>
+            <masterLabel>utterance_0_1777302002563</masterLabel>
+            <utterance>“Identify the best locations in Hyderabad for opening our next retail store.”</utterance>
+        </aiPluginUtterances>
+        <aiPluginUtterances>
+            <developerName>utterance_1_1777302002563</developerName>
+            <language>en_US</language>
+            <masterLabel>utterance_1_1777302002563</masterLabel>
+            <utterance>“Which locations in Hyderabad are most suitable for our next store?”</utterance>
+        </aiPluginUtterances>
+        <aiPluginUtterances>
+            <developerName>utterance_2_1777302002563</developerName>
+            <language>en_US</language>
+            <masterLabel>utterance_2_1777302002563</masterLabel>
+            <utterance>“Estimate the expected annual revenue for a store in Gachibowli.”</utterance>
+        </aiPluginUtterances>
+        <aiPluginUtterances>
+            <developerName>utterance_3_1777302002563</developerName>
+            <language>en_US</language>
+            <masterLabel>utterance_3_1777302002563</masterLabel>
+            <utterance>“Project store revenue for the Gachibowli location.”</utterance>
+        </aiPluginUtterances>
+        <aiPluginUtterances>
+            <developerName>utterance_4_1777302002563</developerName>
+            <language>en_US</language>
+            <masterLabel>utterance_4_1777302002563</masterLabel>
+            <utterance>“Evaluate the revenue potential and ROI for a store in Gachibowli.”</utterance>
+        </aiPluginUtterances>
+        <aiPluginUtterances>
+            <developerName>utterance_5_1777302002563</developerName>
+            <language>en_US</language>
+            <masterLabel>utterance_5_1777302002563</masterLabel>
+            <utterance>“Show me forecasted revenue numbers for Gachibowli.”</utterance>
+        </aiPluginUtterances>
+        <aiPluginUtterances>
+            <developerName>utterance_6_1777302002563</developerName>
+            <language>en_US</language>
+            <masterLabel>utterance_6_1777302002563</masterLabel>
+            <utterance>“Evaluate whether 500084 is suitable for opening a new store.”</utterance>
+        </aiPluginUtterances>
+        <aiPluginUtterances>
+            <developerName>utterance_7_1777302002563</developerName>
+            <language>en_US</language>
+            <masterLabel>utterance_7_1777302002563</masterLabel>
+            <utterance>“Assess retail readiness for the location near DLF Cyber City.”</utterance>
+        </aiPluginUtterances>
+        <aiPluginUtterances>
+            <developerName>utterance_8_1777302002563</developerName>
+            <language>en_US</language>
+            <masterLabel>utterance_8_1777302002563</masterLabel>
+            <utterance>“Evaluate the retail readiness of Kismatpura, Bandlaguda Jagir, Hyderabad.”</utterance>
+        </aiPluginUtterances>
+        <aiPluginUtterances>
+            <developerName>utterance_9_1777302002563</developerName>
+            <language>en_US</language>
+            <masterLabel>utterance_9_1777302002563</masterLabel>
+            <utterance>“Create a visit for this site.”</utterance>
+        </aiPluginUtterances>
+        <aiPluginUtterances>
+            <developerName>utterance_10_1777302002563</developerName>
+            <language>en_US</language>
+            <masterLabel>utterance_10_1777302002563</masterLabel>
+            <utterance>“Schedule a site visit for this retail location.”</utterance>
+        </aiPluginUtterances>
+        <aiPluginUtterances>
+            <developerName>utterance_11_1777302002563</developerName>
+            <language>en_US</language>
+            <masterLabel>utterance_11_1777302002563</masterLabel>
+            <utterance>“Score this location for retail expansion: Kismatpura, Hyderabad.”</utterance>
+        </aiPluginUtterances>
+        <aiPluginUtterances>
+            <developerName>utterance_12_1777302002563</developerName>
+            <language>en_US</language>
+            <masterLabel>utterance_12_1777302002563</masterLabel>
+            <utterance>“Analyze this site and give an overall retail readiness score.”</utterance>
+        </aiPluginUtterances>
+        <aiPluginUtterances>
+            <developerName>utterance_13_1777302002563</developerName>
+            <language>en_US</language>
+            <masterLabel>utterance_13_1777302002563</masterLabel>
+            <utterance>“Identify retail blind spots in Kondapur, Hyderabad.”</utterance>
+        </aiPluginUtterances>
+        <aiPluginUtterances>
+            <developerName>utterance_14_1777302002563</developerName>
+            <language>en_US</language>
+            <masterLabel>utterance_14_1777302002563</masterLabel>
+            <utterance>“Which locations in Kondapur have high demand but limited competition?”</utterance>
+        </aiPluginUtterances>
+        <aiPluginUtterances>
+            <developerName>utterance_15_1777302002563</developerName>
+            <language>en_US</language>
+            <masterLabel>utterance_15_1777302002563</masterLabel>
+            <utterance>“Where should we expand in Kondapur before competitors move in?”</utterance>
+        </aiPluginUtterances>
+        <canEscalate>false</canEscalate>
+        <description>Evaluate Retail Readiness determines whether a candidate retail location is prepared for expansion by holistically assessing market demand, competitive pressure, financial viability, and on‑ground validation.
+The sub‑agent synthesizes insights from Salesforce Data Cloud (demographics, footfall, POS performance, competition intelligence) and Consumer Goods Cloud Visit Execution (site visits, field observations, execution risks) to classify locations as Ready, Needs Review, or Not Ready.
+It provides an explainable recommendation with confidence level and key drivers, ensuring expansion decisions are data‑driven, financially sound, and validated by real‑world execution signals before capital commitment.</description>
+        <developerName>Evaluate_Retail_Readiness_16jak000001nsbN</developerName>
+        <genAiPluginInstructions>
+            <description>Always evaluate retail readiness per UniqueId (location) and ensure conclusions apply only to that specific location.</description>
+            <developerName>instructions_0_1777302001973</developerName>
+            <language>en_US</language>
+            <masterLabel>instructions_0_1777302001973</masterLabel>
+            <sortOrder>0</sortOrder>
+        </genAiPluginInstructions>
+        <genAiPluginInstructions>
+            <description>Analyze market demand strength using demographic signals such as population density, affluence, working population mix, and growth indicators.</description>
+            <developerName>instructions_10_1777302001974</developerName>
+            <language>en_US</language>
+            <masterLabel>instructions_10_1777302001974</masterLabel>
+            <sortOrder>1</sortOrder>
+        </genAiPluginInstructions>
+        <genAiPluginInstructions>
+            <description>Incorporate real‑time footfall signals, prioritizing net footfall and confidence‑weighted activity over raw counts.</description>
+            <developerName>instructions_11_1777302001974</developerName>
+            <language>en_US</language>
+            <masterLabel>instructions_11_1777302001974</masterLabel>
+            <sortOrder>2</sortOrder>
+        </genAiPluginInstructions>
+        <genAiPluginInstructions>
+            <description>Assess footfall consistency across weekdays, weekends, and peak periods to identify stable versus volatile demand.</description>
+            <developerName>instructions_12_1777302001974</developerName>
+            <language>en_US</language>
+            <masterLabel>instructions_12_1777302001974</masterLabel>
+            <sortOrder>3</sortOrder>
+        </genAiPluginInstructions>
+        <genAiPluginInstructions>
+            <description>Evaluate the competitive environment, considering both permanent and temporary competitor outlets within proximity.</description>
+            <developerName>instructions_13_1777302001974</developerName>
+            <language>en_US</language>
+            <masterLabel>instructions_13_1777302001974</masterLabel>
+            <sortOrder>4</sortOrder>
+        </genAiPluginInstructions>
+        <genAiPluginInstructions>
+            <description>Differentiate direct competitors (same category) from indirect competitors and weigh their impact appropriately.</description>
+            <developerName>instructions_14_1777302001974</developerName>
+            <language>en_US</language>
+            <masterLabel>instructions_14_1777302001974</masterLabel>
+            <sortOrder>5</sortOrder>
+        </genAiPluginInstructions>
+        <genAiPluginInstructions>
+            <description>Consider competition activity intensity, including promotions, crowd pull, and operational status of nearby outlets.</description>
+            <developerName>instructions_15_1777302001974</developerName>
+            <language>en_US</language>
+            <masterLabel>instructions_15_1777302001974</masterLabel>
+            <sortOrder>6</sortOrder>
+        </genAiPluginInstructions>
+        <genAiPluginInstructions>
+            <description>Review financial viability using Expected Annual Revenue, EBITDA Margin, and Payback Period to determine ROI readiness.</description>
+            <developerName>instructions_1_1777302001974</developerName>
+            <language>en_US</language>
+            <masterLabel>instructions_1_1777302001974</masterLabel>
+            <sortOrder>7</sortOrder>
+        </genAiPluginInstructions>
+        <genAiPluginInstructions>
+            <description>Flag locations where payback period exceeds acceptable thresholds for the store format or category.</description>
+            <developerName>instructions_2_1777302001974</developerName>
+            <language>en_US</language>
+            <masterLabel>instructions_2_1777302001974</masterLabel>
+            <sortOrder>8</sortOrder>
+        </genAiPluginInstructions>
+        <genAiPluginInstructions>
+            <description>Classify the overall Retail Readiness status as Ready, Needs Review, or Not Ready.</description>
+            <developerName>instructions_3_1777302001974</developerName>
+            <language>en_US</language>
+            <masterLabel>instructions_3_1777302001974</masterLabel>
+            <sortOrder>9</sortOrder>
+        </genAiPluginInstructions>
+        <genAiPluginInstructions>
+            <description>Provide a clear, explainable rationale for the readiness classification using business‑friendly language.</description>
+            <developerName>instructions_4_1777302001974</developerName>
+            <language>en_US</language>
+            <masterLabel>instructions_4_1777302001974</masterLabel>
+            <sortOrder>10</sortOrder>
+        </genAiPluginInstructions>
+        <genAiPluginInstructions>
+            <description>Highlight the top 3 drivers influencing the readiness decision (positive or negative).</description>
+            <developerName>instructions_5_1777302001974</developerName>
+            <language>en_US</language>
+            <masterLabel>instructions_5_1777302001974</masterLabel>
+            <sortOrder>11</sortOrder>
+        </genAiPluginInstructions>
+        <genAiPluginInstructions>
+            <description>Identify key risks or gaps that could affect successful store launch or performance.</description>
+            <developerName>instructions_6_1777302001974</developerName>
+            <language>en_US</language>
+            <masterLabel>instructions_6_1777302001974</masterLabel>
+            <sortOrder>12</sortOrder>
+        </genAiPluginInstructions>
+        <genAiPluginInstructions>
+            <description>Recommend next best actions, such as proceeding with expansion, conducting additional site validation, or reconsidering location strategy.</description>
+            <developerName>instructions_7_1777302001974</developerName>
+            <language>en_US</language>
+            <masterLabel>instructions_7_1777302001974</masterLabel>
+            <sortOrder>13</sortOrder>
+        </genAiPluginInstructions>
+        <genAiPluginInstructions>
+            <description>Maintain transparency and avoid assumptions; base all recommendations on available data, calculated insights, and validated visit inputs.</description>
+            <developerName>instructions_8_1777302001974</developerName>
+            <language>en_US</language>
+            <masterLabel>instructions_8_1777302001974</masterLabel>
+            <sortOrder>14</sortOrder>
+        </genAiPluginInstructions>
+        <genAiPluginInstructions>
+            <description>Create a Visit record with status set to Planned unless explicitly instructed otherwise.</description>
+            <developerName>instructions_9_1777302001974</developerName>
+            <language>en_US</language>
+            <masterLabel>instructions_9_1777302001974</masterLabel>
+            <sortOrder>15</sortOrder>
+        </genAiPluginInstructions>
+        <language>en_US</language>
+        <localActionLinks>
+            <functionName>On_Site_Scorecard_179ak000002v553</functionName>
+        </localActionLinks>
+        <localActionLinks>
+            <functionName>Risk_Assessor_179ak000002v553</functionName>
+        </localActionLinks>
+        <localActionLinks>
+            <functionName>Get_Site_List_179ak000002v553</functionName>
+        </localActionLinks>
+        <localActionLinks>
+            <functionName>Site_Comparator_179ak000002v553</functionName>
+        </localActionLinks>
+        <localActionLinks>
+            <functionName>Evaluate_Proposed_Site_179ak000002v553</functionName>
+        </localActionLinks>
+        <localActionLinks>
+            <functionName>Generate_Store_Expansion_Summary_179ak000002v553</functionName>
+        </localActionLinks>
+        <localActionLinks>
+            <functionName>Get_Retail_Store_Details_179ak000002v553</functionName>
+        </localActionLinks>
+        <localActionLinks>
+            <functionName>Get_Location_Group_List_179ak000002v553</functionName>
+        </localActionLinks>
+        <localActionLinks>
+            <functionName>Get_Retail_Store_List_179ak000002v553</functionName>
+        </localActionLinks>
+        <localActionLinks>
+            <functionName>Store_Format_Recommender_179ak000002v553</functionName>
+        </localActionLinks>
+        <localActionLinks>
+            <functionName>Update_Site_Status_179ak000002v553</functionName>
+        </localActionLinks>
+        <localActions>
+            <fullName>Get_Retail_Store_List_179ak000002v553</fullName>
+            <description>Retrieves a list of retail stores. Optionally filter by name — leave blank to get all stores.</description>
+            <developerName>Get_Retail_Store_List_179ak000002v553</developerName>
+            <invocationTarget>AgentRetailStoreListAction</invocationTarget>
+            <invocationTargetType>apex</invocationTargetType>
+            <isConfirmationRequired>false</isConfirmationRequired>
+            <isIncludeInProgressIndicator>false</isIncludeInProgressIndicator>
+            <localDeveloperName>Get_Retail_Store_List</localDeveloperName>
+            <masterLabel>Get Retail Store List</masterLabel>
+            <source>Get_Retail_Store_List</source>
+        </localActions>
+        <localActions>
+            <fullName>Get_Location_Group_List_179ak000002v553</fullName>
+            <description>Retrieves Retail Location Groups with their Retail Stores, Sites and Visits hierarchy. Optionally filter by group name — leave blank to get all.</description>
+            <developerName>Get_Location_Group_List_179ak000002v553</developerName>
+            <invocationTarget>AgentLocationGroupListAction</invocationTarget>
+            <invocationTargetType>apex</invocationTargetType>
+            <isConfirmationRequired>false</isConfirmationRequired>
+            <isIncludeInProgressIndicator>false</isIncludeInProgressIndicator>
+            <localDeveloperName>Get_Location_Group_List</localDeveloperName>
+            <masterLabel>Get Location Group List</masterLabel>
+            <source>Get_Location_Group_List</source>
+        </localActions>
+        <localActions>
+            <fullName>Update_Site_Status_179ak000002v553</fullName>
+            <description>Autolaunched flow that updates site status from Proposed to Planned based on site name input</description>
+            <developerName>Update_Site_Status_179ak000002v553</developerName>
+            <invocationTarget>Update_Site_Status</invocationTarget>
+            <invocationTargetType>flow</invocationTargetType>
+            <isConfirmationRequired>false</isConfirmationRequired>
+            <isIncludeInProgressIndicator>false</isIncludeInProgressIndicator>
+            <localDeveloperName>Update_Site_Status</localDeveloperName>
+            <masterLabel>Update Site Status</masterLabel>
+            <source>Update_Site_Status</source>
+        </localActions>
+        <localActions>
+            <fullName>Store_Format_Recommender_179ak000002v553</fullName>
+            <description>The &quot;Store Format&quot; Recommender (Retail Strategist Persona)
+Goal is to Determine *what type* of store to build based on the data.</description>
+            <developerName>Store_Format_Recommender_179ak000002v553</developerName>
+            <invocationTarget>Store_Format_Recomm</invocationTarget>
+            <invocationTargetType>generatePromptResponse</invocationTargetType>
+            <isConfirmationRequired>false</isConfirmationRequired>
+            <isIncludeInProgressIndicator>false</isIncludeInProgressIndicator>
+            <localDeveloperName>Store_Format_Recommender</localDeveloperName>
+            <masterLabel>Store Format Recommender</masterLabel>
+            <source>Store_Format_Recommender</source>
+        </localActions>
+        <localActions>
+            <fullName>Evaluate_Proposed_Site_179ak000002v553</fullName>
+            <description>Generates ROI and competition analysis for all matching proposed sites.</description>
+            <developerName>Evaluate_Proposed_Site_179ak000002v553</developerName>
+            <invocationTarget>AgentSiteEvaluatorAction</invocationTarget>
+            <invocationTargetType>apex</invocationTargetType>
+            <isConfirmationRequired>false</isConfirmationRequired>
+            <isIncludeInProgressIndicator>false</isIncludeInProgressIndicator>
+            <localDeveloperName>Evaluate_Proposed_Site</localDeveloperName>
+            <masterLabel>Evaluate Proposed Site</masterLabel>
+            <source>Evaluate_Proposed_Site</source>
+        </localActions>
+        <localActions>
+            <fullName>Get_Retail_Store_Details_179ak000002v553</fullName>
+            <description>Returns key details of a Retail Store given its Id or Name. Falls back to all stores if no match is found.</description>
+            <developerName>Get_Retail_Store_Details_179ak000002v553</developerName>
+            <invocationTarget>RetailStoreDetailsAction</invocationTarget>
+            <invocationTargetType>apex</invocationTargetType>
+            <isConfirmationRequired>false</isConfirmationRequired>
+            <isIncludeInProgressIndicator>false</isIncludeInProgressIndicator>
+            <localDeveloperName>Get_Retail_Store_Details</localDeveloperName>
+            <masterLabel>Get Retail Store Details</masterLabel>
+            <source>Get_Retail_Store_Details</source>
+        </localActions>
+        <localActions>
+            <fullName>Generate_Store_Expansion_Summary_179ak000002v553</fullName>
+            <description>Calls the Store_Agent_Summary prompt template for a RetailStore and returns a StoreSummaryDTO for rendering in the storeSummaryCard LWC.</description>
+            <developerName>Generate_Store_Expansion_Summary_179ak000002v553</developerName>
+            <invocationTarget>AgentStoreSummaryAction</invocationTarget>
+            <invocationTargetType>apex</invocationTargetType>
+            <isConfirmationRequired>false</isConfirmationRequired>
+            <isIncludeInProgressIndicator>false</isIncludeInProgressIndicator>
+            <localDeveloperName>Generate_Store_Expansion_Summary</localDeveloperName>
+            <masterLabel>Generate Store Expansion Summary</masterLabel>
+            <source>Generate_Store_Expansion_Summary</source>
+        </localActions>
+        <localActions>
+            <fullName>Risk_Assessor_179ak000002v553</fullName>
+            <description>Risk Assessor (Conservative CFO Persona)
+**Goal:** Identify potential downsides before capital is committed.</description>
+            <developerName>Risk_Assessor_179ak000002v553</developerName>
+            <invocationTarget>Risk_Assessor</invocationTarget>
+            <invocationTargetType>generatePromptResponse</invocationTargetType>
+            <isConfirmationRequired>false</isConfirmationRequired>
+            <isIncludeInProgressIndicator>false</isIncludeInProgressIndicator>
+            <localDeveloperName>Risk_Assessor</localDeveloperName>
+            <masterLabel>Risk Assessor</masterLabel>
+            <source>Risk_Assessor</source>
+        </localActions>
+        <localActions>
+            <fullName>On_Site_Scorecard_179ak000002v553</fullName>
+            <description>The On-Site Scorecard (Field Surveyor Persona)
+Goal is to Provide an instant, highly readable summary for a surveyor checking a site.</description>
+            <developerName>On_Site_Scorecard_179ak000002v553</developerName>
+            <invocationTarget>On_Site_Scorecard</invocationTarget>
+            <invocationTargetType>generatePromptResponse</invocationTargetType>
+            <isConfirmationRequired>false</isConfirmationRequired>
+            <isIncludeInProgressIndicator>false</isIncludeInProgressIndicator>
+            <localDeveloperName>On_Site_Scorecard</localDeveloperName>
+            <masterLabel>On-Site Scorecard</masterLabel>
+            <source>On_Site_Scorecard</source>
+        </localActions>
+        <localActions>
+            <fullName>Site_Comparator_179ak000002v553</fullName>
+            <description>The &quot;Head-to-Head&quot; Site Comparator
+**Goal:** Evaluate two competing locations side-by-side.</description>
+            <developerName>Site_Comparator_179ak000002v553</developerName>
+            <invocationTarget>Site_Comparator</invocationTarget>
+            <invocationTargetType>generatePromptResponse</invocationTargetType>
+            <isConfirmationRequired>false</isConfirmationRequired>
+            <isIncludeInProgressIndicator>false</isIncludeInProgressIndicator>
+            <localDeveloperName>Site_Comparator</localDeveloperName>
+            <masterLabel>Site Comparator</masterLabel>
+            <source>Site_Comparator</source>
+        </localActions>
+        <localActions>
+            <fullName>Get_Site_List_179ak000002v553</fullName>
+            <description>Retrieves Sites__c records. Optionally filter by name — leave blank to get all. Includes related visits when available.</description>
+            <developerName>Get_Site_List_179ak000002v553</developerName>
+            <invocationTarget>AgentSiteListAction</invocationTarget>
+            <invocationTargetType>apex</invocationTargetType>
+            <isConfirmationRequired>false</isConfirmationRequired>
+            <isIncludeInProgressIndicator>false</isIncludeInProgressIndicator>
+            <localDeveloperName>Get_Site_List</localDeveloperName>
+            <masterLabel>Get Site List</masterLabel>
+            <source>Get_Site_List</source>
+        </localActions>
+        <localDeveloperName>Evaluate_Retail_Readiness</localDeveloperName>
+        <masterLabel>Evaluate Retail Readiness</masterLabel>
+        <pluginType>Topic</pluginType>
+        <scope>Evaluate Retail Readiness assesses whether a candidate retail location is ready to proceed to expansion or store opening, by synthesizing demand potential, competitive pressure, financial viability, and on‑ground validation.
+It provides a go / caution / hold readiness recommendation backed by explainable signals from Salesforce Data Cloud and Consumer Goods Cloud.
+✅ Market Readiness
+Is demand strong enough and stable across time?
+Does footfall confirm demographic assumptions?
+Are growth signals sustained or seasonal?
+✅ Competitive Readiness
+Is competition density manageable for the category?
+Are there recent or temporary competitors not yet reflected in data?
+Is the competitive activity intensity rising?
+✅ Financial Readiness
+Does projected revenue exceed internal thresholds?
+Is EBITDA margin healthy for the store format?
+Is the payback period within acceptable investment norms?
+✅ Execution Readiness
+Do visit observations validate AI‑generated insights?
+Are there operational or infrastructure risks identified on site?
+Is data confidence high enough to proceed?
+📤 Outputs (What It Produces)
+Retail Readiness Status (Ready / Needs Review / Not Ready)
+Primary Drivers (top 3 reasons)
+Key Risks or Gaps
+Confidence Level (High / Medium / Low)
+Recommended Next Action
+Proceed with expansion
+Conduct additional site validation
+Re‑evaluate location or timing
+create visits
+These outputs are written back to Salesforce for:
+Executive dashboards
+Agentforce follow‑ups
+Visit planning or escalation</scope>
+        <source>Evaluate_Retail_Readiness</source>
+    </localTopics>
+    <localTopics>
+        <fullName>Visit_Activity_Logger_16jak000001nsbN</fullName>
+        <aiPluginUtterances>
+            <developerName>utterance_0_1777303477104</developerName>
+            <language>en_US</language>
+            <masterLabel>utterance_0_1777303477104</masterLabel>
+            <utterance>&quot;Show visit details for Hyderabad .”</utterance>
+        </aiPluginUtterances>
+        <aiPluginUtterances>
+            <developerName>utterance_1_1777303477104</developerName>
+            <language>en_US</language>
+            <masterLabel>utterance_1_1777303477104</masterLabel>
+            <utterance>&quot;Show my completed visits today&quot;</utterance>
+        </aiPluginUtterances>
+        <aiPluginUtterances>
+            <developerName>utterance_2_1777303477104</developerName>
+            <language>en_US</language>
+            <masterLabel>utterance_2_1777303477104</masterLabel>
+            <utterance>Show visit details for Hitech City Site 10.”</utterance>
+        </aiPluginUtterances>
+        <aiPluginUtterances>
+            <developerName>utterance_3_1777303477104</developerName>
+            <language>en_US</language>
+            <masterLabel>utterance_3_1777303477104</masterLabel>
+            <utterance>&quot;end the visit.”</utterance>
+        </aiPluginUtterances>
+        <aiPluginUtterances>
+            <developerName>utterance_4_1777303477104</developerName>
+            <language>en_US</language>
+            <masterLabel>utterance_4_1777303477104</masterLabel>
+            <utterance>“Update visit notes
+mark the visit as complete.”</utterance>
+        </aiPluginUtterances>
+        <aiPluginUtterances>
+            <developerName>utterance_5_1777303477104</developerName>
+            <language>en_US</language>
+            <masterLabel>utterance_5_1777303477104</masterLabel>
+            <utterance>“Start the visit.”</utterance>
+        </aiPluginUtterances>
+        <aiPluginUtterances>
+            <developerName>utterance_6_1777303477104</developerName>
+            <language>en_US</language>
+            <masterLabel>utterance_6_1777303477104</masterLabel>
+            <utterance>“Begin the visit.”</utterance>
+        </aiPluginUtterances>
+        <aiPluginUtterances>
+            <developerName>utterance_7_1777303477104</developerName>
+            <language>en_US</language>
+            <masterLabel>utterance_7_1777303477104</masterLabel>
+            <utterance>“Start the visit now.”</utterance>
+        </aiPluginUtterances>
+        <aiPluginUtterances>
+            <developerName>utterance_8_1777303477104</developerName>
+            <language>en_US</language>
+            <masterLabel>utterance_8_1777303477104</masterLabel>
+            <utterance>“Initiate Visit Now”</utterance>
+        </aiPluginUtterances>
+        <aiPluginUtterances>
+            <developerName>utterance_9_1777303477104</developerName>
+            <language>en_US</language>
+            <masterLabel>utterance_9_1777303477104</masterLabel>
+            <utterance>“Display all visits assigned to me.”</utterance>
+        </aiPluginUtterances>
+        <aiPluginUtterances>
+            <developerName>utterance_10_1777303477104</developerName>
+            <language>en_US</language>
+            <masterLabel>utterance_10_1777303477104</masterLabel>
+            <utterance>&quot;Show visit details for Hitech City.”</utterance>
+        </aiPluginUtterances>
+        <aiPluginUtterances>
+            <developerName>utterance_11_1777303477104</developerName>
+            <language>en_US</language>
+            <masterLabel>utterance_11_1777303477104</masterLabel>
+            <utterance>“Show my assigned visit details.”</utterance>
+        </aiPluginUtterances>
+        <canEscalate>false</canEscalate>
+        <description>Visit Activity Logger captures, updates, and maintains on‑ground visit execution details for retail locations.
+It records field observations, task completion, status updates, and outcomes from Consumer Goods Cloud Visits, ensuring that real‑world execution intelligence is reflected accurately in Salesforce.
+The sub‑agent updates visit records with observations, competitor sightings, footfall notes, photos, and completion status, and synchronizes these updates with ongoing AI‑driven expansion and readiness evaluations.
+By maintaining an accurate visit history, it enables Agentforce to refine confidence scores, reassess risks, and incorporate human‑validated insights into retail decision‑making.</description>
+        <developerName>Visit_Activity_Logger_16jak000001nsbN</developerName>
+        <genAiPluginInstructions>
+            <description>Identify the correct Visit record using Visit ID, retail store, retail store group, sites provided in context.</description>
+            <developerName>instruction_0_1777302820289</developerName>
+            <language xsi:nil="true"/>
+            <masterLabel>instruction_0_1777302820289</masterLabel>
+            <sortOrder>0</sortOrder>
+        </genAiPluginInstructions>
+        <genAiPluginInstructions>
+            <description>Verify the visit is eligible for updates (Planned or In Progress status).</description>
+            <developerName>instruction_1_1777302820289</developerName>
+            <language xsi:nil="true"/>
+            <masterLabel>instruction_1_1777302820289</masterLabel>
+            <sortOrder>1</sortOrder>
+        </genAiPluginInstructions>
+        <genAiPluginInstructions>
+            <description>Update the Visit details accurately based on execution.</description>
+            <developerName>instruction_2_1777302820289</developerName>
+            <language xsi:nil="true"/>
+            <masterLabel>instruction_2_1777302820289</masterLabel>
+            <sortOrder>2</sortOrder>
+        </genAiPluginInstructions>
+        <genAiPluginInstructions>
+            <description>Record actual visit date/time and completion details when available.</description>
+            <developerName>instruction_3_1777302820289</developerName>
+            <language xsi:nil="true"/>
+            <masterLabel>instruction_3_1777302820289</masterLabel>
+            <sortOrder>3</sortOrder>
+        </genAiPluginInstructions>
+        <genAiPluginInstructions>
+            <description>Log on‑ground observations clearly.</description>
+            <developerName>instruction_4_1777302820289</developerName>
+            <language xsi:nil="true"/>
+            <masterLabel>instruction_4_1777302820289</masterLabel>
+            <sortOrder>4</sortOrder>
+        </genAiPluginInstructions>
+        <genAiPluginInstructions>
+            <description>Update Visit notes and reflect in visit record.</description>
+            <developerName>instruction_5_1777302820289</developerName>
+            <language xsi:nil="true"/>
+            <masterLabel>instruction_5_1777302820289</masterLabel>
+            <sortOrder>5</sortOrder>
+        </genAiPluginInstructions>
+        <language>en_US</language>
+        <localActionLinks>
+            <functionName>Look_Up_Visits_179ak000002v5xt</functionName>
+        </localActionLinks>
+        <localActionLinks>
+            <functionName>Create_Visit_from_Site_179ak000002v5xt</functionName>
+        </localActionLinks>
+        <localActions>
+            <fullName>Create_Visit_from_Site_179ak000002v5xt</fullName>
+            <description>Invoked by the Create Visit Quick Action on a Sites__c record.</description>
+            <developerName>Create_Visit_from_Site_179ak000002v5xt</developerName>
+            <invocationTarget>Create_Visit_From_Site</invocationTarget>
+            <invocationTargetType>flow</invocationTargetType>
+            <isConfirmationRequired>false</isConfirmationRequired>
+            <isIncludeInProgressIndicator>false</isIncludeInProgressIndicator>
+            <localDeveloperName>Create_Visit_from_Site</localDeveloperName>
+            <masterLabel>Create Visit from Site</masterLabel>
+            <source>Create_Visit_from_Site</source>
+        </localActions>
+        <localActions>
+            <fullName>Look_Up_Visits_179ak000002v5xt</fullName>
+            <description>Retrieves field visits by site name, retail store, or store group — with optional status and date filters. Also returns attached ContentNotes.</description>
+            <developerName>Look_Up_Visits_179ak000002v5xt</developerName>
+            <invocationTarget>AgentVisitLookupAction</invocationTarget>
+            <invocationTargetType>apex</invocationTargetType>
+            <isConfirmationRequired>false</isConfirmationRequired>
+            <isIncludeInProgressIndicator>true</isIncludeInProgressIndicator>
+            <localDeveloperName>Look_Up_Visits</localDeveloperName>
+            <masterLabel>Look Up Visits</masterLabel>
+            <progressIndicatorMessage>Default</progressIndicatorMessage>
+            <source>Look_Up_Visits</source>
+        </localActions>
+        <localDeveloperName>Visit_Activity_Logger</localDeveloperName>
+        <masterLabel>Visit Activity Logger</masterLabel>
+        <pluginType>Topic</pluginType>
+        <scope>Visit Activity Logger is responsible for capturing, updating, and validating on‑ground visit execution data for retail locations within the VyuhX platform.
+Its scope is to ensure that field visits conducted using Consumer Goods Cloud Visit Execution are accurately logged, enriched with observations, and reflected back into Salesforce so that AI‑driven expansion, demand, and readiness decisions remain grounded in real‑world execution.
+This sub‑agent acts as the human‑in‑the‑loop execution bridge, closing the gap between Data Cloud analytics and on‑site reality.
+ 
+In Scope (What It Does)
+Log activities performed during a site visit
+Update visit status and outcomes
+Capture field observations (footfall, competition, visibility, issues)
+Track task completion during visits
+Calculate and assign a Visit Execution Score
+Adjust confidence for AI recommendations
+Feed visit outcomes back into retail readiness and expansion logic</scope>
+        <source>Visit_Activity_Logger</source>
+    </localTopics>
+    <masterLabel>Store Expansion Advisor Agent</masterLabel>
+    <plannerActions>
+        <fullName>AnswerQuestionsWithKnowledge_16jak000001nsbN</fullName>
+        <description>Answers questions about company policies and procedures, troubleshooting steps, or product information. For example: “What is your return policy?” “How do I fix an issue?” or “What features does a product have?”</description>
+        <developerName>AnswerQuestionsWithKnowledge_16jak000001nsbN</developerName>
+        <invocationTarget>streamKnowledgeSearch</invocationTarget>
+        <invocationTargetType>standardInvocableAction</invocationTargetType>
+        <isConfirmationRequired>false</isConfirmationRequired>
+        <isIncludeInProgressIndicator>true</isIncludeInProgressIndicator>
+        <localDeveloperName>AnswerQuestionsWithKnowledge</localDeveloperName>
+        <masterLabel>Answer Questions with Knowledge</masterLabel>
+        <progressIndicatorMessage>Getting answers</progressIndicatorMessage>
+        <source>EmployeeCopilot__AnswerQuestionsWithKnowledge</source>
+    </plannerActions>
+    <plannerSurfaces>
+        <adaptiveResponseAllowed>true</adaptiveResponseAllowed>
+        <callRecordingAllowed>false</callRecordingAllowed>
+        <surface>SurfaceAction__Messaging</surface>
+        <surfaceType>Messaging</surfaceType>
+    </plannerSurfaces>
+    <plannerType>AiCopilot__ReAct</plannerType>
+</GenAiPlannerBundle>

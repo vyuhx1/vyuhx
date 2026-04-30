@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<FieldSrcTrgtRelationship xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <definitionCreationType>Calculated_Insight</definitionCreationType>
+    <masterLabel>POS_Metrics_Area_map_POS_Sales_Metric_Area_1776453381311</masterLabel>
+    <owner>DataCloud</owner>
+    <relationshipCardinality>ManyToOne</relationshipCardinality>
+    <sourceFieldName>POS_Metrics__cio.Area__c</sourceFieldName>
+    <targetEntity xsi:nil="true"/>
+    <targetFieldName>POS_Sales_Metric__dlm.Area__c</targetFieldName>
+</FieldSrcTrgtRelationship>

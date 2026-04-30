@@ -1,0 +1,200 @@
+<template>
+    <lightning-card icon-name="standard:groups">
+        <span slot="title">
+            {group.groupName}
+            <template if:true={group.area}>
+                &nbsp;<lightning-badge label={group.area}></lightning-badge>
+            </template>
+            <template if:true={group.pincode}>
+                &nbsp;<lightning-badge label={group.pincode}></lightning-badge>
+            </template>
+        </span>
+        <div slot="actions">
+            <lightning-button label="View Group" variant="brand" onclick={handleViewGroup}></lightning-button>
+        </div>
+
+        <div class="slds-p-around_medium">
+
+            <!-- Summary counts -->
+            <div class="slds-grid slds-wrap slds-gutters_small slds-m-bottom_medium">
+                <div class="slds-col slds-size_1-of-3">
+                    <div class="count-tile">
+                        <div class="count-value">{group.storeCount}</div>
+                        <div class="count-label">Stores</div>
+                    </div>
+                </div>
+                <div class="slds-col slds-size_1-of-3">
+                    <div class="count-tile">
+                        <div class="count-value">{group.siteCount}</div>
+                        <div class="count-label">Sites</div>
+                    </div>
+                </div>
+                <div class="slds-col slds-size_1-of-3">
+                    <div class="count-tile">
+                        <div class="count-value">{group.visitCount}</div>
+                        <div class="count-label">Visits</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Stores -->
+            <template if:true={hasStores}>
+
+                <!-- Store Navigation Bar -->
+                <div class="store-nav-bar">
+                    <button class="store-nav-btn" disabled={isStorePreviousDisabled} onclick={handlePreviousStore} aria-label="Previous store">
+                        <lightning-icon icon-name="utility:chevronleft" size="x-small"></lightning-icon>
+                    </button>
+                    <div class="store-nav-center">
+                        <lightning-icon icon-name="standard:store" size="x-small" class="store-nav-icon"></lightning-icon>
+                        <span class="store-nav-label">{storePosLabel}</span>
+                    </div>
+                    <button class="store-nav-btn" disabled={isStoreNextDisabled} onclick={handleNextStore} aria-label="Next store">
+                        <lightning-icon icon-name="utility:chevronright" size="x-small"></lightning-icon>
+                    </button>
+                </div>
+
+                <!-- Current Store -->
+                <div class="store-block">
+
+                    <!-- Store header -->
+                    <div class="store-header slds-grid slds-grid_align-spread slds-m-bottom_small">
+                        <div>
+                            <a class="store-link" data-storeid={currentStore.storeId} onclick={handleViewStore}>
+                                {currentStore.storeName}
+                            </a>
+                            <template if:true={currentStore.city}>
+                                <span class="store-location">&nbsp;· {currentStore.subArea}, {currentStore.city}</span>
+                            </template>
+                        </div>
+                    </div>
+
+                    <!-- Store metrics -->
+                    <div class="section-box slds-m-bottom_small">
+                        <div class="section-title">Store Metrics</div>
+                        <div class="slds-grid slds-wrap slds-gutters_small">
+                            <div class="slds-col slds-size_1-of-2 slds-m-bottom_small">
+                                <div class="metric-label">Current Demand Score</div>
+                                <lightning-progress-bar value={currentStoreDemandProgress} size="x-small"></lightning-progress-bar>
+                                <div class="slds-text-body_small">{currentStoreDemandScore}</div>
+                            </div>
+                            <div class="slds-col slds-size_1-of-2 slds-m-bottom_small">
+                                <div class="metric-label">Footfall Index</div>
+                                <div class="metric-value">{currentStoreFootfallIndex}%</div>
+                            </div>
+                            <div class="slds-col slds-size_1-of-2 slds-m-bottom_small">
+                                <div class="metric-label">Demographic Score</div>
+                                <div class="metric-value">{currentStoreDemographicScore}%</div>
+                            </div>
+                            <div class="slds-col slds-size_1-of-2 slds-m-bottom_small">
+                                <div class="metric-label">EBITDA Margin (%)</div>
+                                <div class="metric-value">{currentStoreEbitdaMargin}</div>
+                            </div>
+                            <div class="slds-col slds-size_1-of-2">
+                                <div class="metric-label">Payback Period</div>
+                                <div class="metric-value">{currentStorePaybackPeriod} <span class="metric-unit">yrs</span></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Sites under this store -->
+                    <template if:true={hasCurrentStoreSites}>
+                        <div class="slds-m-left_medium">
+
+                            <!-- Site Navigation Bar -->
+                            <div class="site-nav-bar">
+                                <button class="site-nav-btn" disabled={isSitePreviousDisabled} onclick={handlePreviousSite} aria-label="Previous site">
+                                    <lightning-icon icon-name="utility:chevronleft" size="x-small"></lightning-icon>
+                                </button>
+                                <div class="site-nav-center">
+                                    <lightning-icon icon-name="standard:location" size="x-small" class="site-nav-icon"></lightning-icon>
+                                    <span class="site-nav-label">{sitePosLabel}</span>
+                                </div>
+                                <button class="site-nav-btn" disabled={isSiteNextDisabled} onclick={handleNextSite} aria-label="Next site">
+                                    <lightning-icon icon-name="utility:chevronright" size="x-small"></lightning-icon>
+                                </button>
+                            </div>
+
+                            <!-- Current Site -->
+                            <div class="site-block">
+
+                                <!-- Site header -->
+                                <div class="site-header slds-grid slds-grid_align-spread slds-m-bottom_xx-small">
+                                    <div>
+                                        <a class="site-link" data-siteid={currentSite.siteId} onclick={handleViewSite}>{currentSite.siteName}</a>
+                                        <template if:true={currentSite.status}>
+                                            &nbsp;<lightning-badge label={currentSite.status}></lightning-badge>
+                                        </template>
+                                    </div>
+                                </div>
+
+                                <!-- Site competition metrics -->
+                                <div class="section-box slds-m-bottom_xx-small">
+                                    <div class="section-title">Competition Metrics</div>
+                                    <div class="slds-grid slds-wrap slds-gutters_small">
+                                        <div class="slds-col slds-size_1-of-2 slds-m-bottom_xx-small">
+                                            <div class="metric-label">Level</div>
+                                            <div class="metric-value">{currentSite.competitionLevel}</div>
+                                        </div>
+                                        <div class="slds-col slds-size_1-of-2 slds-m-bottom_xx-small">
+                                            <div class="metric-label">Activity</div>
+                                            <div class="metric-value">{currentSite.competitionActivity}</div>
+                                        </div>
+                                        <div class="slds-col slds-size_1-of-2 slds-m-bottom_xx-small">
+                                            <div class="metric-label">Confidence</div>
+                                            <div class="metric-value">{currentSite.competitionConfidence}</div>
+                                        </div>
+                                        <div class="slds-col slds-size_1-of-2 slds-m-bottom_xx-small">
+                                            <div class="metric-label">Impact</div>
+                                            <div class="metric-value">{currentSite.competitionImpact}</div>
+                                        </div>
+                                        <div class="slds-col slds-size_1-of-1">
+                                            <div class="metric-label">Avg Distance from Competitor</div>
+                                            <div class="metric-value">{currentSite.distanceKm} <span class="metric-unit">km</span></div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Visits under this site -->
+                                <template if:true={hasCurrentSiteVisits}>
+                                    <div class="table-wrapper slds-m-top_xx-small">
+                                        <div class="visit-label">Visits ({currentSiteVisits.length})</div>
+                                        <table class="slds-table slds-table_cell-buffer slds-table_bordered slds-table_striped visit-table">
+                                            <thead>
+                                                <tr class="slds-line-height_reset thead-row">
+                                                    <th scope="col" class="col-left thead-cell"><div class="slds-truncate">Visit Name</div></th>
+                                                    <th scope="col" class="col-center thead-cell"><div class="slds-truncate">Status</div></th>
+                                                        <th scope="col" class="col-center thead-cell"><div class="slds-truncate">Priority</div></th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <template for:each={currentSiteVisits} for:item="v">
+                                                    <tr key={v.visitId}>
+                                                        <td class="col-left">
+                                                            <a class="visit-link" data-visitid={v.visitId} onclick={handleViewVisit}>{currentSite.siteName}</a>
+                                                        </td>
+                                                        <td class="col-center">{v.status}</td>
+                                                            <td class="col-center">{v.priority}</td>
+                                                    </tr>
+                                                </template>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </template>
+
+                            </div>
+                        </div>
+                    </template>
+
+                </div>
+            </template>
+
+            <template if:false={hasStores}>
+                <div class="slds-text-body_regular slds-text-color_weak slds-p-vertical_small">
+                    No stores in this location group.
+                </div>
+            </template>
+
+        </div>
+    </lightning-card>
+</template>

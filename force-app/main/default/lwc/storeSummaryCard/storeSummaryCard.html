@@ -1,0 +1,157 @@
+<template>
+    <div class="summary-wrapper">
+
+        <!-- ── Header ──────────────────────────────────────────── -->
+        <div class="summary-header">
+            <lightning-icon icon-name="utility:einstein" size="xx-small" class="header-icon"></lightning-icon>
+            <span class="header-title">Store Expansion Summary</span>
+        </div>
+
+        <!-- ── Store name band ─────────────────────────────────── -->
+        <template if:true={storeName}>
+            <div class="store-name-band">
+                <lightning-icon icon-name="utility:store" size="xx-small" class="store-band-icon"></lightning-icon>
+                <span class="store-band-name">{storeName}</span>
+            </div>
+        </template>
+
+        <!-- ── Main body ───────────────────────────────────────── -->
+        <template if:true={hasData}>
+            <div class="summary-body">
+
+                <!-- KPI metrics row -->
+                <template if:true={hasStoreKpis}>
+                    <div class="kpi-row">
+                        <template for:each={storeKpis} for:item="kpi">
+                            <div key={kpi.id} class="kpi-tile">
+                                <div class={kpi.colorClass}>
+                                    <lightning-icon icon-name={kpi.icon} size="x-small" class="kpi-icon"></lightning-icon>
+                                </div>
+                                <div class="kpi-body">
+                                    <div class="kpi-value">{kpi.value}</div>
+                                    <div class="kpi-label">{kpi.label}</div>
+                                </div>
+                            </div>
+                        </template>
+                    </div>
+                </template>
+
+                <!-- Sites section -->
+                <template if:true={hasSites}>
+                    <div class="section-card section-sites">
+                        <div class="section-header">
+                            <lightning-icon icon-name="utility:location" size="xx-small" class="section-hdr-icon"></lightning-icon>
+                            <span class="section-label">Proposed Sites</span>
+                            <span class="section-count">{sites.length}</span>
+                        </div>
+                        <div class="section-body">
+                            <template for:each={sites} for:item="site">
+                                <div key={site.id} class="site-row">
+                                    <div class="site-row-header">
+                                        <span class="site-name">
+                                            {site.name}
+                                        </span>
+                                        <span class={site.compClass}>{site.competitionLevel}</span>
+                                    </div>
+                                    <div class="conf-row">
+                                        <span class="conf-label">Confidence</span>
+                                        <div class="conf-track">
+                                            <div class={site.confidenceClass} style={site.confidenceStyle}></div>
+                                        </div>
+                                        <span class="conf-value">{site.confidence}%</span>
+                                    </div>
+                                    <p class="site-assessment">{site.assessment}</p>
+                                </div>
+                            </template>
+                        </div>
+                    </div>
+                </template>
+
+                <!-- Visits section -->
+                <template if:true={hasVisits}>
+                    <div class="section-card section-visits">
+                        <div class="section-header">
+                            <lightning-icon icon-name="utility:check" size="xx-small" class="section-hdr-icon"></lightning-icon>
+                            <span class="section-label">Field Visits</span>
+                            <span class="section-count">{visits.length}</span>
+                        </div>
+                        <div class="section-body">
+                            <template for:each={visits} for:item="visit">
+                                <div key={visit.id} class="visit-row">
+                                    <div class="visit-dot"></div>
+                                    <div class="visit-content">
+                                        <span class="visit-site">{visit.site}</span>
+                                        <p class="visit-outcome">{visit.outcome}</p>
+                                    </div>
+                                </div>
+                            </template>
+                        </div>
+                    </div>
+                </template>
+
+                <!-- Readiness section -->
+                <template if:true={readiness}>
+                    <div class="section-card section-readiness">
+                        <div class="section-header">
+                            <lightning-icon icon-name="utility:gauge" size="xx-small" class="section-hdr-icon"></lightning-icon>
+                            <span class="section-label">Expansion Readiness</span>
+                        </div>
+                        <div class="section-body readiness-body">
+                            <span class={readinessPillClass}>{readinessPillLabel}</span>
+                            <p class="readiness-text">{readiness}</p>
+                        </div>
+                    </div>
+                </template>
+
+                <!-- Competition risks section -->
+                <template if:true={hasCompetitionRisks}>
+                    <div class="section-card section-risks">
+                        <div class="section-header">
+                            <lightning-icon icon-name="utility:warning" size="xx-small" class="section-hdr-icon"></lightning-icon>
+                            <span class="section-label">Competition Risks</span>
+                        </div>
+                        <div class="section-body">
+                            <template for:each={competitionRisks} for:item="risk">
+                                <div key={risk.id} class="risk-item">
+                                    <span class="risk-label">{risk.label}</span>
+                                    <p class="risk-detail">{risk.detail}</p>
+                                </div>
+                            </template>
+                        </div>
+                    </div>
+                </template>
+
+                <!-- Actions section -->
+                <template if:true={hasActions}>
+                    <div class="section-card section-actions">
+                        <div class="section-header">
+                            <lightning-icon icon-name="utility:steps" size="xx-small" class="section-hdr-icon"></lightning-icon>
+                            <span class="section-label">Recommended Actions</span>
+                        </div>
+                        <div class="section-body">
+                            <template for:each={actions} for:item="action">
+                                <div key={action.id} class={action.itemClass}>
+                                    <span class={action.badgeClass}>{action.badgeLabel}</span>
+                                    <div class="action-text-group">
+                                        <span class="action-timeline">{action.timeline}</span>
+                                        <p class="action-text">{action.action}</p>
+                                    </div>
+                                </div>
+                            </template>
+                        </div>
+                    </div>
+                </template>
+
+            </div>
+        </template>
+
+        <!-- ── Empty / no data ─────────────────────────────────── -->
+        <template if:true={showEmpty}>
+            <div class="empty-box">
+                <lightning-icon icon-name="utility:einstein" size="medium" class="empty-icon"></lightning-icon>
+                <p class="empty-text">No summary data available.</p>
+            </div>
+        </template>
+
+    </div>
+</template>

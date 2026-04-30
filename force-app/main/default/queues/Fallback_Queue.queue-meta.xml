@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Queue xmlns="http://soap.sforce.com/2006/04/metadata">
+    <doesSendEmailToMembers>false</doesSendEmailToMembers>
+    <name>Fallback Queue</name>
+    <queueMembers>
+        <users>
+            <user>sbharath.1210@gmail.com.vyuhx</user>
+        </users>
+    </queueMembers>
+    <queueRoutingConfig>Fallback_Routing</queueRoutingConfig>
+    <queueSobject>
+        <sobjectType>MessagingEndUser</sobjectType>
+    </queueSobject>
+    <queueSobject>
+        <sobjectType>MessagingSession</sobjectType>
+    </queueSobject>
+</Queue>

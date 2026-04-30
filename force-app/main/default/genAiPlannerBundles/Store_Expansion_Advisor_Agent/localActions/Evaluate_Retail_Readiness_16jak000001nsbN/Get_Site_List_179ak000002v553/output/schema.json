@@ -1,0 +1,29 @@
+{
+  "unevaluatedProperties" : false,
+  "properties" : {
+    "sites" : {
+      "title" : "sites",
+      "description" : "List of SiteListDTO objects, consumed by the siteList Lightning Type LWC.",
+      "maxItems" : 2000,
+      "items" : {
+        "lightning:type" : "c__Site_List_Response"
+      },
+      "lightning:type" : "lightning__listType",
+      "lightning:isPII" : false,
+      "copilotAction:isDisplayable" : true,
+      "copilotAction:isUsedByPlanner" : true,
+      "copilotAction:useHydratedPrompt" : false
+    },
+    "summaryText" : {
+      "title" : "summaryText",
+      "description" : "Plain-text summary for the agent chat response.",
+      "lightning:type" : "lightning__textType",
+      "lightning:isPII" : false,
+      "copilotAction:isDisplayable" : false,
+      "copilotAction:isUsedByPlanner" : true,
+      "copilotAction:useHydratedPrompt" : false
+    }
+  },
+  "lightning:type" : "lightning__objectType",
+  "lightning:textIndexed" : true
+}

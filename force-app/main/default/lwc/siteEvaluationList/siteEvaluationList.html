@@ -1,0 +1,20 @@
+<template>
+    <lightning-card title="Site Evaluation Results" icon-name="standard:store">
+        <div class="slds-p-around_medium">
+            <template if:true={hasSites}>
+                <template for:each={sites} for:item="site">
+                    <div key={site.siteId} class="slds-m-bottom_medium">
+                        <c-site-evaluation-card
+                            site={site}>
+                        </c-site-evaluation-card>
+                    </div>
+                </template>
+            </template>
+            <template if:false={hasSites}>
+                <div class="slds-text-body_regular slds-text-color_weak slds-p-vertical_small">
+                    No proposed sites found.
+                </div>
+            </template>
+        </div>
+    </lightning-card>
+</template>

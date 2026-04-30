@@ -1,0 +1,53 @@
+<template>
+    <lightning-card icon-name="standard:timesheet">
+
+        <div slot="title" class="mvd-header-row">
+            <lightning-icon icon-name="utility:user" size="x-small" class="mvd-user-icon"></lightning-icon>
+            <span class="mvd-title">My Visits</span>
+            <span class="mvd-count">{totalVisits}</span>
+        </div>
+
+        <div class="slds-p-around_medium">
+
+            <!-- Status count tiles -->
+            <div class="stats-bar slds-m-bottom_medium">
+                <div class="stat-tile stat-planned">
+                    <div class="stat-value">{plannedCount}</div>
+                    <div class="stat-label">Planned</div>
+                </div>
+                <div class="stat-tile stat-inprogress">
+                    <div class="stat-value">{inProgressCount}</div>
+                    <div class="stat-label">In Progress</div>
+                </div>
+                <div class="stat-tile stat-completed">
+                    <div class="stat-value">{completedCount}</div>
+                    <div class="stat-label">Completed</div>
+                </div>
+                <template if:true={hasCancelled}>
+                    <div class="stat-tile stat-cancelled">
+                        <div class="stat-value">{cancelledCount}</div>
+                        <div class="stat-label">Cancelled</div>
+                    </div>
+                </template>
+            </div>
+
+            <!-- Paginated visit card -->
+            <template if:true={hasVisits}>
+                <div class="nav-bar slds-m-bottom_small">
+                    <button class="nav-btn" onclick={handlePrev} disabled={isFirst}>&#8249;</button>
+                    <span class="nav-label">Visit {currentIndex} of {totalVisits}</span>
+                    <button class="nav-btn" onclick={handleNext} disabled={isLast}>&#8250;</button>
+                </div>
+                <c-my-visit-card visit={currentVisit}></c-my-visit-card>
+            </template>
+
+            <template if:false={hasVisits}>
+                <div class="mvd-empty">
+                    <lightning-icon icon-name="utility:no_records" size="medium" class="mvd-empty-icon"></lightning-icon>
+                    <p class="mvd-empty-text">No visits assigned to you.</p>
+                </div>
+            </template>
+
+        </div>
+    </lightning-card>
+</template>

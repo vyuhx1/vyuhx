@@ -1,0 +1,14 @@
+{
+  "required" : [ "storeIdOrName" ],
+  "unevaluatedProperties" : false,
+  "properties" : {
+    "storeIdOrName" : {
+      "title" : "storeIdOrName",
+      "description" : "Id or Name of the Retail Store to retrieve",
+      "lightning:type" : "lightning__textType",
+      "lightning:isPII" : false,
+      "copilotAction:isUserInput" : false
+    }
+  },
+  "lightning:type" : "lightning__objectType"
+}

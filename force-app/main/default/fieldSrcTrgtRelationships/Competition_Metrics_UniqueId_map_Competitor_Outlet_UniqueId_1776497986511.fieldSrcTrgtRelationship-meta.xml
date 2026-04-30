@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<FieldSrcTrgtRelationship xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <definitionCreationType>Calculated_Insight</definitionCreationType>
+    <masterLabel>Competition_Metrics_UniqueId_map_Competitor_Outlet_UniqueId_1776497986511</masterLabel>
+    <owner>DataCloud</owner>
+    <relationshipCardinality>ManyToOne</relationshipCardinality>
+    <sourceFieldName>Competition_Metrics__cio.UniqueId__c</sourceFieldName>
+    <targetEntity xsi:nil="true"/>
+    <targetFieldName>Competitor_Outlet__dlm.UniqueId__c</targetFieldName>
+</FieldSrcTrgtRelationship>

@@ -1,0 +1,57 @@
+/* ── Group carousel navigation ──────────────────────────── */
+.group-nav-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: linear-gradient(135deg, #f5f0ff 0%, #ede8fe 100%);
+    border: 1px solid #c9b8f8;
+    border-radius: 10px;
+    padding: 0.5rem 0.75rem;
+    margin-bottom: 1rem;
+}
+
+.group-nav-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2rem;
+    height: 2rem;
+    border: 1px solid #c9b8f8;
+    border-radius: 50%;
+    background: #ffffff;
+    box-shadow: 0 1px 4px rgba(100, 60, 220, 0.15);
+    cursor: pointer;
+    transition: background 0.15s, box-shadow 0.15s, border-color 0.15s;
+    color: #6430e0;
+    padding: 0;
+}
+
+.group-nav-btn:hover:not(:disabled) {
+    background: #6430e0;
+    border-color: #6430e0;
+    box-shadow: 0 2px 8px rgba(100, 60, 220, 0.35);
+    color: #ffffff;
+}
+
+.group-nav-btn:disabled {
+    opacity: 0.35;
+    cursor: not-allowed;
+    box-shadow: none;
+}
+
+.group-nav-center {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+}
+
+.group-nav-icon {
+    --lwc-colorTextIconDefault: #6430e0;
+}
+
+.group-nav-label {
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: #6430e0;
+    letter-spacing: 0.03em;
+}

@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GenAiPromptTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <activeVersionIdentifier>L98ZaMTfVRuyCpWeC+GWWZ1Bbg9SQ3rKIYJ/+5SKVOg=_4</activeVersionIdentifier>
+    <developerName>Store_Format_Recomm</developerName>
+    <masterLabel>Store Format Recommender</masterLabel>
+    <overridable>false</overridable>
+    <templateVersions>
+        <content>The &quot;Store Format&quot; Recommender (Retail Strategist Persona)
+**Goal:** Determine *what type* of store to build based on the data.
+ * **Template Type:** Flex Template
+ * **Inputs:** RetailStore
+ * **Prompt Text:**
+```text
+You are a Retail Format Strategist. Determine the optimal store format for: {!$Input:RetailStore.Name}.
+Analyze these metrics:
+- Footfall Index: {!$Input:RetailStore.Footfall_Index__c}
+- Demographic Score: {!$Input:RetailStore.Demographic_Score__c}/100 
+- Demand Score: {!$Input:RetailStore.Current_Demand_Score__c}/100
+1. &quot;Flagship&quot; (Requires high Demand &amp; Demographic Score)
+2. &quot;Standard Store&quot; (Requires balanced metrics)
+3. &quot;Express /2. &quot;Standard Store&quot; (Requires balanced metrics)
+aphic/Demand)
+Format exactly as follows:
+### 🏪 Format Strategy: {!$Input:RetailStore.Name}
+
+**Recommended Format:**
+ [Insert Format]
+
+**Rationale:**
+[Write a 2-sentence explanation of why this format fits the metrics and maximizes ROI.]
+
+**Merchandising Focus:**
+[Suggest 2 broad product categories to prioritize based on the chosen format.]
+</content>
+        <fileDroppingStrategy>{&quot;dropFilesBy&quot;:&quot;LAST_MODIFIED_DATE&quot;,&quot;dropFileStartingWith&quot;:&quot;OLDEST&quot;}</fileDroppingStrategy>
+        <inputs>
+            <apiName>RetailStore</apiName>
+            <definition>SOBJECT://RetailStore</definition>
+            <masterLabel>RetailStore</masterLabel>
+            <referenceName>Input:RetailStore</referenceName>
+            <required>true</required>
+        </inputs>
+        <isCitationEnabled>false</isCitationEnabled>
+        <primaryModel>sfdc_ai__DefaultGPT5Mini</primaryModel>
+        <status>Published</status>
+        <versionIdentifier>L98ZaMTfVRuyCpWeC+GWWZ1Bbg9SQ3rKIYJ/+5SKVOg=_1</versionIdentifier>
+    </templateVersions>
+    <templateVersions>
+        <content>The &quot;Store Format&quot; Recommender (Retail Strategist Persona)
+**Goal:** Determine *what type* of store to build based on the data.
+ * **Template Type:** Flex Template
+ * **Inputs:** RetailStore
+ * **Prompt Text:**
+```text
+You are a Retail Format Strategist. Determine the optimal store format for: {!$Input:RetailStore.Name}.
+Analyze these metrics:
+- Footfall Index: {!$Input:RetailStore.Footfall_Index__c}
+- Demographic Score: {!$Input:RetailStore.Demographic_Score__c}/100 
+- Demand Score: {!$Input:RetailStore.Current_Demand_Score__c}/100
+1. &quot;Flagship&quot; (Requires high Demand &amp; Demographic Score)
+2. &quot;Standard Store&quot; (Requires balanced metrics)
+3. &quot;Express /2. &quot;Standard Store&quot; (Requires balanced metrics)
+aphic/Demand)
+Format exactly as follows:
+### 🏪 Format Strategy: {!$Input:RetailStore.Name}
+
+&lt;h3&gt;Recommended Format:
+ [Insert Format]&lt;/h3&gt;
+
+&lt;b&gt;Rationale:&lt;/b&gt;
+[Write a 2-sentence explanation of why this format fits the metrics and maximizes ROI.]
+
+&lt;b&gt;Merchandising Focus:&lt;/b&gt;
+[Suggest 2 broad product categories to prioritize based on the chosen format.]
+</content>
+        <fileDroppingStrategy>{&quot;dropFilesBy&quot;:&quot;LAST_MODIFIED_DATE&quot;,&quot;dropFileStartingWith&quot;:&quot;OLDEST&quot;}</fileDroppingStrategy>
+        <inputs>
+            <apiName>RetailStore</apiName>
+            <definition>SOBJECT://RetailStore</definition>
+            <masterLabel>RetailStore</masterLabel>
+            <referenceName>Input:RetailStore</referenceName>
+            <required>true</required>
+        </inputs>
+        <isCitationEnabled>false</isCitationEnabled>
+        <primaryModel>sfdc_ai__DefaultGPT5Mini</primaryModel>
+        <status>Published</status>
+        <versionIdentifier>L98ZaMTfVRuyCpWeC+GWWZ1Bbg9SQ3rKIYJ/+5SKVOg=_2</versionIdentifier>
+    </templateVersions>
+    <templateVersions>
+        <content>The &quot;Store Format&quot; Recommender (Retail Strategist Persona)
+**Goal:** Determine *what type* of store to build based on the data.
+ * **Template Type:** Flex Template
+ * **Inputs:** RetailStore
+ * **Prompt Text:**
+```text
+You are a Retail Format Strategist. Determine the optimal store format for: {!$Input:RetailStore.Name}.
+Analyze these metrics:
+- Footfall Index: {!$Input:RetailStore.Footfall_Index__c}
+- Demographic Score: {!$Input:RetailStore.Demographic_Score__c}/100 
+- Demand Score: {!$Input:RetailStore.Current_Demand_Score__c}/100
+1. &quot;Flagship&quot; (Requires high Demand &amp; Demographic Score)
+2. &quot;Standard Store&quot; (Requires balanced metrics)
+3. &quot;Express /2. &quot;Standard Store&quot; (Requires balanced metrics)
+aphic/Demand)
+Format exactly as follows:
+&lt;h1&gt;&lt;b&gt;🏪 Format Strategy: {!$Input:RetailStore.Name}&lt;/b&gt;&lt;/h1&gt;
+&lt;h2&gt;&lt;b&gt;Recommended Format:
+ [Insert Format]&lt;/b&gt;&lt;/h2&gt;
+&lt;b&gt;Rationale:&lt;/b&gt;
+[Write a 2-sentence explanation of why this format fits the metrics and maximizes ROI.]
+
+&lt;b&gt;Merchandising Focus:&lt;/b&gt;
+[Suggest 2 broad product categories to prioritize based on the chosen format.]
+</content>
+        <fileDroppingStrategy>{&quot;dropFilesBy&quot;:&quot;LAST_MODIFIED_DATE&quot;,&quot;dropFileStartingWith&quot;:&quot;OLDEST&quot;}</fileDroppingStrategy>
+        <inputs>
+            <apiName>RetailStore</apiName>
+            <definition>SOBJECT://RetailStore</definition>
+            <masterLabel>RetailStore</masterLabel>
+            <referenceName>Input:RetailStore</referenceName>
+            <required>true</required>
+        </inputs>
+        <isCitationEnabled>false</isCitationEnabled>
+        <primaryModel>sfdc_ai__DefaultGPT5Mini</primaryModel>
+        <status>Published</status>
+        <versionIdentifier>L98ZaMTfVRuyCpWeC+GWWZ1Bbg9SQ3rKIYJ/+5SKVOg=_3</versionIdentifier>
+    </templateVersions>
+    <templateVersions>
+        <content>The &quot;Store Format&quot; Recommender (Retail Strategist Persona)
+**Goal:** Determine *what type* of store to build based on the data.
+ * **Template Type:** Flex Template
+ * **Inputs:** RetailStore
+ * **Prompt Text:**
+```text
+You are a Retail Format Strategist. Determine the optimal store format for: {!$Input:RetailStore.Name}.
+Analyze these metrics:
+- Footfall Index: {!$Input:RetailStore.Footfall_Index__c}
+- Demographic Score: {!$Input:RetailStore.Demographic_Score__c}/100 
+- Demand Score: {!$Input:RetailStore.Current_Demand_Score__c}/100
+1. &quot;Flagship&quot; (Requires high Demand &amp; Demographic Score)
+2. &quot;Standard Store&quot; (Requires balanced metrics)
+3. &quot;Express /2. &quot;Standard Store&quot; (Requires balanced metrics)
+aphic/Demand)
+Format exactly as follows:
+&lt;h1&gt;&lt;b&gt;🏪 Format Strategy: {!$Input:RetailStore.Name}&lt;/b&gt;&lt;/h1&gt;
+&lt;h2&gt;&lt;b&gt;Recommended Format:
+ [Insert Format]&lt;/b&gt;&lt;/h2&gt;
+&lt;b&gt;Rationale:&lt;/b&gt;
+[Write a 2-sentence explanation of why this format fits the metrics and maximizes ROI.]
+
+&lt;b&gt;Merchandising Focus:&lt;/b&gt;
+[Suggest 2 broad product categories to prioritize based on the chosen format.] use html ul and li 
+</content>
+        <fileDroppingStrategy>{&quot;dropFilesBy&quot;:&quot;LAST_MODIFIED_DATE&quot;,&quot;dropFileStartingWith&quot;:&quot;OLDEST&quot;}</fileDroppingStrategy>
+        <inputs>
+            <apiName>RetailStore</apiName>
+            <definition>SOBJECT://RetailStore</definition>
+            <masterLabel>RetailStore</masterLabel>
+            <referenceName>Input:RetailStore</referenceName>
+            <required>true</required>
+        </inputs>
+        <isCitationEnabled>false</isCitationEnabled>
+        <primaryModel>sfdc_ai__DefaultGPT5Mini</primaryModel>
+        <status>Published</status>
+        <versionIdentifier>L98ZaMTfVRuyCpWeC+GWWZ1Bbg9SQ3rKIYJ/+5SKVOg=_4</versionIdentifier>
+    </templateVersions>
+    <type>einstein_gpt__flex</type>
+    <visibility>Global</visibility>
+</GenAiPromptTemplate>

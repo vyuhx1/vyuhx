@@ -1,0 +1,28 @@
+{
+  "required" : [ "Input:RetailStoreA", "Input:RetailStoreB" ],
+  "unevaluatedProperties" : false,
+  "properties" : {
+    "Input:RetailStoreA" : {
+      "title" : "RetailStoreA",
+      "description" : "Retail store",
+      "lightning:type" : "lightning__recordInfoType",
+      "lightning:sObjectInfo" : {
+        "apiName" : "RetailStore"
+      },
+      "lightning:isPII" : false,
+      "copilotAction:isUserInput" : false
+    },
+    "Input:RetailStoreB" : {
+      "title" : "RetailStoreB",
+      "description" : "retail store",
+      "lightning:type" : "lightning__recordInfoType",
+      "lightning:sObjectInfo" : {
+        "apiName" : "RetailStore"
+      },
+      "lightning:isPII" : false,
+      "copilotAction:isUserInput" : false
+    }
+  },
+  "lightning:type" : "lightning__objectType",
+  "lightning:textIndexed" : true
+}
